@@ -49,7 +49,6 @@ View full text},
 	number = {7432},
 	urldate = {2014-06-20},
 	journal = {Nature},
-	author = {Booth, George H. and Grüneis, Andreas and Kresse, Georg and Alavi, Ali},
 	month = jan,
 	year = {2013},
 	keywords = {Electronic properties and materials, Electronic structure, Quantum chemistry},
@@ -333,7 +332,7 @@ View full text},
 	number = {3},
 	urldate = {2016-05-27},
 	journal = {The Journal of Chemical Physics},
-	author = {Matos, J. Mauricio O. and Roos, Björn O. and Malmqvist, Per-Åke},
+	author = {Matos, J. Mauricio O. and Roos, Björn O. and Malmqvist, Per-Ake},
 	month = feb,
 	year = {1987},
 	keywords = {Excitation energies, Excited states, Polarization, Rydberg states},
@@ -394,13 +393,208 @@ View full text},
 
 @book{helhaker_2014,
 	title={Molecular electronic-structure theory},
-	author={Helgaker, T. and Jorgensen, P. and  Olsen, J.},
+	author={Helgaker, T. and J{\o}rgensen, P. and  Olsen, J.},
 	publisher={John Wiley \& Sons},
 	year={2000},
 	address={Chichster}
 }
 
 
+@article{olivares-amaya_ab-initio_2015,
+	title = {The ab-initio density matrix renormalization group in practice},
+	volume = {142},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org/content/aip/journal/jcp/142/3/10.1063/1.4905329},
+	doi = {10.1063/1.4905329},
+	abstract = {The ab-initio density matrix renormalization group (DMRG) is a tool that can be applied to a wide variety of interesting problems in quantum chemistry. Here, we examine the density matrix renormalization group from the vantage point of the quantum chemistry user. What kinds of problems is the DMRG well-suited to? What are the largest systems that can be treated at practical cost? What sort of accuracies can be obtained, and how do we reason about the computational difficulty in different molecules? By examining a diverse benchmark set of molecules: π-electron systems, benchmark main-group and transition metal dimers, and the Mn-oxo-salen and Fe-porphine organometallic compounds, we provide some answers to these questions, and show how the density matrix renormalization group is used in practice.},
+	number = {3},
+	urldate = {2015-02-18},
+	journal = {The Journal of Chemical Physics},
+	author = {Olivares-Amaya, Roberto and Hu, Weifeng and Nakatani, Naoki and Sharma, Sandeep and Yang, Jun and Chan, Garnet Kin-Lic},
+	month = jan,
+	year = {2015},
+	keywords = {Basis sets, Chemical bonds, Renormalization, Tensor methods, Wave functions},
+	pages = {034102},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/BBHNCBBT/Olivares-Amaya et al. - 2015 - The ab-initio density matrix renormalization group.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/9VFIITTJ/1.html:text/html}
+}
+
+@article{legeza_optimizing_2003,
+	title = {Optimizing the density-matrix renormalization group method using quantum information entropy},
+	volume = {68},
+	url = {http://link.aps.org/doi/10.1103/PhysRevB.68.195116},
+	doi = {10.1103/PhysRevB.68.195116},
+	abstract = {In order to optimize the ordering of the lattice sites in the momentum space and quantum chemistry versions of the density-matrix renormalization group (DMRG) method we have studied the separability and entanglement of the target state for the one-dimensional Hubbard model and various molecules. By analyzing the behavior of von Neumann entropy we have found criteria that help to fasten convergence. An initialization procedure has been developed which maximizes the Kullback-Leibler entropy and extends the active space in a dynamical fashion. The dynamically extended active space procedure reduces significantly the effective system size during the first half-sweep and accelerates the speed of convergence of momentum space DMRG and quantum chemistry DMRG to a great extent. The effect of lattice site ordering on the number of block states to be kept during the RG procedure is also investigated.},
+	number = {19},
+	urldate = {2016-07-13},
+	journal = {Physical Review B},
+	author = {Legeza, \"O. and S\'olyom, J.},
+	month = nov,
+	year = {2003},
+	pages = {195116},
+	file = {APS Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/FSM44HEN/PhysRevB.68.html:text/html}
+}
+
+@article{zgid_spin_2008,
+	title = {On the spin and symmetry adaptation of the density matrix renormalization group method},
+	volume = {128},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/128/1/10.1063/1.2814150},
+	doi = {10.1063/1.2814150},
+	abstract = {We present a spin-adapted density matrix renormalization group (DMRG) algorithm designed to target spin and spatial symmetry states that can be difficult to obtain while using a non-spin-adapted algorithm. The algorithmic modifications that have to be introduced into the usual density matrix renormalization group scheme in order to spin adapt it are discussed, and it is demonstrated that the introduced modifications do not change the overall scaling of the method. The new approach is tested on HNCO, a model system, that has a singlet-triplet curve crossing between states of the same symmetry. The advantages of the spin-adapted DMRG scheme are discussed, and it is concluded that the spin-adapted DMRG method converges better in almost all cases and gives more parallel curves to the full configuration interaction result than the non-spin-adapted method. It is shown that the spin-adapted DMRG energies can be lower than the ones obtained from the non-spin-adapted scheme. Such a counterintuitive result is explained by noting that the spin-adapted method is not a special case of the non-spin-adapted one; consequently, the spin-adapted result is not an upper bound for the non-spin-adapted energy.},
+	number = {1},
+	urldate = {2016-07-13},
+	journal = {The Journal of Chemical Physics},
+	author = {Zgid, Dominika and Nooijen, Marcel},
+	month = jan,
+	year = {2008},
+	keywords = {Determinants, Eigenvalues, Manifolds, Subspaces, Wave functions},
+	pages = {014107},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/5E643D45/Zgid and Nooijen - 2008 - On the spin and symmetry adaptation of the density.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/EGPSB74Z/1.html:text/html}
+}
+
+
+
+@article{kurashige_high-performance_2009,
+	title = {High-performance ab initio density matrix renormalization group method: {Applicability} to large-scale multireference problems for metal compounds},
+	volume = {130},
+	issn = {0021-9606, 1089-7690},
+	shorttitle = {High-performance ab initio density matrix renormalization group method},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/130/23/10.1063/1.3152576},
+	doi = {10.1063/1.3152576},
+	abstract = {This article presents an efficient and parallelized implementation of the density matrix renormalization group (DMRG) algorithm for quantum chemistry calculations. The DMRG method as a large-scale multireference electronic structure model is by nature particularly efficient for one-dimensionally correlated systems, while the present development is oriented toward applications for polynuclear transition metal compounds, in which the macroscopic one-dimensional structure of electron correlation is absent. A straightforward extension of the DMRG algorithm is proposed with further improvements and aggressive optimizations to allow its application with large multireference active space, which is often demanded for metal compound calculations. Special efficiency is achieved by making better use of sparsity and symmetry in the operator and wave function representations. By accomplishing computationally intensive DMRG calculations, the authors have found that a large number of renormalized basis states are required to represent high entanglement of the electron correlation for metal compound applications, and it is crucial to adopt auxiliary perturbative correction to the projected density matrix during the DMRG sweep optimization in order to attain proper convergence to the solution. Potential energy curve calculations for the Cr 2 molecule near the known equilibrium precisely predicted the full configuration interaction energies with a correlation space of 24 electrons in 30 orbitals [denoted by ( 24 e , 30 o ) ]. The energies are demonstrated to be accurate to 0.6 m E h (the error from the extrapolated best value) when as many as 10 000 renormalized basis states are employed for the left and right DMRG block representations. The relative energy curves for [ Cu 2 O 2 ] 2 + along the isomerization coordinate were obtained from DMRG and other correlated calculations, for which a fairly large orbital space ( 32 e , 62 o ) is modeled as a full correlation space. The DMRG prediction nearly overlaps with the energy curve from the coupled cluster with singles, doubles, and perturbative triple [CCSD(T)] calculations, while the multireference complete active space self-consistent field (CASSCF) calculations with the small reference configuration ( 8 e , 8 o ) are found to overestimate the biradical character of the electronic state of [ Cu 2 O 2 ] 2 + according to the one-electron density matrix analysis.},
+	number = {23},
+	urldate = {2016-07-13},
+	journal = {The Journal of Chemical Physics},
+	author = {Kurashige, Yuki and Yanai, Takeshi},
+	month = jun,
+	year = {2009},
+	keywords = {Copper, Electron correlation calculations, Renormalization, Transition metals, Wave functions},
+	pages = {234114},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/7DMBC8P7/Kurashige and Yanai - 2009 - High-performance ab initio density matrix renormal.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/8MK24GTM/1.html:text/html}
+}
+
+@article{chan_highly_2002,
+	title = {Highly correlated calculations with a polynomial cost algorithm: {A} study of the density matrix renormalization group},
+	volume = {116},
+	issn = {0021-9606, 1089-7690},
+	shorttitle = {Highly correlated calculations with a polynomial cost algorithm},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/116/11/10.1063/1.1449459},
+	doi = {10.1063/1.1449459},
+	abstract = {We study the recently developed Density Matrix Renormalization Group (DMRG) algorithm in the context of quantum chemistry. In contrast to traditional approaches, this algorithm is believed to yield arbitrarily high accuracy in the energy with only polynomial computational effort. We describe in some detail how this is achieved. We begin by introducing the principles of the renormalization procedure, and how one formulates an algorithm for use in quantum chemistry. The renormalization group algorithm is then interpreted in terms of familiar quantum chemical concepts, and its numerical behavior, including its convergence and computational cost, are studied using both model and real systems. The asymptotic convergence of the algorithm is derived. Finally, we examine the performance of the DMRG on widely studied chemical problems, such as the water molecule, the twisting barrier of ethene, and the dissociation of nitrogen. In all cases, the results compare favorably with the best existing quantum chemical methods, and particularly so when the nondynamical correlation is strong. Some perspectives for future development are given.},
+	number = {11},
+	urldate = {2016-07-13},
+	journal = {The Journal of Chemical Physics},
+	author = {Chan, Garnet Kin-Lic and Head-Gordon, Martin},
+	month = mar,
+	year = {2002},
+	keywords = {Molecular dissociation, Numerical modeling, Polynomials, Renormalization},
+	pages = {4462--4476},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/WGVCW4PD/Chan and Head-Gordon - 2002 - Highly correlated calculations with a polynomial c.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/N23CHRW3/1.html:text/html}
+}
+
+@article{moritz_convergence_2005,
+	title = {Convergence behavior of the density-matrix renormalization group algorithm for optimized orbital orderings},
+	volume = {122},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/122/2/10.1063/1.1824891},
+	doi = {10.1063/1.1824891},
+	abstract = {The density-matrix renormalization group algorithm has emerged as a promising new method in ab initio quantum chemistry. However, many problems still need to be solved before this method can be applied routinely. At the start of such a calculation, the orbitals originating from a preceding quantum chemical calculation must be placed in a specific order on a one-dimensional lattice. This ordering affects the convergence of the density-matrix renormalization group iterations significantly. In this paper, we present two approaches to obtain optimized orderings of the orbitals. First, we use a genetic algorithm to optimize the ordering with respect to a low total electronic energy obtained at a predefined stage of the density-matrix renormalization group algorithm with a given number of total states kept. In addition to that, we derive orderings from the one- and two-electron integrals of our test system. This test molecule is the chromium dimer, which is known to possess a complicated electronic structure. For this molecule, we have carried out calculations for the various orbital orderings obtained. The convergence behavior of the density-matrix renormalization group iterations is discussed in detail.},
+	number = {2},
+	urldate = {2016-07-13},
+	journal = {The Journal of Chemical Physics},
+	author = {Moritz, Gerrit and Hess, Bernd Artur and Reiher, Markus},
+	month = jan,
+	year = {2005},
+	keywords = {Ab initio calculations, Chromium, Electronic structure, Renormalization},
+	pages = {024107},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/IGXGKRNI/Moritz et al. - 2005 - Convergence behavior of the density-matrix renorma.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/FR8S7QAF/1.html:text/html}
+}
+
+@article{wouters_chemps2:_2014,
+	title = {{CheMPS}2: {A} free open-source spin-adapted implementation of the density matrix renormalization group for ab initio quantum chemistry},
+	volume = {185},
+	issn = {0010-4655},
+	shorttitle = {{CheMPS}2},
+	url = {http://www.sciencedirect.com/science/article/pii/S0010465514000496},
+	doi = {10.1016/j.cpc.2014.01.019},
+	abstract = {The density matrix renormalization group (DMRG) has become an indispensable numerical tool to find exact eigenstates of finite-size quantum systems with strong correlation. In the fields of condensed matter, nuclear structure and molecular electronic structure, it has significantly extended the system sizes that can be handled compared to full configuration interaction, without losing numerical accuracy. For quantum chemistry (QC), the most efficient implementations of DMRG require the incorporation of particle number, spin and point group symmetries in the underlying matrix product state (MPS) ansatz, as well as the use of so-called complementary operators. The symmetries introduce a sparse block structure in the MPS ansatz and in the intermediary contracted tensors. If a symmetry is non-abelian, the Wigner–Eckart theorem allows to factorize a tensor into a Clebsch–Gordan coefficient and a reduced tensor. In addition, the fermion signs have to be carefully tracked. Because of these challenges, implementing DMRG efficiently for QC is not straightforward. Efficient and freely available implementations are therefore highly desired. In this work we present CheMPS2, our free open-source spin-adapted implementation of DMRG for ab initio QC. Around CheMPS2, we have implemented the augmented Hessian Newton–Raphson complete active space self-consistent field method, with exact Hessian. The bond dissociation curves of the 12 lowest states of the carbon dimer were obtained at the DMRG(28 orbitals, 12 electrons, D SU(2) = 2500 )/cc-pVDZ level of theory. The contribution of 1 s core correlation to the X 1 Σ g + bond dissociation curve of the carbon dimer was estimated by comparing energies at the DMRG(36o, 12e, D SU(2) = 2500 )/cc-pCVDZ and DMRG-SCF(34o, 8e, D SU(2) = 2500 )/cc-pCVDZ levels of theory.
+Program summary
+Program title: CheMPS2
+
+Catalogue identifier: AESE\_v1\_0
+
+Program summary URL:http://cpc.cs.qub.ac.uk/summaries/AESE\_v1\_0.html
+
+Program obtainable from: CPC Program Library, Queen’s University, Belfast, N. Ireland
+
+Licensing provisions: GNU General Public License, version 2
+
+No. of lines in distributed program, including test data, etc.: 131472
+
+No. of bytes in distributed program, including test data, etc.: 1645700
+
+Distribution format: tar.gz
+
+Programming language: C++.
+
+Computer: x86-64.
+
+Operating system: Scientific Linux 6.0.
+
+RAM: 10 MB–64 GB
+
+Classification: 16.1.
+
+External routines: Basic Linear Algebra Subprograms (BLAS), Linear Algebra Package (LAPACK), GNU Scientific Library (GSL), and Hierarchical Data Format Release 5 (HDF5)
+
+Nature of problem:
+
+The many-body Hilbert space grows exponentially with the number of single-particle states. Exact diagonalization solvers can therefore only handle small systems, of up to 18 electrons in 18 orbitals. Interesting active spaces are often significantly larger.
+
+Solution method:
+
+The density matrix renormalization group allows the extension of the size of active spaces, for which numerically exact solutions can be found, to about 40 electrons in 40 orbitals. In addition, it provides a rigorous variational upper bound to energies, as it has an underlying wavefunction ansatz, the matrix product state.
+
+Restrictions:
+
+Our implementation of the density matrix renormalization group is spin-adapted. This means that targeted eigenstates in the active space are exact eigenstates of the total electronic spin operator. Hamiltonians which break this symmetry (a magnetic field term for example) cannot be handled by our code. As electron repulsion integrals in Gaussian basis sets have eightfold permutation symmetry, we have used this property in our code.
+
+Unusual features:
+
+The nature of the matrix product state ansatz allows for exact spin coupling. In CheMPS2, the total electronic spin is imposed (not just the spin projection), in addition to the particle-number and abelian point-group symmetries.
+
+Running time:
+
+The running time depends on the size of the targeted active space, the number of desired eigenstates, their symmetry, the density of states, the individual orbital symmetries, the orbital ordering, the desired level of convergence, and the chosen convergence scheme. To converge a single point of one of the dissociation curves of the carbon dimer ( D ∞ h → D 2 h symmetry) in the cc-pVDZ basis (28 orbitals; their ordering is described in Section  5.3) with 2500 reduced renormalized basis states (see the convergence scheme in Section  5.4; the variational energy then lies 0.1 m E h above the fully converged result) takes about 8 h on a single node with a dual-socket octa-core Intel Xeon Sandy Bridge (E5-2670) (16 cores at 2.6 GHz), and requires 6 GB of RAM.},
+	number = {6},
+	urldate = {2016-07-13},
+	journal = {Computer Physics Communications},
+	author = {Wouters, Sebastian and Poelmans, Ward and Ayers, Paul W. and Van Neck, Dimitri},
+	month = jun,
+	year = {2014},
+	keywords = {Abelian point group symmetry, Ab initio quantum chemistry, Density matrix renormalization group, Matrix product state, SU(2) spin symmetry},
+	pages = {1501--1514},
+	file = {ScienceDirect Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/VJW9VNHE/Wouters et al. - 2014 - CheMPS2 A free open-source spin-adapted implement.pdf:application/pdf;ScienceDirect Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/MKZ6WGWN/S0010465514000496.html:text/html}
+}
+
+
+@article{white_ab_1999,
+	title = {Ab initio quantum chemistry using the density matrix renormalization group},
+	volume = {110},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/110/9/10.1063/1.478295},
+	doi = {10.1063/1.478295},
+	abstract = {In this paper we describe how the density matrix renormalization group can be used for quantum chemical calculations for molecules, as an alternative to traditional methods, such as configuration interaction or coupled cluster approaches. As a demonstration of the potential of this approach, we present results for the H 2 O molecule in a standard gaussian basis. Results for the total energy of the system compare favorably with the best traditional quantum chemical methods.},
+	number = {9},
+	urldate = {2016-07-13},
+	journal = {The Journal of Chemical Physics},
+	author = {White, Steven R. and Martin, Richard L.},
+	month = mar,
+	year = {1999},
+	keywords = {Configuration interaction, Coupled cluster, Renormalization},
+	pages = {4127--4130},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/QI3FUPQ7/White and Martin - 1999 - Ab initio quantum chemistry using the density matr.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/S37UU543/1.html:text/html}
+}
 @article{andersson_second-order_1990,
 	title = {Second-order perturbation theory with a {CASSCF} reference function},
 	volume = {94},
@@ -502,7 +696,7 @@ View full text},
 	number = {2},
 	urldate = {2016-06-06},
 	journal = {The Journal of Chemical Physics},
-	author = {Jr, Thom H. Dunning},
+	author = {{Dunning, Jr}, T. H.},
 	month = jan,
 	year = {1989},
 	keywords = {Basis sets, Boron, Correlation functions, Polarization, Rotational correlation time},
@@ -623,3 +817,471 @@ View full text},
 	pages = {628--630},
 	file = {ACS Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/M5RKGM37/Wright and Platz - 1983 - Electron spin resonance spectroscopy of the triple.pdf:application/pdf;ACS Full Text Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/EEQDSHIH/ja00341a057.html:text/html}
 }
+
+@article{hrovat_effects_1998,
+	title = {The effects of heteroatom substitution on the singlet–triplet energy differences in diradicals—ab initio calculations of Δ{EST} in meta-benzoquinomethane and in 1,3-naphthoquinomethane},
+	issn = {1364-5471},
+	url = {http://pubs.rsc.org/en/content/articlelanding/1998/p2/a706409h},
+	doi = {10.1039/A706409H},
+	abstract = {The large effects on the singlet–triplet energy difference, ΔEST, of substituting oxygen atoms for one or two methylene groups in trimethylenemethane and in 2,4-dimethylenecyclobutane-1,3-diyl are discussed. In contrast, CASSCF and CASPT2N/6-31G* calculations predict only small changes in ΔEST on substituting oxygen atoms for one or two methylene groups in m-benzoquinodimethane. After corrections for differences in zero-point energies and heat capacities, CASPT2N/6-31G* calculations give ΔEST = 11.0 kcal mol–1 for m-benzoquinodimethane, which is very close to the experimental value of ΔEST = 9.6 ± 0.2 kcal mol–1. At the same level of theory ΔEST = 9.3 and 11.8 kcal mol–1 are computed for, respectively, m-benzoquinomethane and m-benzoquinone. The reasons why substitution of oxygen atoms for one or two methylene groups is predicted to have such a small effect on ΔEST in these three diradicals is discussed. As expected, for 1,3-naphthoquinomethane CASPT2N predicts a value of ΔEST that is only slightly larger than that in m-benzoquinomethane. However, the calculated value of ΔEST = 11.6 kcal mol–1 is 7 kcal mol–1 lower than the value measured by photoacoustic calorimetry.},
+	language = {en},
+	number = {5},
+	urldate = {2016-06-16},
+	journal = {Journal of the Chemical Society, Perkin Transactions 2},
+	author = {Hrovat, David A. and Murcko, Mark A. and Lahti, Paul M. and Borden, Weston Thatcher},
+	month = jan,
+	year = {1998},
+	pages = {1037--1044},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/SCIINM2R/Hrovat et al. - 1998 - The effects of heteroatom substitution on the sing.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/PIXKBNJX/a706409h.html:text/html}
+}
+
+
+@article{rossi_full-configuration_1999,
+	title = {A full-configuration benchmark for the {N}2 molecule},
+	volume = {310},
+	issn = {0009-2614},
+	url = {http://www.sciencedirect.com/science/article/pii/S0009261499007915},
+	doi = {10.1016/S0009-2614(99)00791-5},
+	abstract = {A full-configuration interaction (FCI) calculation has been performed for the nitrogen molecule using an ANO [4s3p1d] basis set. The FCI space for such a system contains about 9.68×109 symmetry-adapted Slater determinants. The FCI results are compared with several approximate methods, both of single- and multi-reference type, in order to test their accuracy.},
+	number = {5–6},
+	urldate = {2015-08-23},
+	journal = {Chemical Physics Letters},
+	author = {Rossi, Elda and Bendazzoli, Gian Luigi and Evangelisti, Stefano and Maynau, Daniel},
+	month = sep,
+	year = {1999},
+	pages = {530--536},
+	file = {ScienceDirect Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/3VEQA4RW/Rossi et al. - 1999 - A full-configuration benchmark for the N2 molecule.pdf:application/pdf;ScienceDirect Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/68VEU7TH/S0009261499007915.html:text/html}
+}
+
+
+@article{siegbahn_complete_1981,
+	title = {The complete active space {SCF} ({CASSCF}) method in a {Newton}–{Raphson} formulation with application to the {HNO} molecule},
+	volume = {74},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/74/4/10.1063/1.441359},
+	doi = {10.1063/1.441359},
+	abstract = {The complete active space (CAS) SCF method is presented in detail with special emphasis on computational aspects. The CASSCF wave function is formed from a complete distribution of a number of active electrons in a set of active orbitals, which in general constitute a subset of the total occupied space. In contrast to other MCSCF schemes, a CASSCF calculation involves no selection of individual configurations, and the wave function therefore typically consists of a large number of terms. The largest case treated here includes 10 416 spin and space adapted configurations. To be able to treat such large CI expansions, a density‐matrix oriented formalism is used. The Newton–Raphson scheme is applied to calculate the orbital rotations, and the secular problem is solved with recent developments of CI techniques. The applicability of the method is demonstrated in calculations on the HNO molecule in ground and excited states, using a triple‐zeta basis and different sizes of the active space. With a reasonable choice of active space, the calculations converge in 6–10 iterations. This is true also for states which are not the lowest state of the symmetry in question. The equilibrium geometry for the ground state is R NO=1.215(1.212) Å, R NH =1.079(1.063) Å, ϑHNO=108.8(108.6) °, the experimental values given in parenthesis for comparison. The best estimates for the transition energies to the lowest 3 A ″ and 1 A ″ states are 0.67(0.85) eV and 1.52(1.63) eV, respectively. The results obtained indicate that the choice of active space may be crucial for the convergence properties of CASSCF calculations.},
+	number = {4},
+	urldate = {2016-07-13},
+	journal = {The Journal of Chemical Physics},
+	author = {Siegbahn, Per E. M. and Alml\"of, Jan and Heiberg, Anders and Roos, Björn O.},
+	month = feb,
+	year = {1981},
+	keywords = {Excited states, Ground states, Wave functions},
+	pages = {2384--2396},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/GRAZ7CPA/Siegbahn et al. - 1981 - The complete active space SCF (CASSCF) method in a.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/KWVP3BGG/1.html:text/html}
+}
+
+@article{roos_complete_1980,
+	title = {A complete active space {SCF} method ({CASSCF}) using a density matrix formulated super-{CI} approach},
+	volume = {48},
+	issn = {0301-0104},
+	url = {http://www.sciencedirect.com/science/article/pii/0301010480800450},
+	doi = {10.1016/0301-0104(80)80045-0},
+	abstract = {A density matrix formulation of the super-CI MCSCF method is presented. The MC expansion is assumed to be complete in an active subset of the orbital space, and the corresponding CI secular problem is solved by a direct scheme using the unitary group approach. With a density matrix formulation the orbital optimization step becomes independent of the size of the CI expansion. It is possible to formulate the super-CI in terms of density matrices defined only in the small active subspace; the doubly occupied orbitals (the inactive subspace) do not enter. Further, in the unitary group formalism it is straightforward and simple to obtain the necessary density matrices from the symbolic formula list. It then becomes possible to treat very long MC expansions, the largest so far comprising 726 configurations. The method is demonstrated in a calculation of the potential curves for the three lowest states (1Σ+g, 3Σ+u and 3Πg) of the N2 molecule, using a medium-sized gaussian basis set. Seven active orbitals were used yielding the following results: De: 8.76 (9.90), 2.43 (3.68) and 3.39 (4.90) eV; re: 1.108 (1.098), 1.309 (1.287) and 1.230 (1.213) Å; ωe: 2333 (2359), 1385 (1461) and 1680 (1733) cm−1, for the three states (experimental values within parentheses). The results of these calculations indicate that it is important to consider not only the dissociation limit but also the united atom limit in partitioning the occupied orbital space into an active and an inactive part.},
+	number = {2},
+	urldate = {2016-07-13},
+	journal = {Chemical Physics},
+	author = {Roos, Björn O. and Taylor, Peter R. and Siegbahn, Per E. M.},
+	month = may,
+	year = {1980},
+	pages = {157--173},
+	file = {ScienceDirect Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/WETVIG9G/0301010480800450.html:text/html}
+}
+
+@article{siegbahn_comparison_1980,
+	title = {A {Comparison} of the {Super}-{CI} and the {Newton}-{Raphson} {Scheme} in the {Complete} {Active} {Space} {SCF} {Method}},
+	volume = {21},
+	issn = {1402-4896},
+	url = {http://iopscience.iop.org/1402-4896/21/3-4/014},
+	doi = {10.1088/0031-8949/21/3-4/014},
+	abstract = {A density matrix formulation is presented of the super-C I and Newton-Raphson methods in complete active space SCF (CASSCF) calculations. The CASSCF method is a special form of the MC-SCF method, where the C I wave function is assumed to be complete in a subset of the orbital space (the active space), leaving the remaining orbitals doubly occupied in all configurations. Explicit formulas are given for all matrix elements in the super-C I method and the first and second derivatives in the Newton-Raphson formulation. The similarities between the two methods are pointed out and the differences in the detailed formulations are discussed. Especially interesting is the fact, that while the second derivatives can be expressed in terms of first and second order density matrices, the matrix elements between the super-C I states involve also the third order density matrix in some cases.},
+	language = {en},
+	number = {3-4},
+	urldate = {2016-07-13},
+	journal = {Physica Scripta},
+	author = {Siegbahn, Per and Heiberg, Anders and Roos, Björn and Levy, Bernard},
+	year = {1980},
+	pages = {323},
+	file = {IOP Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/UWTTM4VP/Siegbahn et al. - 1980 - A Comparison of the Super-CI and the Newton-Raphso.pdf:application/pdf}
+}
+
+
+@article{petruzielo_semistochastic_2012,
+	title = {Semistochastic {Projector} {Monte} {Carlo} {Method}},
+	volume = {109},
+	url = {http://link.aps.org/doi/10.1103/PhysRevLett.109.230201},
+	doi = {10.1103/PhysRevLett.109.230201},
+	abstract = {We introduce a semistochastic implementation of the power method to compute, for very large matrices, the dominant eigenvalue and expectation values involving the corresponding eigenvector. The method is semistochastic in that the matrix multiplication is partially implemented numerically exactly and partially stochastically with respect to expectation values only. Compared to a fully stochastic method, the semistochastic approach significantly reduces the computational time required to obtain the eigenvalue to a specified statistical uncertainty. This is demonstrated by the application of the semistochastic quantum Monte Carlo method to systems with a sign problem: the fermion Hubbard model and the carbon dimer.},
+	number = {23},
+	urldate = {2016-07-13},
+	journal = {Physical Review Letters},
+	author = {Petruzielo, F. R. and Holmes, A. A. and Changlani, Hitesh J. and Nightingale, M. P. and Umrigar, C. J.},
+	month = dec,
+	year = {2012},
+	pages = {230201},
+	file = {APS Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/3UDNQA8Z/PhysRevLett.109.html:text/html}
+}
+
+
+@article{sharma_low-energy_2014,
+	title = {Low-energy spectrum of iron–sulfur clusters directly from many-particle quantum mechanics},
+	volume = {6},
+	issn = {1755-4330, 1755-4349},
+	url = {http://www.nature.com/doifinder/10.1038/nchem.2041},
+	doi = {10.1038/nchem.2041},
+	number = {10},
+	urldate = {2015-02-23},
+	journal = {Nature Chemistry},
+	author = {Sharma, Sandeep and Sivalingam, Kantharuban and Neese, Frank and Chan, Garnet Kin-Lic},
+	month = aug,
+	year = {2014},
+	pages = {927--933},
+	file = {nchem.2041_SuppInf.pdf:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/D64KBHV2/nchem.2041_SuppInf.pdf:application/pdf;Sharma et al. - 2014 - Low-energy spectrum of iron–sulfur clusters direct.pdf:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/4D2URV83/Sharma et al. - 2014 - Low-energy spectrum of iron–sulfur clusters direct.pdf:application/pdf}
+}
+
+
+@article{szalay_multiconfiguration_2012,
+	title = {Multiconfiguration {Self}-{Consistent} {Field} and {Multireference} {Configuration} {Interaction} {Methods} and {Applications}},
+	volume = {112},
+	issn = {0009-2665},
+	url = {http://dx.doi.org/10.1021/cr200137a},
+	doi = {10.1021/cr200137a},
+	number = {1},
+	urldate = {2016-07-13},
+	journal = {Chemical Reviews},
+	author = {Szalay, Péter G. and M\"uller, Thomas and Gidofalvi, Gergely and Lischka, Hans and Shepard, Ron},
+	month = jan,
+	year = {2012},
+	pages = {108--181},
+	file = {ACS Full Text PDF w/ Links:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/G5HZDBAP/Szalay et al. - 2012 - Multiconfiguration Self-Consistent Field and Multi.pdf:application/pdf;ACS Full Text Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/8JZF9UGT/cr200137a.html:text/html}
+}
+
+
+@article{li_manni_multiconfiguration_2014,
+	title = {Multiconfiguration {Pair}-{Density} {Functional} {Theory}},
+	volume = {10},
+	issn = {1549-9618},
+	url = {http://dx.doi.org/10.1021/ct500483t},
+	doi = {10.1021/ct500483t},
+	abstract = {We present a new theoretical framework, called Multiconfiguration Pair-Density Functional Theory (MC-PDFT), which combines multiconfigurational wave functions with a generalization of density functional theory (DFT). A multiconfigurational self-consistent-field (MCSCF) wave function with correct spin and space symmetry is used to compute the total electronic density, its gradient, the on-top pair density, and the kinetic and Coulomb contributions to the total electronic energy. We then use a functional of the total density, its gradient, and the on-top pair density to calculate the remaining part of the energy, which we call the on-top-density-functional energy in contrast to the exchange-correlation energy of Kohn–Sham DFT. Because the on-top pair density is an element of the two-particle density matrix, this goes beyond the Hohenberg–Kohn theorem that refers only to the one-particle density. To illustrate the theory, we obtain first approximations to the required new type of density functionals by translating conventional density functionals of the spin densities using a simple prescription, and we perform post-SCF density functional calculations using the total density, density gradient, and on-top pair density from the MCSCF calculations. Double counting of dynamic correlation or exchange does not occur because the MCSCF energy is not used. The theory is illustrated by applications to the bond energies and potential energy curves of H2, N2, F2, CaO, Cr2, and NiCl and the electronic excitation energies of Be, C, N, N+, O, O+, Sc+, Mn, Co, Mo, Ru, N2, HCHO, C4H6, c-C5H6, and pyrazine. The method presented has a computational cost and scaling similar to MCSCF, but a quantitative accuracy, even with the present first approximations to the new types of density functionals, that is comparable to much more expensive multireference perturbation theory methods.},
+	number = {9},
+	urldate = {2016-07-13},
+	journal = {Journal of Chemical Theory and Computation},
+	author = {Li Manni, Giovanni and Carlson, Rebecca K. and Luo, Sijie and Ma, Dongxia and Olsen, Jeppe and Truhlar, Donald G. and Gagliardi, Laura},
+	month = sep,
+	year = {2014},
+	pages = {3669--3680},
+	file = {ACS Full Text PDF w/ Links:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/A65P9EUT/Li Manni et al. - 2014 - Multiconfiguration Pair-Density Functional Theory.pdf:application/pdf;ACS Full Text Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/K4BJ7Z2H/ct500483t.html:text/html}
+}
+
+
+@article{malmqvist_restricted_1990,
+	title = {The restricted active space self-consistent-field method, implemented with a split graph unitary group approach},
+	volume = {94},
+	issn = {0022-3654},
+	url = {http://dx.doi.org/10.1021/j100377a011},
+	doi = {10.1021/j100377a011},
+	number = {14},
+	urldate = {2016-07-13},
+	journal = {The Journal of Physical Chemistry},
+	author = {Malmqvist, Per Aake. and Rendell, Alistair. and Roos, Bjoern O.},
+	month = jul,
+	year = {1990},
+	pages = {5477--5482},
+	file = {ACS Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/5QC9836S/Malmqvist et al. - 1990 - The restricted active space self-consistent-field .pdf:application/pdf;ACS Full Text Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/UV9JSXW2/j100377a011.html:text/html}
+}
+
+@article{olsen_determinant_1988,
+	title = {Determinant based configuration interaction algorithms for complete and restricted configuration interaction spaces},
+	volume = {89},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/89/4/10.1063/1.455063},
+	doi = {10.1063/1.455063},
+	abstract = {A restricted active space (RAS) wave function is introduced, which encompasses many commonly used restricted CI expansions. A highly vectorized algorithm is developed for full CI and other RAS calculations. The algorithm is based on Slater determinants expressed as products of alphastrings and betastrings and lends itself to a matrix indexing C(I α, I β ) of the CI vector. The major features are: (1) The intermediate summation over determinants is replaced by two intermediate summations over strings, the number of which is only the square root of the number of determinants. (2) Intermediate summations over strings outside the RAS CI space is avoided and RAS calculations are therefore almost as efficient as full CI calculations with the same number of determinants. (3) An additional simplification is devised for M S =0 states, halving the number of operations. For a case with all single and double replacements out from 415 206 Slater determinants yielding 1 136 838 Slater determinants each CI iteration takes 161 s on an IBM 3090/150(VF).},
+	number = {4},
+	urldate = {2016-07-13},
+	journal = {The Journal of Chemical Physics},
+	author = {Olsen, Jeppe and Roos, Björn O. and J{\o}rgensen, Poul and Jensen, Hans J{\o}rgen Aa},
+	month = aug,
+	year = {1988},
+	keywords = {Configuration interaction, Determinants, Wave functions},
+	pages = {2185--2192},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/XKEJ9VKA/Olsen et al. - 1988 - Determinant based configuration interaction algori.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/X5KC3NK5/1.html:text/html}
+}
+
+
+@article{li_manni_splitgas_2013,
+	title = {{SplitGAS} {Method} for {Strong} {Correlation} and the {Challenging} {Case} of {Cr}2},
+	volume = {9},
+	issn = {1549-9618},
+	url = {http://dx.doi.org/10.1021/ct400046n},
+	doi = {10.1021/ct400046n},
+	abstract = {A new multiconfigurational quantum chemical method, SplitGAS, is presented. The configuration interaction expansion, generated from a generalized active space, GAS, wave function is split in two parts, a principal part containing the most relevant configurations and an extended part containing less relevant, but not negligible, configurations. The partition is based on an orbital criterion. The SplitGAS method has been employed to study the HF, N2, and Cr2 molecules. The results on these systems, especially on the challenging, multiconfigurational Cr2 molecule, are satisfactory. While SplitGAS is comparable with the GASSCF method in terms of memory requirements, it performs better than the complete active space method followed by second-order perturbation theory, CASPT2, in terms of equilibrium bond length, dissociation energy, and vibrational properties.},
+	number = {8},
+	urldate = {2015-12-03},
+	journal = {Journal of Chemical Theory and Computation},
+	author = {Li Manni, Giovanni and Ma, Dongxia and Aquilante, Francesco and Olsen, Jeppe and Gagliardi, Laura},
+	month = aug,
+	year = {2013},
+	pages = {3375--3384},
+	file = {ACS Full Text PDF w/ Links:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/BNWEDQI4/Li Manni et al. - 2013 - SplitGAS Method for Strong Correlation and the Cha.pdf:application/pdf;ACS Full Text Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/MXM8ZMIT/ct400046n.html:text/html}
+}
+
+@article{ma_generalized_2011,
+	title = {The generalized active space concept in multiconfigurational self-consistent field methods},
+	volume = {135},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org/content/aip/journal/jcp/135/4/10.1063/1.3611401},
+	doi = {10.1063/1.3611401},
+	abstract = {A multiconfigurational self-consistent field method based on the concept of generalized active space (GAS) is presented. GAS wave functions are obtained by defining an arbitrary number of active spaces with arbitrary occupation constraints. By a suitable choice of the GAS spaces, numerous ineffective configurations present in a large complete active space (CAS) can be removed, while keeping the important ones in the CI space. As a consequence, the GAS self-consistent field approach retains the accuracy of the CAS self-consistent field (CASSCF) ansatz and, at the same time, can deal with larger active spaces, which would be unaffordable at the CASSCF level. Test calculations on the Gd atom, Gd2 molecule, and oxoMn(salen) complex are presented. They show that GAS wave functions achieve the same accuracy as CAS wave functions on systems that would be prohibitive at the CAS level.},
+	number = {4},
+	urldate = {2015-02-18},
+	journal = {The Journal of Chemical Physics},
+	author = {Ma, Dongxia and Manni, Giovanni Li and Gagliardi, Laura},
+	month = jul,
+	year = {2011},
+	keywords = {Density functional theory, Electrons, Excited states, Subspaces, Wave functions},
+	pages = {044128},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/HKR438ZW/Ma et al. - 2011 - The generalized active space concept in multiconfi.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/IFMWQFR4/1.html:text/html}
+}
+
+
+@article{andersson_secondorder_1992,
+	title = {Second‐order perturbation theory with a complete active space self‐consistent field reference function},
+	volume = {96},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/96/2/10.1063/1.462209},
+	doi = {10.1063/1.462209},
+	abstract = {The recently implemented second‐order perturbation theory based on a complete active space self‐consistent field reference function has been extended by allowing the Fock‐type one‐electron operator, which defines the zeroth‐order Hamiltonian to have nonzero elements also in nondiagonal matrix blocks. The computer implementation is now less straightforward and more computer time will be needed in obtaining the second‐order energy. The method is illustrated in a series of calculations on N2, NO, O2, CH3, CH2, and F−.},
+	number = {2},
+	urldate = {2016-07-13},
+	journal = {The Journal of Chemical Physics},
+	author = {Andersson, Kerstin and Malmqvist, Per-Ake and Roos, Björn O.},
+	month = jan,
+	year = {1992},
+	keywords = {Computer Simulation, Perturbation theory},
+	pages = {1218--1226},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/GF2MGBSM/Andersson et al. - 1992 - Second‐order perturbation theory with a complete a.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/CNQMTRZI/1.html:text/html}
+}
+
+
+@article{ma_second-order_2016,
+	title = {Second-{Order} {Perturbation} {Theory} for {Generalized} {Active} {Space} {Self}-{Consistent}-{Field} {Wave} {Functions}},
+	volume = {12},
+	issn = {1549-9618},
+	url = {http://dx.doi.org/10.1021/acs.jctc.6b00382},
+	doi = {10.1021/acs.jctc.6b00382},
+	abstract = {A multireference second-order perturbation theory approach based on the generalized active space self-consistent-field (GASSCF) wave function is presented. Compared with the complete active space (CAS) and restricted active space (RAS) wave functions, GAS wave functions are more flexible and can employ larger active spaces and/or different truncations of the configuration interaction expansion. With GASSCF, one can explore chemical systems that are not affordable with either CASSCF or RASSCF. Perturbation theory to second order on top of GAS wave functions (GASPT2) has been implemented to recover the remaining electron correlation. The method has been benchmarked by computing the chromium dimer ground-state potential energy curve. These calculations show that GASPT2 gives results similar to CASPT2 even with a configuration interaction expansion much smaller than the corresponding CAS expansion.},
+	number = {7},
+	urldate = {2016-07-13},
+	journal = {Journal of Chemical Theory and Computation},
+	author = {Ma, Dongxia and Li Manni, Giovanni and Olsen, Jeppe and Gagliardi, Laura},
+	month = jul,
+	year = {2016},
+	pages = {3208--3213},
+	file = {ACS Full Text PDF w/ Links:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/9S647PD7/Ma et al. - 2016 - Second-Order Perturbation Theory for Generalized A.pdf:application/pdf;ACS Full Text Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/CS35MKIV/acs.jctc.html:text/html}
+}
+
+
+@article{kurashige_complete_2014,
+	title = {Complete active space second-order perturbation theory with cumulant approximation for extended active-space wavefunction from density matrix renormalization group},
+	volume = {141},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/141/17/10.1063/1.4900878},
+	doi = {10.1063/1.4900878},
+	abstract = {We report an extension of our previous development that incorporated quantum-chemical density matrix renormalization group (DMRG) into the complete active space second-order perturbation theory (CASPT2) [Y. Kurashige and T. Yanai, J. Chem. Phys.135, 094104 (2011)]. In the previous study, the combined theory, referred to as DMRG-CASPT2, was built upon the use of pseudo-canonical molecular orbitals (PCMOs) for one-electron basis. Within the PCMO basis, the construction of the four-particle reduced density matrix (4-RDM) using DMRG can be greatly facilitated because of simplicity in the multiplication of 4-RDM and diagonal Fock matrix in the CASPT2 equation. In this work, we develop an approach to use more suited orbital basis in DMRG-CASPT2 calculations, e.g., localized molecular orbitals, in order to extend the domain of applicability. Because the multiplication of 4-RDM and generalized Fock matrix is no longer simple in general orbitals, an approximation is made to it using the cumulant reconstruction neglecting higher-particle cumulants. Also, we present the details of the algorithm to compute 3-RDM of the DMRG wavefunction as an extension of the 2-RDM algorithm of Zgid et al. [J. Chem. Phys.128, 144115 (2008)] and Chan et al. [J. Chem. Phys.128, 144117 (2008)]. The performance of the extended DMRG-CASPT2 approach was examined for large-scale multireference systems, such as low-lying excited states of long-chain polyenes and isomerization potential of \{[Cu(NH3)3]2O2\}2+.},
+	number = {17},
+	urldate = {2016-07-14},
+	journal = {The Journal of Chemical Physics},
+	author = {Kurashige, Yuki and Chalupsk\'y, Jakub and Lan, Tran Nguyen and Yanai, Takeshi},
+	month = nov,
+	year = {2014},
+	keywords = {Chemical bonds, Copper, Perturbation theory, Tensor methods, Wave functions},
+	pages = {174111},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/X4Q73PV8/Kurashige et al. - 2014 - Complete active space second-order perturbation th.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/GT2CKAD6/1.html:text/html}
+}
+
+@article{kurashige_second-order_2011,
+	title = {Second-order perturbation theory with a density matrix renormalization group self-consistent field reference function: {Theory} and application to the study of chromium dimer},
+	volume = {135},
+	issn = {0021-9606, 1089-7690},
+	shorttitle = {Second-order perturbation theory with a density matrix renormalization group self-consistent field reference function},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/135/9/10.1063/1.3629454},
+	doi = {10.1063/1.3629454},
+	abstract = {We present a second-order perturbation theory based on a density matrix renormalization group self-consistent field (DMRG-SCF) reference function. The method reproduces the solution of the complete active space with second-order perturbation theory (CASPT2) when the DMRG reference function is represented by a sufficiently large number of renormalized many-body basis, thereby being named DMRG-CASPT2 method. The DMRG-SCF is able to describe non-dynamical correlation with large active space that is insurmountable to the conventional CASSCF method, while the second-order perturbation theory provides an efficient description of dynamical correlation effects. The capability of our implementation is demonstrated for an application to the potential energy curve of the chromium dimer, which is one of the most demanding multireference systems that require best electronic structure treatment for non-dynamical and dynamical correlation as well as large basis sets. The DMRG-CASPT2/cc-pwCV5Z calculations were performed with a large (3d double-shell) active space consisting of 28 orbitals. Our approach using large-size DMRG reference addressed the problems of why the dissociation energy is largely overestimated by CASPT2 with the small active space consisting of 12 orbitals (3d4s), and also is oversensitive to the choice of the zeroth-order Hamiltonian.},
+	number = {9},
+	urldate = {2016-07-13},
+	journal = {The Journal of Chemical Physics},
+	author = {Kurashige, Yuki and Yanai, Takeshi},
+	month = sep,
+	year = {2011},
+	keywords = {Basis sets, Dissociation energies, Many body problems, Perturbation theory, Wave functions},
+	pages = {094104},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/NHDQMCCZ/Kurashige and Yanai - 2011 - Second-order perturbation theory with a density ma.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/XGIST2AD/1.html:text/html}
+}
+
+@article{liu_multireference_2013,
+	title = {Multireference {Ab} {Initio} {Density} {Matrix} {Renormalization} {Group} ({DMRG})-{CASSCF} and {DMRG}-{CASPT}2 {Study} on the {Photochromic} {Ring} {Opening} of {Spiropyran}},
+	volume = {9},
+	issn = {1549-9618},
+	url = {http://dx.doi.org/10.1021/ct400707k},
+	doi = {10.1021/ct400707k},
+	abstract = {The photochromic ring-opening reaction of spiropyran has been revisited at the multireference CASSCF and CASPT2 level with a CAS(22e,20o) active space, in combination with density matrix renormalization group (DMRG) methods. The accuracy of the DMRG-CASSCF and DMRG-CASPT2 calculations, with respect to the number of renormalized states, the number of roots in state-averaged wave functions, and the number basis functions, was examined. For the current system, chemically accurate results can be obtained with a relatively small number of renormalized states. The nature and vertical excitation energies of the excited (S1 and S2) states are consistent with conventional CAS(or RAS)PT2 with medium active spaces. The capability of the DMRG-CASSCF method in the optimization of molecular geometry is demonstrated for the first time. The computation costs (several hours per optimization cycle) are comparable with that of the conventional CASSCF geometry optimization with small active space. Finally, the DMRG-PT2 computed S1-MEP for the C–O and C–N bond-cleavage processes show good agreement with our previous calculations with a CAS(12e,10o) active space [Liu, F.; Morokuma, K. J. Am. Chem. Soc. 2013, 135, 10693–10702]. Especially, the role of the HOOP valleys in the S1 → S0 nonadiabatic decay has been confirmed.},
+	number = {10},
+	urldate = {2016-07-13},
+	journal = {Journal of Chemical Theory and Computation},
+	author = {Liu, Fengyi and Kurashige, Yuki and Yanai, Takeshi and Morokuma, Keiji},
+	month = oct,
+	year = {2013},
+	pages = {4462--4469},
+	file = {ACS Full Text PDF w/ Links:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/NSJEK92P/Liu et al. - 2013 - Multireference Ab Initio Density Matrix Renormaliz.pdf:application/pdf;ACS Full Text Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/4DTAJ3AC/ct400707k.html:text/html}
+}
+
+
+@article{kubo_generalized_1962,
+	title = {Generalized {Cumulant} {Expansion} {Method}},
+	volume = {17},
+	issn = {0031-9015},
+	url = {http://journals.jps.jp.ezproxy.fkf.mpg.de/doi/abs/10.1143/JPSJ.17.1100},
+	doi = {10.1143/JPSJ.17.1100},
+	abstract = {The moment generating function of a set of stochastic variables defines the cumulants or the semi-invariants and the cumulant function. It is possible, simply by formal properties of exponential functions, to generaiize to a great extent the concepts of cumulants and cumulant function. The stochastic variables to be considered need not be ordinary  c -numbers but they may be  q -numbers such as used in quantum mechanics. The exponential function which defines a moment generating function may be any kind of generalized exponential, for example an ordered exponential with a certain prescription for ordering  q -number variables. The definition of average may be greatly generalized as far as the condition is fulfilled that the average of unity is unity. After statements of a few basic theorems these generalizations are discussed here with certain examples of application. This generalized cumulant expansion provides us with a point of view from which many existent methods in quantum mechanics and statistical mechanics can be unified.},
+	number = {7},
+	urldate = {2016-07-14},
+	journal = {Journal of the Physical Society of Japan},
+	author = {Kubo, Ryogo},
+	month = jul,
+	year = {1962},
+	pages = {1100--1120},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/6HBSE7FW/Kubo - 1962 - Generalized Cumulant Expansion Method.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/Q8MB2FNB/JPSJ.17.html:text/html}
+}
+
+
+@article{neuscamman_review_2010,
+	title = {A review of canonical transformation theory},
+	volume = {29},
+	issn = {0144-235X},
+	url = {http://www-tandfonline-com.ezproxy.fkf.mpg.de/doi/abs/10.1080/01442351003620540},
+	doi = {10.1080/01442351003620540},
+	number = {2},
+	urldate = {2016-07-14},
+	journal = {International Reviews in Physical Chemistry},
+	author = {Neuscamman, Eric and Yanai, Takeshi and Chan, Garnet Kin-Lic},
+	month = apr,
+	year = {2010},
+	pages = {231--271},
+	file = {Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/RTHX3F7X/01442351003620540.html:text/html}
+}
+
+@article{saitow_multireference_2013,
+	title = {Multireference configuration interaction theory using cumulant reconstruction with internal contraction of density matrix renormalization group wave function},
+	volume = {139},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/139/4/10.1063/1.4816627},
+	doi = {10.1063/1.4816627},
+	abstract = {We report development of the multireference configuration interaction (MRCI) method that can use active space scalable to much larger size references than has previously been possible. The recent development of the density matrix renormalization group (DMRG) method in multireference quantum chemistry offers the ability to describe static correlation in a large active space. The present MRCI method provides a critical correction to the DMRG reference by including high-level dynamic correlation through the CI treatment. When the DMRG and MRCI theories are combined (DMRG-MRCI), the full internal contraction of the reference in the MRCI ansatz, including contraction of semi-internal states, plays a central role. However, it is thought to involve formidable complexity because of the presence of the five-particle rank reduced-density matrix (RDM) in the Hamiltonian matrix elements. To address this complexity, we express the Hamiltonian matrix using commutators, which allows the five-particle rank RDM to be canceled out without any approximation. Then we introduce an approximation to the four-particle rank RDM by using a cumulant reconstruction from lower-particle rank RDMs. A computer-aided approach is employed to derive the exceedingly complex equations of the MRCI in tensor-contracted form and to implement them into an efficient parallel computer code. This approach extends to the size-consistency-corrected variants of MRCI, such as the MRCI+Q, MR-ACPF, and MR-AQCC methods. We demonstrate the capability of the DMRG-MRCI method in several benchmark applications, including the evaluation of single-triplet gap of free-base porphyrin using 24 active orbitals.},
+	number = {4},
+	urldate = {2016-07-14},
+	journal = {The Journal of Chemical Physics},
+	author = {Saitow, Masaaki and Kurashige, Yuki and Yanai, Takeshi},
+	month = jul,
+	year = {2013},
+	pages = {044118},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/U6CX6HUD/Saitow et al. - 2013 - Multireference configuration interaction theory us.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/FRIDMA5A/1.html:text/html}
+}
+
+@article{saitow_fully_2015,
+	title = {Fully {Internally} {Contracted} {Multireference} {Configuration} {Interaction} {Theory} {Using} {Density} {Matrix} {Renormalization} {Group}: {A} {Reduced}-{Scaling} {Implementation} {Derived} by {Computer}-{Aided} {Tensor} {Factorization}},
+	volume = {11},
+	issn = {1549-9618},
+	shorttitle = {Fully {Internally} {Contracted} {Multireference} {Configuration} {Interaction} {Theory} {Using} {Density} {Matrix} {Renormalization} {Group}},
+	url = {http://dx.doi.org/10.1021/acs.jctc.5b00270},
+	doi = {10.1021/acs.jctc.5b00270},
+	abstract = {We present an extended implementation of the multireference configuration interaction (MRCI) method combined with the quantum-chemical density matrix renormalization group (DMRG). In the previous study, we introduced the combined theory, referred to as DMRG-MRCI, as a method to calculate high-level dynamic electron correlation on top of the DMRG wave function that accounts for active-space (or strong) correlation using a large number of active orbitals. The DMRG-MRCI method is built on the full internal-contraction scheme for the compact reference treatment and on the cumulant approximation for the treatment of the four-particle rank reduced density matrix (4-RDM). The previous implementation achieved the MRCI calculations with the active space (24e,24o), which are deemed the record largest, whereas the inherent Nact8 × N complexity of computation was found a hindrance to using further large active space. In this study, an extended optimization of the tensor contractions is developed by explicitly incorporating the rank reduction of the decomposed form of the cumulant-approximated 4-RDM into the factorization. It reduces the computational scaling (to Nact7 × N) as well as the cache-miss penalty associated with direct evaluation of complex cumulant reconstruction. The present scheme, however, faces the increased complexity of factorization patterns for optimally implementing the tensor contraction terms involving the decomposed 4-RDM objects. We address this complexity using the enhanced symbolic manipulation computer program for deriving and coding programmable equations. The new DMRG-MRCI implementation is applied to the determination of the stability of the iron(IV)-oxo porphyrin relative to the iron(V) electronic isomer (electromer) using the active space (29e,29o) (including four second d-shell orbitals of iron) with triple-ζ-quality atomic orbital basis sets. The DMRG-cu(4)-MRCI+Q model is shown to favor the triradicaloid iron(IV)-oxo state as the lowest energy state and characterize the iron(V) electromer as thermally inaccessible, supporting the earlier experimental and density functional studies. This conflicts with the previous MR calculations using the restricted active-space second-order perturbation theory (RASPT2) with the similar-size active space (29e,28o) reported by Pierloot et al. (Radoń, M.; Broclawik, E.; Pierloot, K. J. Chem. Theory Comput. 2011, 7, 898), showing that the hypothetical iron(V) state indicated by recent laser flash photolysis (LFP) studies is likely thermally accessible because of its underestimated relative energy.},
+	number = {11},
+	urldate = {2016-07-13},
+	journal = {Journal of Chemical Theory and Computation},
+	author = {Saitow, Masaaki and Kurashige, Yuki and Yanai, Takeshi},
+	month = nov,
+	year = {2015},
+	pages = {5120--5131},
+	file = {ACS Full Text PDF w/ Links:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/JFFNBIA9/Saitow et al. - 2015 - Fully Internally Contracted Multireference Configu.pdf:application/pdf;ACS Full Text Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/8TWFT7XG/acs.jctc.html:text/html}
+}
+
+@article{yanai_multireference_2010,
+	title = {Multireference quantum chemistry through a joint density matrix renormalization group and canonical transformation theory},
+	volume = {132},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/132/2/10.1063/1.3275806},
+	doi = {10.1063/1.3275806},
+	abstract = {We describe the joint application of the density matrix renormalization group and canonical transformation theory to multireference quantum chemistry. The density matrix renormalization group provides the ability to describe static correlation in large active spaces, while the canonical transformation theory provides a high-order description of the dynamic correlation effects. We demonstrate the joint theory in two benchmark systems designed to test the dynamic and static correlation capabilities of the methods, namely, (i) total correlation energies in long polyenes and (ii) the isomerization curve of the [ Cu 2 O 2 ] 2 + core. The largest complete active spaces and atomic orbital basis sets treated by the joint DMRG-CT theory in these systems correspond to a ( 24 e , 24 o ) active space and 268 atomic orbitals in the polyenes and a ( 28 e , 32 o ) active space and 278 atomic orbitals in [ Cu 2 O 2 ] 2 + .},
+	number = {2},
+	urldate = {2016-07-14},
+	journal = {The Journal of Chemical Physics},
+	author = {Yanai, Takeshi and Kurashige, Yuki and Neuscamman, Eric and Chan, Garnet Kin-Lic},
+	month = jan,
+	year = {2010},
+	keywords = {Copper, Coupled cluster, Isomerization, Perturbation theory, Wave functions},
+	pages = {024105},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/NXIBRWMU/Yanai et al. - 2010 - Multireference quantum chemistry through a joint d.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/BSZPKE6C/1.html:text/html}
+}
+
+
+@article{zgid_study_2009,
+	title = {A study of cumulant approximations to n-electron valence multireference perturbation theory},
+	volume = {130},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/130/19/10.1063/1.3132922},
+	doi = {10.1063/1.3132922},
+	abstract = {We investigate the possibility of reducing the complexity of multireference perturbation theory through cumulant based approximations to the high-order density matrices that appear in such theories. Our test cases show that while the cumulant approximated forms are degraded in accuracy relative to the parent theory and exhibit intruder state problems that must be carefully handled, they may provide a route to a simple estimation of dynamic correlation when the parent perturbation theory is infeasible. Nonetheless, further work is clearly needed on better approximations to the denominators in the perturbation theory.},
+	number = {19},
+	urldate = {2016-07-13},
+	journal = {The Journal of Chemical Physics},
+	author = {Zgid, Dominika and Ghosh, Debashree and Neuscamman, Eric and Chan, Garnet Kin-Lic},
+	month = may,
+	year = {2009},
+	keywords = {Excitation energies, Excited states, Perturbation theory, Subspaces, Wave functions},
+	pages = {194107},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/XMCCS7HA/Zgid et al. - 2009 - A study of cumulant approximations to n-electron v.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/9NZPISMR/1.html:text/html}
+}
+
+
+
+
+@article{mazziotti_anti-hermitian_2006,
+	title = {Anti-{Hermitian} {Contracted} {Schr}{\textbackslash}"odinger {Equation}: {Direct} {Determination} of the {Two}-{Electron} {Reduced} {Density} {Matrices} of {Many}-{Electron} {Molecules}},
+	volume = {97},
+	shorttitle = {Anti-{Hermitian} {Contracted} {Schr}{\textbackslash}"odinger {Equation}},
+	url = {http://link.aps.org/doi/10.1103/PhysRevLett.97.143002},
+	doi = {10.1103/PhysRevLett.97.143002},
+	abstract = {Two-electron reduced density matrices (2-RDMs) of many-electron molecules are directly determined without calculation of their wave functions by solving the anti-Hermitian contracted Schrödinger equation. Approximation of the 3-RDM in the anti-Hermitian contracted Schrödinger equation by a corrected cumulant expansion [Mazziotti, Phys. Rev. A 60, 3618 (1999)] permits the direct calculation of the energy and 2-RDM with many high-order correlation effects included. The method is illustrated for the molecules BeH2, H2O, NH3, CH4, and CO as well as the dissociation of BH. Correlation energies are obtained within 95\%–100\% of full-configuration interaction, and 2-RDMs very nearly satisfy known N-representability conditions.},
+	number = {14},
+	urldate = {2016-07-14},
+	journal = {Physical Review Letters},
+	author = {Mazziotti, David A.},
+	month = oct,
+	year = {2006},
+	pages = {143002},
+	file = {APS Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/BR99D9GV/PhysRevLett.97.html:text/html}
+}
+
+
+
+@article{kutzelnigg_normal_1997,
+	title = {Normal order and extended {Wick} theorem for a multiconfiguration reference wave function},
+	volume = {107},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org/content/aip/journal/jcp/107/2/10.1063/1.474405},
+	doi = {10.1063/1.474405},
+	abstract = {A generalization of normal ordering and of Wick’s theorem with respect to an arbitrary reference function Φ as some generalized “physical vacuum” is formulated in a different (but essentially equivalent) way than that suggested previously by one of the present authors. Guiding principles are that normal order operators with respect to any reference state must be expressible as linear combinations of those with respect to the genuine vacuum, that the vacuum expectation value of a normal order operator must vanish (with respect to the vacuum to which it is in normal order), and that the well-known formalism for a single Slater determinant as physical vacuum must be contained as a special case. The derivation is largely based on the concepts of “Quantum Chemistry in Fock space,” which means that particle-number-conserving operators (excitation operators) play a central role. Nevertheless, the contraction rules in the frame of a generalized Wick theorem are derived, that hold for non-particle-number-conserving operators as well. The contraction rules are formulated and illustrated in terms of diagrams. The contractions involve the “residual n -particle density matrices” λ , which are the irreducible (non-factorizable) parts of the conventional n -particle density matrices γ , in the sense of a cumulant expansion for the density. A spinfree formulation is presented as well. The expression of the Hamiltonian in normal order with respect to a multiconfiguration reference function leads to a natural definition of a generalized Fock operator. MC-SCF-theory is easily worked out in this context. The paper concludes with a discussion of the excited configurations and the first-order interacting space, that underlies a perturbative coupled cluster type correction to the MCSCF function for an arbitrary reference function, and with general implications of the new formalism, that is related to “internally contracted multireference configuration interaction.” The present generalization of normal ordering is not only valid for arbitrary reference functions, but also if the reference state is an ensemble state.},
+	number = {2},
+	urldate = {2016-06-21},
+	journal = {The Journal of Chemical Physics},
+	author = {Kutzelnigg, Werner and Mukherjee, Debashis},
+	month = jul,
+	year = {1997},
+	keywords = {Configuration interaction, Coupled cluster, Operator theory, Wave functions},
+	pages = {432--449},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/WHP53TKS/Kutzelnigg and Mukherjee - 1997 - Normal order and extended Wick theorem for a multi.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/3538D6AD/1.html:text/html}
+}
+

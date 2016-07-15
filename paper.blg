@@ -6,44 +6,46 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: biblioLCC.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 29 entries,
+Warning--empty author in booth_towards_2013
+You've used 61 entries,
             3411 wiz_defined-function locations,
-            1373 strings with 18062 characters,
-and the built_in function-call counts, 21007 in all, are:
-= -- 1224
-> -- 687
-< -- 97
-+ -- 568
-- -- 168
-* -- 3002
-:= -- 2268
-add.period$ -- 29
-call.type$ -- 29
-change.case$ -- 116
-chr.to.int$ -- 29
-cite$ -- 29
-duplicate$ -- 1873
-empty$ -- 1753
-format.name$ -- 419
-if$ -- 3966
+            1575 strings with 26913 characters,
+and the built_in function-call counts, 45461 in all, are:
+= -- 2621
+> -- 1554
+< -- 210
++ -- 1304
+- -- 378
+* -- 6572
+:= -- 4837
+add.period$ -- 61
+call.type$ -- 61
+change.case$ -- 245
+chr.to.int$ -- 61
+cite$ -- 64
+duplicate$ -- 4029
+empty$ -- 3755
+format.name$ -- 940
+if$ -- 8574
 int.to.chr$ -- 1
-int.to.str$ -- 30
-missing$ -- 285
-newline$ -- 102
-num.names$ -- 87
-pop$ -- 399
+int.to.str$ -- 62
+missing$ -- 612
+newline$ -- 198
+num.names$ -- 180
+pop$ -- 861
 preamble$ -- 1
-purify$ -- 116
+purify$ -- 244
 quote$ -- 0
-skip$ -- 740
+skip$ -- 1608
 stack$ -- 0
-substring$ -- 724
-swap$ -- 1565
-text.length$ -- 85
+substring$ -- 1558
+swap$ -- 3400
+text.length$ -- 190
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 172
-warning$ -- 0
-while$ -- 87
+type$ -- 364
+warning$ -- 1
+while$ -- 180
 width$ -- 0
-write$ -- 356
+write$ -- 735
+(There was 1 warning)
