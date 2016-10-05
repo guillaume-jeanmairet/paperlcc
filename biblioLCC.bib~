@@ -67,7 +67,7 @@ View full text},
 	number = {1},
 	urldate = {2016-05-05},
 	journal = {Chemical Physics Letters},
-	author = {Roos, Björn O. and Andersson, Kerstin and Fülscher, Markus P.},
+	author = {Roos, Björn O. and Andersson, Kerstin and F\"ulscher, Markus P.},
 	month = apr,
 	year = {1992},
 	pages = {5--13},
@@ -1285,3 +1285,97 @@ The running time depends on the size of the targeted active space, the number of
 	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/WHP53TKS/Kutzelnigg and Mukherjee - 1997 - Normal order and extended Wick theorem for a multi.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/3538D6AD/1.html:text/html}
 }
 
+
+@article{beinert_iron-sulfur_1997,
+	title = {Iron-{Sulfur} {Clusters}: {Nature}'s {Modular}, {Multipurpose} {Structures}},
+	volume = {277},
+	issn = {0036-8075, 1095-9203},
+	shorttitle = {Iron-{Sulfur} {Clusters}},
+	url = {http://science.sciencemag.org.ezproxy.fkf.mpg.de/content/277/5326/653},
+	doi = {10.1126/science.277.5326.653},
+	abstract = {Iron-sulfur proteins are found in all life forms. Most frequently, they contain Fe2S2, Fe3S4, and Fe4S4clusters. These modular clusters undergo oxidation-reduction reactions, may be inserted or removed from proteins, can influence protein structure by preferential side chain ligation, and can be interconverted. In addition to their electron transfer function, iron-sulfur clusters act as catalytic centers and sensors of iron and oxygen. Their most common oxidation states are paramagnetic and present significant challenges for understanding the magnetic properties of mixed valence systems. Iron-sulfur clusters now rank with such biological prosthetic groups as hemes and flavins in pervasive occurrence and multiplicity of function.},
+	language = {en},
+	number = {5326},
+	urldate = {2016-10-05},
+	journal = {Science},
+	author = {Beinert, Helmut and Holm, Richard H. and Münck, Eckard},
+	month = aug,
+	year = {1997},
+	pmid = {9235882},
+	pages = {653--659},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/H45S8WP4/Beinert et al. - 1997 - Iron-Sulfur Clusters Nature's Modular, Multipurpo.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/7NF9BTER/653.html:text/html}
+}
+
+
+@article{neese_critical_2006,
+	title = {A critical evaluation of {DFT}, including time-dependent {DFT}, applied to bioinorganic chemistry},
+	volume = {11},
+	issn = {0949-8257, 1432-1327},
+	url = {http://link.springer.com/article/10.1007/s00775-006-0138-1},
+	doi = {10.1007/s00775-006-0138-1},
+	abstract = {IntroductionThe past decade has witnessed an explosive activity in the application of quantum chemical methods to problems of bioinorganic chemistry. It is now almost commonplace to publish an experimental paper together with quantum chemical calculations. The calculations serve either to validate the conclusions that have been reached from the analysis of the experiments or to distinguish between those possibilities that were left open. In addition, there are many purely theoretical investigations which address various structural and mechanistic aspects of metalloprotein structure and function. In this context the term ‘quantum chemical methods’ has been applied almost synonymously with density functional theory (DFT). Despite the enormous popularity of DFT in bioinorganic chemistry, one frequently voiced complaint from the experimental community is that the calculations often take too little or no notice of the available experimental results. For example, a number of theoretically pr ...},
+	language = {en},
+	number = {6},
+	urldate = {2015-02-16},
+	journal = {JBIC Journal of Biological Inorganic Chemistry},
+	author = {Neese, Frank},
+	month = jul,
+	year = {2006},
+	keywords = {Biochemistry, general, Microbiology},
+	pages = {702--711},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/GWCVVXXG/Neese - 2006 - A critical evaluation of DFT, including time-depen.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/9KM4ZMI2/s00775-006-0138-1.html:text/html}
+}
+
+
+@article{willow_stochastic_2012,
+	title = {Stochastic evaluation of second-order many-body perturbation energies},
+	volume = {137},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/137/20/10.1063/1.4768697},
+	doi = {10.1063/1.4768697},
+	abstract = {With the aid of the Laplace transform, the canonical expression of the second-order many-body perturbation correction to an electronic energy is converted into the sum of two 13-dimensional integrals, the 12-dimensional parts of which are evaluated by Monte Carlo integration. Weight functions are identified that are analytically normalizable, are finite and non-negative everywhere, and share the same singularities as the integrands. They thus generate appropriate distributions of four-electron walkers via the Metropolis algorithm, yielding correlation energies of small molecules within a few mE h of the correct values after 108Monte Carlo steps. This algorithm does away with the integral transformation as the hotspot of the usual algorithms, has a far superior size dependence of cost, does not suffer from the sign problem of some quantum Monte Carlo methods, and potentially easily parallelizable and extensible to other more complex electron-correlation theories.},
+	number = {20},
+	urldate = {2016-10-05},
+	journal = {The Journal of Chemical Physics},
+	author = {Willow, Soohaeng Yoo and Kim, Kwang S. and Hirata, So},
+	month = nov,
+	year = {2012},
+	keywords = {Integral transforms, Many body perturbation calculations, Many body problems, Molybdenum, Monte Carlo methods},
+	pages = {204122},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/BJJDDV86/Willow et al. - 2012 - Stochastic evaluation of second-order many-body pe.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/QS6FAQ6P/1.html:text/html}
+}
+
+@article{willow_stochastic_2013,
+	title = {Stochastic evaluation of second-order {Dyson} self-energies},
+	volume = {138},
+	issn = {0021-9606, 1089-7690},
+	url = {http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/138/16/10.1063/1.4801862},
+	doi = {10.1063/1.4801862},
+	abstract = {A stochastic method is proposed that evaluates the second-order perturbation corrections to the Dyson self-energies of a molecule (i.e., quasiparticle energies or correlated ionization potentials and electron affinities) directly and not as small differences between two large, noisy quantities. With the aid of a Laplace transform, the usual sum-of-integral expressions of the second-order self-energy in many-body Green\&apos;s function theory are rewritten into a sum of just four 13-dimensional integrals, 12-dimensional parts of which are evaluated by Monte Carlo integration. Efficient importance sampling is achieved with the Metropolis algorithm and a 12-dimensional weight function that is analytically integrable, is positive everywhere, and cancels all the singularities in the integrands exactly and analytically. The quasiparticle energies of small molecules have been reproduced within a few mE h of the correct values with 108 Monte Carlo steps. Linear-to-quadratic scaling of the size dependence of computational cost is demonstrated even for these small molecules.},
+	number = {16},
+	urldate = {2016-10-05},
+	journal = {The Journal of Chemical Physics},
+	author = {Willow, Soohaeng Yoo and Kim, Kwang S. and Hirata, So},
+	month = apr,
+	year = {2013},
+	keywords = {Collective excitations, Integral transforms, Many body problems, Molybdenum, Monte Carlo methods},
+	pages = {164111},
+	file = {Full Text PDF:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/MJ2B6P72/Willow et al. - 2013 - Stochastic evaluation of second-order Dyson self-e.pdf:application/pdf;Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/PEG8XPTX/1.html:text/html}
+}
+
+@article{willow_convergence_2013,
+	title = {Convergence {Acceleration} of {Parallel} {Monte} {Carlo} {Second}-{Order} {Many}-{Body} {Perturbation} {Calculations} {Using} {Redundant} {Walkers}},
+	volume = {9},
+	issn = {1549-9618},
+	url = {http://dx.doi.org/10.1021/ct400557z},
+	doi = {10.1021/ct400557z},
+	abstract = {A Monte Carlo (MC) integration of the second-order many-body perturbation (MP2) corrections to energies and self-energies eliminates the usual computational bottleneck of the MP2 algorithm (i.e., the basis transformation of two-electron integrals), thereby achieving near-linear size dependence of its operation cost, a negligible core and disk memory cost, and a naturally parallel computational kernel. In this method, the correlation correction expressions are recast into high-dimensional integrals, which are approximated as the sums of integrands evaluated at coordinates of four electron random walkers guided by a Metropolis algorithm for importance sampling. The gravest drawback of this method, however, is the inevitable statistical uncertainties in its results, which decay slowly as the inverse square-root of the number of MC steps. We propose an algorithm that can increase the number of MC sampling points in each MC step by many orders of magnitude by having 2m electron walkers (m {\textgreater} 2) and then using m(m – 1)/2 permutations of their coordinates in evaluating the integrands. Hence, this algorithm brings an O(m2)-fold increase in the number of MC sampling points at a mere O(m) additional cost of propagating redundant walkers, which is a net O(m)-fold enhancement in sampling efficiency. We have demonstrated a large performance increase in the Monte Carlo MP2 calculations for the correlation energies of benzene and benzene dimer as well as for the correlation corrections to the energy, ionization potential, and electron affinity of C60. The calculation for C60 has been performed with a parallel implementation of this method running on up to 400 processors of a supercomputer, yielding an accurate prediction of its large electron affinity, which makes its derivative useful as an electron acceptor in bulk heterojunction organic solar cells.},
+	number = {10},
+	urldate = {2016-10-05},
+	journal = {Journal of Chemical Theory and Computation},
+	author = {Willow, Soohaeng Yoo and Hermes, Matthew R. and Kim, Kwang S. and Hirata, So},
+	month = oct,
+	year = {2013},
+	pages = {4396--4402},
+	file = {ACS Full Text PDF w/ Links:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/EBX5TVBV/Willow et al. - 2013 - Convergence Acceleration of Parallel Monte Carlo S.pdf:application/pdf;ACS Full Text Snapshot:/home/jeanmairet/.mozilla/firefox/lcniwavn.default/zotero/storage/KHKCAQZR/ct400557z.html:text/html}
+}
