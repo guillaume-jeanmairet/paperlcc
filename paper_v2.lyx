@@ -1,0 +1,4410 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass revtex4
+\begin_preamble
+\usepackage{bbm}
+\usepackage{braket}
+\end_preamble
+\options aps,prl,preprint
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package auto
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2.5cm
+\rightmargin 2cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Abstract
+\begin_inset FormulaMacro
+\newcommand{\Ket}[1]{\ket{#1}}
+{|#1>}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Braket}[1]{\braket{#1}}
+{<#1>}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+A joint stochastic evaluation of multireference linearized coupled cluster
+ perturbation theory with a FCIQMC treatment of the active space
+\end_layout
+
+\begin_layout Author
+Guillaume Jeanmairet
+\end_layout
+
+\begin_layout Affiliation
+Max Planck Institute for Solid State Research, Heisenbergstraße 1, 70569
+ Stuttgart, Germany
+\end_layout
+
+\begin_layout Author
+Sandeep Sharma
+\end_layout
+
+\begin_layout Affiliation
+Max Planck Institute for Solid State Research, Heisenbergstraße 1, 70569
+ Stuttgart, Germany
+\end_layout
+
+\begin_layout Author
+Ali Alavi
+\end_layout
+
+\begin_layout Affiliation
+Max Planck Institute for Solid State Research, Heisenbergstraße 1, 70569
+ Stuttgart, Germany
+\end_layout
+
+\begin_layout Affiliation
+Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge
+ CB2 1EW, United Kingdom
+\end_layout
+
+\begin_layout Abstract
+In this article we report a joint use of the FCIQMC method with the recently
+ proposed LCC multireference perturbation theory [Sharma S., and Alavi A.,
+ 
+\shape italic
+J.
+ Chem.
+ Phys.
+
+\shape default
+ 
+\series bold
+143
+\series default
+, 102815, (2015)].
+ In that method both the zeroth order and first order wavefunctions are
+ sampled stochastically by propagating simultaneously two populations of
+ signed walkers.
+ The sampling of the zeroth order wavefunction follows a set of stochastic
+ processes identical to the one used in the FCIQMC method.
+ The computation of the perturbation requires to introduce new rules for
+ the stochastic process.
+ In particular it involves a source term coming from the zeroth order wavefuncti
+on.
+ With this fully stochastic method, it will become possible to treat simultaneou
+sly large active spaces to account for the static correlation and to recover
+ the dynamical correlation using perturbation theory.
+ The second order response energy is also computed stochastically, the different
+ contribution being sampled according to the spawning probability between
+ the zeroth and first order wavefunction.
+ 
+\end_layout
+
+\begin_layout Abstract
+To illustrate the method, we study a few organic molecules, going from carbon
+ dimer to aromatic molecules.
+ We computed singlet-triplet gaps of benzene and m-xylylene.
+ For m-xylylene which has proved difficult for standard CASSCF+PT we found
+ a gap in good agreement with the experimental values.
+\end_layout
+
+\begin_layout Section
+Intro
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Intro"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Many molecular systems of practical interest cannot be properly described
+ by a single electronic configuration.
+ Among those systems which are often described as strongly correlated systems,
+ we can mention transition metal clusters that are found in many protein
+ active sites and that play a key role in a wide number of important biological
+ processes such as photosynthesis or respiration
+\begin_inset CommandInset citation
+LatexCommand cite
+key "beinert_iron-sulfur_1997"
+
+\end_inset
+
+.
+ Unfortunately because of the multideterminental nature of the wave-function
+ they can prove hard to study with single-reference approaches such as the
+ widely used density functional theory
+\begin_inset CommandInset citation
+LatexCommand cite
+key "neese_critical_2006"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Alternatively methods that deal with the multireference character of the
+ wavefunction can be used.
+ The idea is to express the ground state wavefunction as a linear combination
+ of several configurations, often referred as excitation from a reference
+ determinant, usually the Hartree-Fock one.
+ The Full Configuration Interaction (FCI) consists in an exact solution
+ of the Schrodinger equation in the space of all the possible determinants,
+ this method is exact but become quickly unpractical, indeed the largest
+ space that has been handled to this day contains 
+\begin_inset Formula $10^{10}$
+\end_inset
+
+ determinants and were describing a 
+\begin_inset Formula $N_{2}$
+\end_inset
+
+ molecule with 14 electrons and 36 molecular orbitals
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rossi_full-configuration_1999"
+
+\end_inset
+
+.
+ To overcome this limitation the calculation can be carried by considering
+ only a meaningful subset of the available configurations, the most popular
+ choice is to use a complete active space (CAS) wave function
+\begin_inset CommandInset citation
+LatexCommand cite
+key "siegbahn_comparison_1980,roos_complete_1980,siegbahn_complete_1981"
+
+\end_inset
+
+, in which the molecular orbitals are split into three sets: the 
+\shape italic
+core
+\shape default
+ orbitals, the 
+\shape italic
+virtual
+\shape default
+ orbitals and the 
+\shape italic
+active
+\shape default
+ orbitals.
+ The core and virtual orbitals are respectively doubly occupied and empty
+ in all configuration of the multi configuration expansion while the active
+ orbitals can be empty, singly or doubly occupied.
+ This approach allows to tackle bigger systems than the FCI one however
+ it suffers for the same exponential scaling problem, the biggest active
+ space that is possible to treat with this conventional implementation of
+ this approach are typical 18 orbitals and 18 electrons.
+ Different methods have been proposed to allow the use of larger active
+ spaces such as the restricted active space (RAS)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "olsen_determinant_1988,malmqvist_restricted_1990"
+
+\end_inset
+
+, generalized active space (GAS)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ma_generalized_2011"
+
+\end_inset
+
+ and SplitGas
+\begin_inset CommandInset citation
+LatexCommand cite
+key "li_manni_splitgas_2013"
+
+\end_inset
+
+ approaches.
+ 
+\end_layout
+
+\begin_layout Standard
+Recently two approaches have been proposed that allows to tackle large actives
+ spaces, typically up to 40-50 orbitals, DMRG
+\begin_inset CommandInset citation
+LatexCommand cite
+key "white_density_1992,white_density-matrix_1993,white_ab_1999,wouters_chemps2:_2014,zgid_spin_2008,moritz_convergence_2005,legeza_optimizing_2003,kurashige_high-performance_2009,olivares-amaya_ab-initio_2015"
+
+\end_inset
+
+ and FCIQMC
+\begin_inset CommandInset citation
+LatexCommand cite
+key "booth_fermion_2009,cleland_taming_2012,booth_linear-scaling_2013,booth_towards_2013,petruzielo_semistochastic_2012"
+
+\end_inset
+
+.
+ The first one express the wavefunction as a matrix product state (MPS)
+ that is optimized variationally thanks to the sweep algorithm.
+ The latter one is based on a stochastic propagation of walkers population
+ according to a set of stochastic rules that aims to mimic the propagation
+ of the imaginary time Schrodinger equation (ITSE) in the Fock space, that
+ is the space of the Slater determinants.
+ This method, and its 
+\shape italic
+initiator approximation
+\shape default
+ extension 
+\shape italic
+i
+\shape default
+-FCIQMC have proved to converge to FCI precision energies.
+ One of the main interest of the method is that the relevant determinants
+ of the wavefunction emerge spontaneously from the dynamic, preventing to
+ have to store a huge amount of non relevant information allowing to save
+ memory with respect to deterministic techniques such as FCI.
+ Moreover the processes governing the dynamic of a walker lying on a determinant
+ is independent of the other determinants occupation making the FCIQMC algorithm
+ almost trivially parallel.
+ 
+\end_layout
+
+\begin_layout Standard
+However the low lying occupied core orbitals and the more energetic empty
+ virtual orbitals that are neglected in the CAS calculation are responsible
+ for the so called weak or dynamical correlation.
+ This remaining correlation effect is important for a quantitative description
+ of chemical properties such as electronic excitation energies.
+ It is generally recovered by the use of perturbation theories which in
+ the case of a CAS calculation have to be compatible with a multireference
+ zero order wavefunction.
+ There exist a huge variety of such multireference multibody pertrubation
+ theories among which we can mention CASPT2
+\begin_inset CommandInset citation
+LatexCommand cite
+key "andersson_second-order_1990,andersson_secondorder_1992"
+
+\end_inset
+
+ and NEVPT2
+\begin_inset CommandInset citation
+LatexCommand cite
+key "angeli_introduction_2001,angeli_n-electron_2002"
+
+\end_inset
+
+ or the recently propose multireference linearized coupled cluster theory
+ (MRLCC)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sharma_multireference_2015"
+
+\end_inset
+
+.
+ In the perspective of dealing with large systems it is worth noticing that
+ a second-order perturbation theory approach based on the generalized active
+ space self-consistent-field has recently been proposed
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ma_second-order_2016"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+All the previously mentioned multireference perturbation theories are involving
+ a deterministic resolution of the perturbation equations and the cost of
+ the calculation of the perturbation by itself quickly become intractable
+ with the number of core and virtual orbitals, usually this is dealt by
+ making a further approximation known as internal contraction, which comes
+ at the cost of knowing the reduced density matrices (RDM) of the active
+ space till fourth body.
+ 
+\end_layout
+
+\begin_layout Standard
+A stochastic resolution of the perturbation equation seems to be a promising
+ direction to reduce the cost of the calculation and to avoid the use of
+ internal contraction, in a similar way that FCIQMC circumvent the FCI limitatio
+ns.
+ Surprisingly only a few attempts to implement a stochastic resolution of
+ perturbation theories have been proposed, among which we can mention the
+ stochastic evaluation of MP2 energies by Hirata and collaborators, MC-MP2.
+ This approach is based on the rewriting of second-order perturbation equations
+ into the sum of two 13-dimensional integrals thanks to Laplace transform.
+ Those integrals are then evaluated through Monte-Carlo integration
+\begin_inset CommandInset citation
+LatexCommand cite
+key "willow_stochastic_2012,willow_convergence_2013,willow_stochastic_2013"
+
+\end_inset
+
+.
+ Another approach to solve MP2 equations is to express its contributions
+ in term of graph that describe set of connected Slater determinants, and
+ then to stochastically sample thos graphs
+\begin_inset CommandInset citation
+LatexCommand cite
+key "thom_stochastic_2007"
+
+\end_inset
+
+.
+ However those two approaches involve a single reference zero order wavefunction
+ and to our knowledge stochastic resolution of multireference perturbation
+ theories have not been proposed yet.
+\end_layout
+
+\begin_layout Standard
+In this article, in analogy to FCIQMC, we propose to introduce a new population
+ of walkers lying on determinants of the Fock space that is propagated according
+ to a series of stochastic processes that mimic the projection equations
+ of multireference perturbation theories (MRPT).
+ In principle this method can be applied to a any flavor of multireference
+ perturbation theories, but we will focus on MRLCC because the definition
+ of the zero order Hamiltonian and the perturbation is particularly well
+ suited to the FCIQMC framework.
+ Moreover it has proved to give better results than NEVPT2 or CASPT2
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sharma_multireference_2015"
+
+\end_inset
+
+, the resulting method is named QMC-LCC.
+\end_layout
+
+\begin_layout Standard
+In this method the sampling of zeroth and first order wavefunctions are
+ done simultaneously.
+ The population on the zero order wavefunction follows the standard FCIQMC
+ rules while population dynamic of the response wavefunction contains a
+ source term that depends on the population of the zero order wavefunction.
+ This is practically done by allowing walkers on one replica to spawn new
+ walkers on another replica.
+ 
+\end_layout
+
+\begin_layout Standard
+The structure of the rest of this article is the following, in the next
+ part we will recall the governing equations of MRPT, with a particular
+ emphasis on the LCC method.
+ We also recall some basics of the FCIQMC methods before showing how the
+ MRLCC can be expressed in the 
+\begin_inset Quotes eld
+\end_inset
+
+FCIQMC language
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\shape italic
+i.e.
+
+\shape default
+ as a stochastic propagation of a signed walkers population.
+ In the third part a description of the algorithmic of the QMC-LCC method
+ that has been implemented in the neci code is given, we also discuss some
+ important technical points.
+ We then illustrate the potential of the method by applying it to some organic
+ molecules.
+ We first tested the method by studying the carbon dimer with systematically
+ more refined basis set, going from cc-pVDZ to cc-pVQZ.
+ Afterwards we turned our attention to the evaluation of Singlet-Triplet
+ gaps; first in the case of the benzene molecule which has a singlet for
+ ground state, and then in the case the m-xylylene diradical that admits
+ a triplet as its ground state.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Section
+Theory
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Theory"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+LCC Perturbation theory
+\end_layout
+
+\begin_layout Standard
+The essence of quantum-mechanical perturbation theories is to split the
+ total Hamiltonian 
+\begin_inset Formula $\hat{H}$
+\end_inset
+
+, into the sum of a simpler Hamiltonian 
+\begin_inset Formula $\hat{H_{0}}$
+\end_inset
+
+ and a perturbation operator 
+\begin_inset Formula $\hat{V}$
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "helhaker_2014"
+
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\hat{H}=\hat{H_{0}}+\hat{V},
+\end{equation}
+
+\end_inset
+
+with
+\begin_inset Formula 
+\begin{equation}
+\hat{V}=\hat{H}-\hat{H_{0}}.
+\end{equation}
+
+\end_inset
+
+The zero order order energy and wavefunction, 
+\begin_inset Formula $E_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ are solution of the following eigenproblem,
+\begin_inset Formula 
+\begin{equation}
+\hat{H_{0}}\Ket{\Psi_{0}}=E_{0}\Ket{\Psi_{0}},
+\end{equation}
+
+\end_inset
+
+which is assumed to be, and is generally , possible to solve exactly.
+\end_layout
+
+\begin_layout Standard
+In multireference perturbation theories, the zeroth order wavefunction is
+ expressed as a linear combination of Slater determinants 
+\begin_inset Formula $\Ket{D_{i}}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\Ket{\Psi_{0}}=\sum_{i}c_{i}\Ket{D_{i}},
+\end{equation}
+
+\end_inset
+
+where the expansion set of determinants 
+\begin_inset Formula $\left\{ \Ket{D_{i}}\right\} $
+\end_inset
+
+ is chosen to recover most of the correlation.
+ Usually the set 
+\begin_inset Formula $\left\{ \Ket{D_{i}}\right\} $
+\end_inset
+
+ is a CASCI space, it then contains all interactions between active electrons.
+ 
+\end_layout
+
+\begin_layout Standard
+However the choice of 
+\begin_inset Formula $\hat{H_{0}}$
+\end_inset
+
+ is not unique since several operators will admit the CASCI wavefunction
+ as an eigenvector.
+ Among the most popular ones we can mention the Fock operator used in CASPT
+\begin_inset CommandInset citation
+LatexCommand cite
+key "matos_casscfcci_1987,andersson_second-order_1990"
+
+\end_inset
+
+, the Dyall
+\begin_inset CommandInset citation
+LatexCommand cite
+key "dyall_choice_1995"
+
+\end_inset
+
+ Hamiltonian used in NEVPT
+\begin_inset CommandInset citation
+LatexCommand cite
+key "angeli_introduction_2001,angeli_n-electron_2002"
+
+\end_inset
+
+ and the excitation conserving Hamiltonian of Fink
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fink_two_2006,fink_multi-reference_2009"
+
+\end_inset
+
+ used in the recently proposed MPS-LCC theory
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sharma_multireference_2015,sharma_quasi-degenerate_2016"
+
+\end_inset
+
+.
+ Since MRLCC seems to outperformed other methods of similar cost, this is
+ the one that is used in this study.
+\end_layout
+
+\begin_layout Standard
+If we split the orbitals into an active set where the orbital occupancy
+ can be 0, 1 or 2, a core set where the orbitals are doubly occupied and
+ a virtual set of empty orbitals then the total Hamilton, 
+\begin_inset Formula $\hat{H}$
+\end_inset
+
+ and Fink's Hamiltonian, 
+\begin_inset Formula $\hat{H}_{0}$
+\end_inset
+
+ can be expressed in second quantization as,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\hat{H}=\sum_{ij}t_{ij}a_{i}^{\dagger}a_{j}+\sum_{ijkl}\Braket{ij|kl}a_{i}^{\dagger}a_{j}^{\dagger}a_{l}a_{k}\label{eq:H@ndQ}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\hat{H_{0}}=\sum_{{ij;\atop \Delta n=(0,0,0)}}t_{ij}a_{i}^{\dagger}a_{j}+\sum_{{ijkl;\atop \Delta n=(0,0,0)}}\Braket{ij|kl}a_{i}^{\dagger}a_{j}^{\dagger}a_{l}a_{k}\label{eq:HFink}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $i,j,k,l$
+\end_inset
+
+ refer to any orbitals and 
+\begin_inset Formula $\Delta n$
+\end_inset
+
+ denotes the change in the total number of electrons between the three subsets
+ of orbitals.
+ The only operators belonging to 
+\begin_inset Formula $\hat{H_{0}}$
+\end_inset
+
+ are the ones that do not transfer electrons between the three subsets.
+ 
+\end_layout
+
+\begin_layout Standard
+The successive correction (
+\begin_inset Formula $\Ket{\Psi_{m}}$
+\end_inset
+
+) to the zeroth order wavefuntion can be computed by using the following
+ equation,
+\begin_inset Formula 
+\begin{equation}
+\left(\hat{H_{0}}-E_{0}\right)\Ket{\Psi_{m}}=-Q\left(\hat{V}\Ket{\Psi_{m-1}}-\sum_{k=1}^{m-1}E_{k}\Ket{\Psi_{m-k}}\right),\label{eq:bthorderwf}
+\end{equation}
+
+\end_inset
+
+ where 
+\begin_inset Formula $Q$
+\end_inset
+
+ is the projector onto the orthogonal space of the zeroth order wavefunction.
+ Those sets of equation can be solved sequentially to compute the 
+\begin_inset Formula $m^{th}$
+\end_inset
+
+ order of the wavefunction, 
+\begin_inset Formula $\Ket{\Psi_{m}}$
+\end_inset
+
+.
+ Once 
+\begin_inset Formula $\Ket{\Psi_{m}}$
+\end_inset
+
+ is known the 
+\begin_inset Formula $2m$
+\end_inset
+
+ and 
+\begin_inset Formula $2m+1$
+\end_inset
+
+ energies can be computed thanks to Wigner's rules:
+\begin_inset Formula 
+\begin{equation}
+E_{2m}=\Braket{\Psi_{m-1}|V|\Psi_{m}}-\sum_{k=1}^{m}\sum_{j=1}^{m-1}E_{2m-k-j}\Braket{\Psi_{k}|\Psi_{j}},
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+E_{2m+1}=\Braket{\Psi_{m}|V|\Psi_{m}}-\sum_{k=1}^{m}\sum_{j=1}^{m}E_{2m+1-k-j}\Braket{\Psi_{k}|\Psi_{j}}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that with the definition of the zeroth order Hamiltonian given in Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:HFink"
+
+\end_inset
+
+, the first order energy 
+\begin_inset Formula $E_{1}=\Braket{\Psi_{0}|V|\Psi_{0}}$
+\end_inset
+
+ vanishes.
+\end_layout
+
+\begin_layout Standard
+In a recent paper
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sharma_multireference_2015"
+
+\end_inset
+
+, both the 0 order wavefunction and the successive corrections were expressed
+ as matrix product states (MPS) and computed deterministically by functional
+ minimization.
+ Here we proposed an alternative approach where both the zero order and
+ the perturbation wavefunctions are sampled stochastically in the Fock space,
+ the perturbation second-order energy is also evaluated stochastically.
+\end_layout
+
+\begin_layout Standard
+To sample the zero order wavefunction and energy we used the standard FCIQMC
+ approach restricted to the CAS space.
+ We will recall here the main points of this approach.
+ 
+\end_layout
+
+\begin_layout Subsection
+Elements of FCIQMC
+\end_layout
+
+\begin_layout Standard
+FCIQMC is a method which aims at stochastically minimizing the energy of
+ a ground state wavefunction expressed as a CASCI (or Full-CI) expansion.
+ The wavefunction can be expressed as a linear combination of determinants
+ belonging to the CAS-CI space.
+\begin_inset Formula 
+\begin{equation}
+\Ket{\Psi}=\sum_{i}c_{i}\Ket{D_{i}}.\label{eq:expansionWF}
+\end{equation}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Formally, the idea is to find the ground state of the Hamiltonian operator
+ 
+\begin_inset Formula $\hat{H}$
+\end_inset
+
+, by integrating the imaginary time Schrodinger equation (ITSE),
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\Ket{\Psi}}{\partial\tau}=-\hat{H}\Ket{\Psi}.\label{eq:imtimeSE}
+\end{equation}
+
+\end_inset
+
+The discretization of Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:imtimeSE"
+
+\end_inset
+
+ with a time step 
+\begin_inset Formula $\Delta\tau$
+\end_inset
+
+ leads to the following evolution equation
+\begin_inset Formula 
+\begin{equation}
+\Ket{\Psi(t+\Delta\tau)}=\left(\mathbb{I}-\Delta\tau\left(\hat{H}-S\mathbb{I}\right)\right)\Ket{\Psi(t)}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S$
+\end_inset
+
+ is a shift parameter used to control the walkers population and 
+\begin_inset Formula $\mathbb{I}$
+\end_inset
+
+ is the identity operator.
+ Thus starting from a guess wavefunction, for instance the Hartree Fock
+ determinant, the ground state can be reached by repetitively applying the
+ following projector .
+ 
+\begin_inset Formula 
+\begin{equation}
+\hat{P}=\mathbb{I}-\Delta\tau\left(\hat{H}-S\mathbb{I}\right),\label{eq:projector}
+\end{equation}
+
+\end_inset
+
+To circumvent the prohibitive storage of the full CI vector, in FCIQMC this
+ projection operation is realized scholastically such as the proper projection
+ is recovered on average.
+ To do so the coefficient of the expansion in Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:expansionWF"
+
+\end_inset
+
+ are sampled by a population of signed walkers.
+ Each of those carries a signed weight and is located on a Slater determinant.
+ The total signed sum of the walkers residing on the same determinant can
+ be interpreted as an instantaneous measure of its weight 
+\begin_inset Formula $c_{i}$
+\end_inset
+
+.
+ The walker population evolves through a set of stochastic processes that
+ mimic the projector of Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:projector"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+A cloning/death step, in which the walker population on each determinant
+ is increased/reduced with a probability 
+\begin_inset Formula $\left(H_{ii}-S\right)\Delta\tau$
+\end_inset
+
+.
+ 
+\begin_inset Formula $S$
+\end_inset
+
+ is a shift parameter that is used to control the total walker population.
+\end_layout
+
+\begin_layout Enumerate
+A spawning step.
+ For each walker on a determinant 
+\begin_inset Formula $\Ket{D_{i}}$
+\end_inset
+
+ a singly or doubly connected determinant 
+\begin_inset Formula $\Ket{D_{j}}$
+\end_inset
+
+ is generated with a probability 
+\begin_inset Formula $p_{gen}^{ij}$
+\end_inset
+
+.
+ A signed child is actually generated on the determinant 
+\begin_inset Formula $\Ket{D_{j}}$
+\end_inset
+
+ with a spawning probability 
+\begin_inset Formula 
+\begin{equation}
+p_{spawn}^{ij}=\frac{\left|H_{ij}\right|\Delta\tau}{p_{gen}^{ij}}.\label{eq:pspawn}
+\end{equation}
+
+\end_inset
+
+The sign of the newly spawned walker is the same as the sign of the parent
+ if 
+\begin_inset Formula $H_{ij}>0$
+\end_inset
+
+, it is of opposite sign otherwise.
+\end_layout
+
+\begin_layout Enumerate
+Each pairs of negative and positive newly spawned walkers lying on the same
+ determinant are removed during an Annihilation step.
+ This avoid the growth of an infinite noise due to the so-called sign problem.
+\end_layout
+
+\begin_layout Standard
+We propose here a modification of the FCIQMC algorithm in order to stochasticall
+y sample simultaneously the zeroth order wavefunction and the successive
+ order of the perturbation of Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:bthorderwf"
+
+\end_inset
+
+.
+ Even if in principle any order of perturbation can be reached by this technique
+, in this article we will only consider the calculation of the fist order
+ correction to the wave function, that is given through Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:bthorderwf"
+
+\end_inset
+
+ by 
+\begin_inset Formula 
+\begin{equation}
+\Ket{\Psi_{1}}=\left(\hat{H}_{0}-E_{0}\right)^{-1}Q\hat{V}\Ket{\Psi_{0}}\label{eq:ps1equ}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In that case the problem is simpler since the Hilbert space on which the
+ zeroth and first order wavefunctions are expanded is limited to the CASSD
+ space.
+ Moreover this space can be expressed as a direct sum of two subspaces 
+\begin_inset Formula ${\cal H}={\cal H}_{0}\oplus{\cal H}_{1}$
+\end_inset
+
+, where 
+\begin_inset Formula ${\cal H}_{0}$
+\end_inset
+
+ correspond to the CAS space and 
+\begin_inset Formula ${\cal H}_{1}$
+\end_inset
+
+ is its orthogonal compliment which contains all the determinants that are
+ single or double excitations from the ones belonging to 
+\begin_inset Formula ${\cal H}_{0}$
+\end_inset
+
+.
+ Applying 
+\begin_inset Formula $\hat{V}$
+\end_inset
+
+ to 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ only generates determinants on 
+\begin_inset Formula ${\cal H}_{1}$
+\end_inset
+
+.
+ There is thus no need to ensure the orthogonality of the two wavefunctions
+ and the 
+\begin_inset Formula $Q$
+\end_inset
+
+ projector operator in Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ps1equ"
+
+\end_inset
+
+ can be dropped.
+ Of course higher order wavefunctions would contain determinants that are
+ higher order excitations from the CASCI space.
+ Orthogonalization with respect to 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ and to the lower order perturbation wavefunctions would also be required.
+ 
+\end_layout
+
+\begin_layout Standard
+The zero order wavefunction follows an ITDSE similar to Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:imtimeSE"
+
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\Ket{\Psi_{0}}}{\partial\tau}=-\hat{H}_{0}\Ket{\Psi_{0}},\label{eq:imtimeSEH0}
+\end{equation}
+
+\end_inset
+
+it thus can be solved by using the standard FCIQMC algorithm, with the exception
+ that new generated determinants will be restricted to the one accessible
+ by applying 
+\begin_inset Formula $\hat{H_{0}}$
+\end_inset
+
+ on the current wave-function.
+ This will effectively restrict the Hilbert space to the CAS space, and
+ correspond to freezing the core and virtual orbitals.
+ The computation of 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ as defined in Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ps1equ"
+
+\end_inset
+
+ is less straighforward.
+ Indeed in FCIQMC we do not have access to a proper description of the zeroth
+ order wavefunction.
+ It is thus not possible to compute 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ by using a projection approach.
+ As an alternative we also decide to sample 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ stochastically.
+ However as opposed to 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ the perturbation wavefunctions are not solution of an ITDSE.
+ We introduced the following hierarchy of differential equation (DE).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\Ket{\Psi_{m}}}{\partial\tau}=-\left(\hat{H}_{0}-E_{0}\right)\Ket{\Psi_{m}}-QV\left(\Ket{\Psi_{m-1}}-\sum_{k=1}^{m-1}E_{k}\Ket{\Psi_{m-k}}\right).\label{eq:pismDestoch}
+\end{equation}
+
+\end_inset
+
+If the left hand side of Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pismDestoch"
+
+\end_inset
+
+ cancels out, we recover the expression of Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:bthorderwf"
+
+\end_inset
+
+ for 
+\begin_inset Formula $\Ket{\Psi_{m}}$
+\end_inset
+
+, in other words the successive correction wavefunctions are stationary
+ solution of these DE.
+ Note that propagating this equation is actually going to reach a steady
+ state, that is equal to 
+\begin_inset Formula $\Ket{\Psi_{m}}$
+\end_inset
+
+ because the 
+\begin_inset Formula $\left(\hat{H}_{0}-E_{0}\right)$
+\end_inset
+
+ matrix is positive definite.
+ In particular the DE for the first order perturbation is
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\Ket{\Psi_{1}}}{\partial\tau}=-\left(\hat{H}_{0}-E_{0}\right)\Ket{\Psi_{1}}-V\Ket{\Psi_{0}}.\label{eq:psi1diffeq}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This equation is similar to the one used for 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ , with the addition of a source term due to the second term of the right
+ hand side.
+ In the next section we will show how the simultaneous solving of Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:imtimeSEH0"
+
+\end_inset
+
+ and Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:psi1diffeq"
+
+\end_inset
+
+ has been implemented in the NECI program.
+\end_layout
+
+\begin_layout Section
+Implementation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Implementation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To simultaneously sample the zeroth and first order wavefunctions, we use
+ the multi-replica technique
+\begin_inset CommandInset citation
+LatexCommand cite
+key "overy_unbiased_2014"
+
+\end_inset
+
+.
+ A first replica, labeled 0, is sampling the 0 order wavefunctions by propagatin
+g the ITDSE of Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:imtimeSEH0"
+
+\end_inset
+
+ while another one, labeled 1, is sampling the first order perturbation.
+ We first start with a small amount of walkers on a reference determinant,
+ typically the Hartree-Fock one, on replica 0 and no walkers on replica
+ 1.
+\end_layout
+
+\begin_layout Standard
+In replica 0 new walkers are spawned by applying one and two electrons operators
+ that belong to 
+\begin_inset Formula $\hat{H}_{0}$
+\end_inset
+
+, thus only determinants that belong to the CAS space are generated.
+ Because the sampling of 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ is equivalent to a standard FCIQMC sampling in a CASCI, we can use all
+ the optimizations and approximations that have been introduced in previous
+ publications such as initiator approximation
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cleland_communications:_2010,cleland_taming_2012"
+
+\end_inset
+
+ or the semi-stochastic approximation
+\begin_inset CommandInset citation
+LatexCommand cite
+key "blunt_semi-stochastic_2015"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Once the population on replica 0 is equilibrated we start to sample 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+.
+ This equilibration of the zeroth order wavefunction can be monitored by
+ looking at the variational energy for this replica and checking that is
+ correspond to the CASCI energy.
+ At this point we attempt multiple spawning from each walkers of replica
+ 0.
+ In addition to the excitation that belong to 
+\begin_inset Formula $\hat{H}_{0}$
+\end_inset
+
+ we also generate excitation belonging to 
+\begin_inset Formula $\hat{V}$
+\end_inset
+
+.
+ This thus generates determinants that belong to the external space, 
+\begin_inset Formula ${\cal H}_{1}$
+\end_inset
+
+.
+ The spawning probability of those 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ to 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ walkers follows the expression of Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pspawn"
+
+\end_inset
+
+.
+ However those walkers are spawned on replica 1 instead of replica 0.
+ 
+\end_layout
+
+\begin_layout Standard
+Replica 1 that was initially empty starts get populated, the walkers coming
+ from replica 0 correspond to the source term in Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:psi1diffeq"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We emphasize the fact that in replica 0 the population dynamic is not modified
+ by this extra excitation step, and that by construction the first and zeroth
+ order wavefunctions are orthogonal to each other, this obviates the use
+ of orthogonalization techniques that will be required for the higher order
+ perturbation.
+ The walkers on replica 1 are also subjected to a cloning/dying step and
+ a spawning step at each iteration.
+ For the dying step the applied operator is 
+\begin_inset Formula $\left(\hat{H}_{0}-E_{0}\right)$
+\end_inset
+
+, where the 
+\begin_inset Formula $E_{0}$
+\end_inset
+
+ is the projected energy in replica 0.
+ For the spawning step, the applied excitation operator belongs to 
+\begin_inset Formula $\hat{H}_{0}$
+\end_inset
+
+.
+ The simultaneous sampling of the two wavefunctions is schematized in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig1:scheme"
+
+\end_inset
+
+.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig/scheme-crop.pdf
+	width 60text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schematized description of an iteration update of the two replicas.
+ On the left the 0 order wave function, sampled in replica 0 is updated
+ by applying the 
+\begin_inset Formula $\left(\mathbb{I}-\Delta\tau\left(\hat{H_{0}}-S\mathbb{I}\right)\right)$
+\end_inset
+
+ operator.
+ On the right the first order perturbation, in replica 1, is updated by
+ applying the 
+\begin_inset Formula $\left(\mathbb{I}-\Delta\tau\left(\hat{H_{0}}-E_{0}\mathbb{I}\right)\right)$
+\end_inset
+
+ operator to 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ and adding walkers spawned by applying 
+\begin_inset Formula $\hat{V}$
+\end_inset
+
+ onto 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig1:scheme"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that with this implementation the timesteps used for 
+\begin_inset Formula $0\rightarrow0$
+\end_inset
+
+, 
+\begin_inset Formula $0\rightarrow1$
+\end_inset
+
+ and 
+\begin_inset Formula $1\rightarrow1$
+\end_inset
+
+ spawning steps, and the 0 and 1 cloning and dying steps are identical.
+ It is the one that has been optimized for replica 0.
+ In practice this timestep is chosen to ensure that the spawning probability
+ in replica 0 is small enough to ensure that the spawning probability is
+ not much bigger than 1 for all 
+\begin_inset Formula $\Ket{D_{i}}$
+\end_inset
+
+.
+ As can be seen of Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pspawn"
+
+\end_inset
+
+ the spawning probability is inversely proportional to the generation probabilit
+y 
+\begin_inset Formula $p_{gen}$
+\end_inset
+
+ to attempt a spawning on 
+\begin_inset Formula $\Ket{D_{j}}$
+\end_inset
+
+ from 
+\begin_inset Formula $\Ket{D_{i}}$
+\end_inset
+
+.
+ Because in interesting systems the size of the external space is expected
+ to be much bigger than the one of the active space the probability of generatin
+g 
+\begin_inset Formula $\Ket{D_{i}}$
+\end_inset
+
+, 
+\begin_inset Formula $\Ket{D_{j}}$
+\end_inset
+
+ pairs is much smaller in case of 
+\begin_inset Formula $0\rightarrow1$
+\end_inset
+
+ and 
+\begin_inset Formula $1\rightarrow1$
+\end_inset
+
+ than in case of 
+\begin_inset Formula $0\rightarrow0$
+\end_inset
+
+ excitation.
+ As a consequence the spawning probabilities of those excitation will be
+ much bigger than 
+\begin_inset Formula $0\rightarrow0$
+\end_inset
+
+ spawning probability for the same timestep, and a single walker would give
+ birth to multiple walkers; such an event is called blooming.
+ In other words, the time step should be smaller in the excitations involving
+ the response functions.
+ This problem is dealt with as follow, the overall time step of the simulation
+ is set by the 
+\begin_inset Formula $0\rightarrow0$
+\end_inset
+
+ dynamic.
+ The first time blooming occurs during the 
+\begin_inset Formula $0\rightarrow1$
+\end_inset
+
+ spawning step we keep track of the biggest bloom and compute the first
+ integer bigger than this, 
+\begin_inset Formula $n_{01}$
+\end_inset
+
+.
+ During further step, the time step value will be divided by this 
+\begin_inset Formula $n_{01}$
+\end_inset
+
+ factor for 
+\begin_inset Formula $0\rightarrow1$
+\end_inset
+
+ spawning, this ensures to have a spawning probability not much bigger than
+ 1.
+ To keep the overall dynamic at the same timestep we have to do 
+\begin_inset Formula $n_{01}$
+\end_inset
+
+ spawning attempt to 
+\begin_inset Formula $\Ket 1$
+\end_inset
+
+ for each walkers on 
+\begin_inset Formula $\Ket 0$
+\end_inset
+
+.
+ We use a similar procedure for the 
+\begin_inset Formula $1\rightarrow1$
+\end_inset
+
+ spawning defining a 
+\begin_inset Formula $n_{11}$
+\end_inset
+
+ timestep scaling factor.
+ Those 
+\begin_inset Formula $n_{01}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{11}$
+\end_inset
+
+ factors are updated along the run, this prevent any explosion of the replica
+ 1 population.
+\end_layout
+
+\begin_layout Standard
+With this implementation there is no way to control the total number of
+ walkers on 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ because there is no analogue of the shift control parameter that is used
+ for replica 0.
+ After a few steps the total number of walkers in replica 1 reaches a plateau
+ that is dependent of the system.
+ As a first attempt to control the value of that plateau the initiator approxima
+tion has been implemented for walkers that belong to replica 1.
+ We allow the initiator threshold to be different in replica 0 and replica
+ 1.
+ As an illustration we studied the carbon dimer molecule with the cc-pVQZ
+ basis set
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jr_gaussian_1989"
+
+\end_inset
+
+, with 
+\begin_inset Formula ${\cal H}_{0}$
+\end_inset
+
+ corresponding to a CAS (8,8) which is the valence space of the molecule.
+ We use a initiator threshold of 3 and a targeted number of walker of 50k
+ for replica 0.
+ In Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig1:swalknum"
+
+\end_inset
+
+ we present the evolution of the number of walker on replica 0 and on replica
+ 1, the different calculations have been run with a initiator criterion
+ of 3, 1 and no initiator approximation on replica 1.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig/fig1.pdf
+	width 70text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Number of walkers in replica 0 (black), and in replica 1 with an initiator
+ approximation of 3 (green), 1 (red) and no initiator approximation (blue)
+ for the 
+\begin_inset Formula $C_{2}$
+\end_inset
+
+ molecule in the cc-pVQZ basis set.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig1:swalknum"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Looking at Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig1:swalknum"
+
+\end_inset
+
+ it can be seen that with no initiator approximation on 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+, the number of walkers grows to more than 60 times the number of walkers
+ in the reference.
+ When using the most moderate initiator criteria of 1, this number is already
+ reduced by more than a factor of 2, it can be further decreased by increasing
+ the initiator threshold.
+ However going from a threshold of 1 to 3 only reduced the total number
+ of walkers by roughly 30 %.
+ This is still not satisfying since there is no way to know 
+\shape italic
+a priori
+\shape default
+ what the number of walkers on 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ is going to be.
+ The cost of the calculation cannot be known before running it; for this
+ reason we describe hereafter a way to control the population on replica
+ 1 independently from the initiator threshold.
+\end_layout
+
+\begin_layout Standard
+In Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ps1equ"
+
+\end_inset
+
+ it can be seen that 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ scales linearly with the perturbation 
+\begin_inset Formula $\hat{V}$
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Vrai? ask Sandeep
+\end_layout
+
+\end_inset
+
+.
+ 
+\color blue
+We start by making the assumption that the number of walkers on 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ also depends linearly on the perturbation
+\color inherit
+ and thus scale down the perturbation by a real prefactor 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, that is typically small.
+ This is done in practice by multiplying the matrix elements 
+\begin_inset Formula $H_{ij}$
+\end_inset
+
+ by this factor when the spawning probability from a determinant 
+\begin_inset Formula $\Ket{D_{i}}$
+\end_inset
+
+ on 
+\begin_inset Formula ${\cal H}_{0}$
+\end_inset
+
+ to a determinant 
+\begin_inset Formula $\Ket{D_{i}}$
+\end_inset
+
+ on 
+\begin_inset Formula ${\cal H}_{1}$
+\end_inset
+
+ is computed.
+ This allows us to tune more easily the total number of walkers on replica,
+ also the relation between the value of the plateau and the 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ remains unknown.
+ The number of walkers does not strictly scales linearly with the value
+ of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ 
+\color blue
+because of the offdiagonal spawning in replica 1
+\color inherit
+ and because of the initiator approximation.
+ To circumvent this problem we implemented a dynamic updating of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ in order to reach a target number of walker on 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+.
+ The simulation is started with a small 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, typically 
+\begin_inset Formula $10^{-2}$
+\end_inset
+
+ ; after the a few thousand step of equilibration, if the number of walkers
+ on replica 1 is not included within a 3% treshold of the target, we update
+ alpha to a new value 
+\begin_inset Formula $\alpha^{\prime}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\alpha^{\prime}=\alpha\left(\gamma+(1-\gamma)\frac{N_{t}}{N}\right)
+\end{equation}
+
+\end_inset
+
+, where 
+\begin_inset Formula $N_{t}$
+\end_inset
+
+ is the target number of walkers, 
+\begin_inset Formula $N$
+\end_inset
+
+ is the current number of walkers, and 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is a dumping parameter to prevent too drastic a change of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ We use typically 
+\begin_inset Formula $\gamma=0.5$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Having implemented this way of controlling the population in replica 1 we
+ now will study the influence of the number of walkers used to sample the
+ response function on the second order energy.
+ The second order correction energy is expressed as 
+\begin_inset Formula 
+\begin{equation}
+E_{2}=\frac{\Braket{\Psi_{0}|\hat{V}|\Psi_{1}}}{\Braket{\Psi_{0}|\Psi_{0}}}=\frac{\sum_{i\in{\cal H}_{0}}\sum_{j\in{\cal H}_{1}}c_{i}c_{j}\Braket{D_{i}|\hat{V}|D_{j}}}{\sum_{i\in{\cal H}_{0}}ci^{2}}.
+\end{equation}
+
+\end_inset
+
+In the FCIQMC framework this can be rewritten as a function of the walker
+ population on each determinants involved.
+ In the LCC pertrubation theory 
+\begin_inset Formula $\Braket{D_{i}|\hat{V}|D_{j}}=\Braket{D_{i}|\hat{H}|D_{j}}=H_{ij}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+E_{2}\approx\left\langle \tilde{E}_{2}\right\rangle =\frac{\Braket{\Psi_{0}|\hat{V}|\Psi_{1}}}{\Braket{\Psi_{0}|\Psi_{0}}}=\frac{\left\langle \sum_{i\in{\cal H}_{0}}\sum_{j\in{\cal H}_{1}}N_{i}N_{j}H_{ij}\right\rangle }{\left\langle \sum_{i\in{\cal H}_{0}}N_{i}^{2}\right\rangle }=\frac{\left\langle \sum_{j\in{\cal H}_{1}}N_{j}\left[\sum_{i\in{\cal H}_{0}}N_{i}H_{ij}\right]\right\rangle }{\left\langle \sum_{i\in{\cal H}_{0}}N_{i}^{2}\right\rangle },\label{eq:E2}
+\end{equation}
+
+\end_inset
+
+
+\color black
+where 
+\begin_inset Formula $\left\langle .\right\rangle $
+\end_inset
+
+ denotes the average over multiple timesteps and 
+\begin_inset Formula $\tilde{E}_{2}$
+\end_inset
+
+ is second order energy computed with the instantaneous population in the
+ two replica.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\color black
+In principle we could exactly compute 
+\begin_inset Formula $\tilde{E}_{2}$
+\end_inset
+
+ by finding all the connections between determinants belonging to 
+\begin_inset Formula ${\cal H}_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula ${\cal H}_{1}$
+\end_inset
+
+ but this is prohibitive.
+ Instead the connection are found
+\color inherit
+ through the spawning process, this strategy has already been used for the
+ calculation of reduced density matrices
+\begin_inset CommandInset citation
+LatexCommand cite
+key "overy_unbiased_2014"
+
+\end_inset
+
+.
+ When a successful spawning from a determinant 
+\begin_inset Formula $\Ket{D_{i}}$
+\end_inset
+
+ in replica 0 to a determinant 
+\begin_inset Formula $\Ket{D_{j}}$
+\end_inset
+
+ in replica 1 occurs, the product of the matrix element and of the number
+ of walkers on 
+\begin_inset Formula $\Ket{D_{i}}$
+\end_inset
+
+, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $N_{i}H_{ij}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ is communicated along the spawned walker to the processor holding the child
+ determinant 
+\begin_inset Formula $\Ket{D_{j}}$
+\end_inset
+
+.
+ Once all the spawning attempt have been done, the processor that keep track
+ of the 
+\begin_inset Formula $\Ket{Dj}$
+\end_inset
+
+ walkers population will also contains all the 
+\begin_inset Formula $N_{i}H_{ij}$
+\end_inset
+
+ contribution from all the determinants that spawned to 
+\begin_inset Formula $\Ket{Dj}$
+\end_inset
+
+ this iteration.
+ This strategy does not cause any noticeable increase of the computational
+ cost.
+ As the contribution of a 
+\begin_inset Formula $\Ket{D_{i}},\Ket{D_{j}}$
+\end_inset
+
+ pair of determinants to the 
+\begin_inset Formula $E_{2}$
+\end_inset
+
+ energy is only taken into account when a successful spawning step is actually
+ happening this contribution should be rescaled by the normalized probability
+ of spawning at least one child (of any weight) onto 
+\begin_inset Formula $\Ket{D_{j}}$
+\end_inset
+
+ from 
+\begin_inset Formula $\Ket{D_{i}}$
+\end_inset
+
+ during the current iteration.
+ More details on how to compute this probability can be found in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "overy_unbiased_2014"
+
+\end_inset
+
+.
+ To avoid double counting of 
+\begin_inset Formula $C_{i}C_{j}$
+\end_inset
+
+ contribution, it is necessary to carefully check for the rare but still
+ possible case of multiple spawning from the same determinant 
+\begin_inset Formula $\Ket{D_{i}}$
+\end_inset
+
+ to the same determinant 
+\begin_inset Formula $\Ket{D_{j}}$
+\end_inset
+
+.
+ Thus the 
+\begin_inset Formula $N_{i}H_{ij}$
+\end_inset
+
+ contribution is only communicated to the processor holding 
+\begin_inset Formula $\Ket{D_{j}}$
+\end_inset
+
+ in the first occurrence of such an event.
+
+\color red
+ 
+\end_layout
+
+\begin_layout Standard
+
+\color black
+An additional difficulty comes from the computation of the denominator of
+ Eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:E2"
+
+\end_inset
+
+.
+ If we just take the square of the number of walkers on a determinant in
+ replica 0, a bias is introduced because 
+\begin_inset Formula $\left\langle N_{i}\right\rangle \left\langle N_{i}\right\rangle \neq\left\langle N_{i}^{2}\right\rangle $
+\end_inset
+
+, the square of the instantaneous value of the walker population is correlated.
+ In the RDM computation this particular problem of the normalization was
+ circumvent by using the trace condition to normalize RDM 
+\shape italic
+a posteriori
+\shape default
+.
+ There is no such relation to unbias the measure of the norm of 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ here, instead we use a replica trick.
+ This requires the additon a third replica, labeled 
+\begin_inset Formula $0^{\prime}$
+\end_inset
+
+ that is also sampling the zero order wavefunction.
+ Because the two replica 
+\begin_inset Formula $0$
+\end_inset
+
+ and 
+\begin_inset Formula $0^{\prime}$
+\end_inset
+
+ are uncorrelated we can have an unbiased measure of the norm of 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ by 
+\begin_inset Formula $\Braket{\Psi_{0}^{(0)}|\Psi_{0}^{(0^{\prime})}}=\sum_{i\in{\cal H}_{0}}N_{i}^{(0)}N_{i}^{(0^{\prime})}$
+\end_inset
+
+.
+
+\color inherit
+ Finally, it is necessary to rescale the 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ function by the 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ factor to compute the 
+\begin_inset Formula $E_{2}$
+\end_inset
+
+ energy.
+ 
+\end_layout
+
+\begin_layout Standard
+With this efficient way of computing the second order energy, we can go
+ back to the example of Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig1:swalknum"
+
+\end_inset
+
+ and examine how the estimation of 
+\begin_inset Formula $E_{2}$
+\end_inset
+
+ converge with the initiator approximation.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig/E2withseveralinit.pdf
+	width 40text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Computation of the E2 energy with the iniator approximation value, 0 correspindi
+ng to no initaitor approximation.
+ The insight show the E2 energy with the number of walkers on replica 1,
+ wich is indirectly controlled by the initiator criterium
+\begin_inset CommandInset label
+LatexCommand label
+name "fig1:E2withwalk"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig1:compinit-alpha"
+
+\end_inset
+
+ we plotted the second order energy for the Carbon dimer with the cc-pVQZ
+ basis computed with the QMC-LCC framework.
+ The black line correspond to the simulations presented in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig1:swalknum"
+
+\end_inset
+
+ i.e.
+ 50k walkers and a initiator threshold of 3 in replica 0 and an initiator
+ criterion of 1, 3 and no initiator approximation for the first order response
+ function.
+ It can be seen that without approximation, the computed energy is in agreement
+ with the one computed using MPS-LCC, shown in blue for reference.
+ When the initiator approximation is used, we obtain a second order energy
+ that is slightly higher than the correct one.
+ However the estimation remains quite good since the error in the energy
+ is lower than 1 
+\begin_inset Formula $mE_{H}$
+\end_inset
+
+ with the two criteria used here.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig/fig3.pdf
+	width 80text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison of the E2 energy with respect to the number of walkers.
+ The black curve is obtained by setting the initiator threshold to different
+ values, respectively 3,1 and no initiator threshold.
+ The blue curve is obtained by setting the initiator threshold to 1 and
+ controlling the number of walkers on 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ by using the 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ controlling parameter.
+ For comparison purpose, the value obtained using DMRG is in red.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig1:compinit-alpha"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig1:compinit-alpha"
+
+\end_inset
+
+, the blue curve is obtained with an initiator threshold of 1 and different
+ values of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ to constrained the number of walkers.
+ The most interesting feature is that, for the same number of walkers on
+ 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ it seems to be better to actually set a smaller initiator threshold and
+ to use the 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ trick than increasing the initiator threshold.
+ For instance for roughly 1M walkers the value obtained with initiator threshold
+ of 1 and an 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ value of 
+\begin_inset Formula $\approx0.73$
+\end_inset
+
+ is 0.16 
+\begin_inset Formula $mE_{H}$
+\end_inset
+
+ lower than the one obtained by using an initiator of 3.
+\end_layout
+
+\begin_layout Standard
+In order to improve further the efficiency of our implementation, we notice
+ that the 
+\begin_inset Formula ${\cal H}_{1}$
+\end_inset
+
+ space can be split as the orthogonal sum of 8 smaller subspaces corresponding
+ to the 8 subclasses of excitation defined by Malrieu and collaborators
+\begin_inset CommandInset citation
+LatexCommand cite
+key "angeli_introduction_2001,angeli_n-electron_2002"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{equation}
+{\cal H}_{1}={\cal H}_{\left(-2,2,0\right)}\bigoplus{\cal H}_{\left(0,-2,2\right)}\bigoplus{\cal H}_{\left(-2,1,1\right)}\bigoplus{\cal H}_{\left(-2,0,2\right)}\bigoplus{\cal H}_{\left(-1,1,0\right)}\bigoplus{\cal H}_{\left(-1,0,1\right)}\bigoplus{\cal H}_{\left(-1,-1,2\right)}\bigoplus{\cal H}_{\left(0,-1,1\right)},\label{eq:H1=Sum_H}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where the subscript described the change in number of electrons in the core,
+ active and virtual space with respect the 
+\begin_inset Formula ${\cal H}_{0}$
+\end_inset
+
+ determinants.
+ To each of this subspace correspond a subclass of excitation that we can
+ denote 
+\begin_inset Formula $\hat{V}_{(a,b,c)}$
+\end_inset
+
+, connecting 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ to an 
+\begin_inset Formula ${\cal H}_{(a,b,c)}$
+\end_inset
+
+ subspace.
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $\hat{H}_{0}$
+\end_inset
+
+ is applied to a determinant belonging to one of those subspaces, the generated
+ determinants also belong to this subspace.
+ This means that during the dynamic, there are no interactions between walkers
+ belonging to 2 different subclasses.
+ Instead of running a single calculation by applying the full 
+\begin_inset Formula $\hat{V}$
+\end_inset
+
+ to 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ it is possible to run 8 independent simpler calculations using each of
+ 8 different classes of excitations 
+\begin_inset Formula $\hat{V}_{(a,b,c)}$
+\end_inset
+
+ and finally sum up the 8 different second order energies obtained.
+\end_layout
+
+\begin_layout Section
+Results
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Results"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The LCC-QMC method proposed here has been applied to several organic molecules.
+ First we look at the behavior of the method with respect to the size of
+ the inactive space by computing the 
+\begin_inset Formula $E_{2}$
+\end_inset
+
+ energy for the 
+\begin_inset Formula $C_{2}$
+\end_inset
+
+ molecule with different basis set.
+ In each case the active space consist of the valence orbitals of the molecule
+ which correspond to a (8,8) CAS.
+ In addition to the CAS, there are 2 core orbitals and 16, 50 and 100 virtual
+ orbitals respectively in the cc-pVDZ, cc-pVTZ and cc-pVQZ basis sets used
+ here.
+ The CASSCF orbitals have been generated using the Molpro quantum chemistry
+ package
+\begin_inset CommandInset citation
+LatexCommand cite
+key "werner_molpro:_2012"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We used 50k walkers and an initiator threshold of 3 in replica 0, this threshold
+ is set to 1 in replica 1.
+ The response wavefunction is sampled by applying the full 
+\begin_inset Formula $\hat{V}$
+\end_inset
+
+ operator to the 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ wavefunction.
+\end_layout
+
+\begin_layout Standard
+To investigate how the cost of the response scale with the size of the inactive
+ space, we increase the number of walkers in replica 1 until the computed
+ value of 
+\begin_inset Formula $E_{2}$
+\end_inset
+
+ agrees within 
+\begin_inset Formula $1\ mE_{H}$
+\end_inset
+
+ with the same quantity computed deterministically with MPS-LCC using the
+ Block code
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sharma_spin-adapted_2012"
+
+\end_inset
+
+.
+ The Required number of walkers are represented in Fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig1:enerc2basus"
+
+\end_inset
+
+.
+ From this curve it can be seen that the number of walkers on 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ necessary to reach a 
+\begin_inset Formula $mE_{H}$
+\end_inset
+
+ precision scales roughly as the square of the number of inactive orbitals.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig/fig4.pdf
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison of the number of walkers that is necessary to use on replica
+ 1 to reach a value within 
+\begin_inset Formula $1\ mE_{H}$
+\end_inset
+
+ for 
+\begin_inset Formula $E_{2}$
+\end_inset
+
+ with respect to the energy computed by MPS-LCC used as reference.
+ In all case the CAS space is (8,8), the three different basis set used
+ are cc-pVDZ with 20 inactive orbitals, cc-pVTZ with 52 inactive orbitals
+ and cc-pVQZ with 102 inactive orbitals.
+ The dotted line is here for eyes guidance.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig1:enerc2basus"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To test the applicability of the method, we now turn our attention to the
+ computation of benzene singlet-triplet gap.
+ 
+\end_layout
+
+\begin_layout Standard
+We used the same geometry than Roos et al
+\begin_inset CommandInset citation
+LatexCommand cite
+key "matos_casscfcci_1987,roos_towards_1992"
+
+\end_inset
+
+, i.e.
+ C-C and C-H bond lengths of 1.395 
+\begin_inset Formula $\textrm{Å}$
+\end_inset
+
+ and 1.085 
+\begin_inset Formula $\textrm{Å}$
+\end_inset
+
+ and an hexagonal symmetry, for the singlet ground state and triplet excited
+ state .
+ The ground state of the benzene molecule is singlet 
+\begin_inset Formula $^{1}A_{1g}$
+\end_inset
+
+, and we target the lower excited triplet of symmetry 
+\begin_inset Formula $^{3}E_{1u}$
+\end_inset
+
+.
+ We used the Dunning cc-pVDZ basis set, the active space contains 6 electrons
+ and the six valence 
+\begin_inset Formula $\pi$
+\end_inset
+
+ orbitals extended with the six second shell 
+\begin_inset Formula $\pi$
+\end_inset
+
+ orbitals.
+ We used CASSCF orbitals generated using Molpro.
+\end_layout
+
+\begin_layout Standard
+For the 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ CASCI wavefunction we used an initiator threshold of 3 and 100k walkers.
+ In order to make the calculation more tractable, we run 8 subcalculations
+ corresponding to each of the orthogonal classes of excitation 
+\begin_inset Formula $\hat{V}_{(a,b,c)}$
+\end_inset
+
+.
+ The initiator threshold on 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ is set to 1.5.
+ We start by using 100k walkers for each first order function, but to test
+ the applicability of the methods, this number has been increased until
+ the second order energy agrees with a precision of 1 
+\begin_inset Formula $mE_{h}$
+\end_inset
+
+ with the one predicted deterministicaly by LCC-MPS.
+ The values obtained for the second order energies for the different classes
+ and the number of walkers it was necessary to use on 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ to obtain these values are specified in Table.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:-energies-benz"
+
+\end_inset
+
+.
+ The 
+\begin_inset Formula $\left(-1,1,0\right)$
+\end_inset
+
+ class is not contributing since it has no overlap with the 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ wavefunction for spatial orbital symmetry reasons.
+\end_layout
+
+\begin_layout Standard
+We can see by looking at this table that the classes of excitations are
+ not equivalent in terms of the number of walkers necessary to converge.
+ The classes involving virtual orbitals require more walkers to reduce the
+ initiator error.
+ In particular the 
+\begin_inset Formula $\left(-2,0,2\right)$
+\end_inset
+
+ class is particularly difficult, this is understandable since in this case
+ this the class containing the biggest number of determinants
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+, however it remains manageable to treat with the method proposed here
+\end_layout
+
+\end_inset
+
+.
+ Considering the Singlet-Triplet gap, the CASSCF value is equals to 4.97
+ eV while it is reduced to 4.88 eV when the LCC correction is used, the experimen
+tal value determined by electron-impact spectroscopy is 4.76 eV
+\begin_inset CommandInset citation
+LatexCommand cite
+key "doering_lowenergy_1969"
+
+\end_inset
+
+.
+ We also computed the singlet-triplet gap with CASPT2 where internal contraction
+ is used only for the subspaces requiring at most the knowledge of the second
+ order reduced density matrix while the other subspaces are left uncontracted
+ and NEVPT2 strongly contracted using Molpro, we obtained an difference
+ of 4.65 eV and 5.03 eV respectively.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="12" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Singlet
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Triplet
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Class
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $E_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Walkers number
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $E_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Walkers number
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-2,2,0\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.02025 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500 000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.01167 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500 000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(0,-2,2\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.01716
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500 000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.01681
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500 000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-2,1,1\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.03330
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000 000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.03558
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000 000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-2,0,2\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.46096 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10 000 000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.46706
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10 000 000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-1,1,0\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ 0.00000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ 0.00000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-1,0,1\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ -0.21671
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000 000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.20215
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000 000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-1,-1,2\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.08402
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000 000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ -0.09871
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5000 000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(0,-1,1\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ -0.00669
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500 000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ -0.00680
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500 000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CASCI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-230.8070
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-230.6244
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CASCI+LCC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-231.6461
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-231.4667
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $E_{2}$
+\end_inset
+
+ energies in 
+\begin_inset Formula $E_{H}$
+\end_inset
+
+ for the 8 different classes of excitation for the singlet (left) and triplet
+ (right) predicted by MPS-LCC and LCC-QMC.
+ Next to each value is the number of walkers necessary to get this number
+ with the method described in this article.
+ The 
+\begin_inset Formula $\left(-1,1,0\right)$
+\end_inset
+
+ class has no overlap with 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+ because the excitation are forbidden by symmetry.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:-energies-benz"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We then turned our attention to the computation of the triplet-singlet gap
+ in the m-xylylene diradical.
+ The study of radical organic species and the prediction of their spin propertie
+s is of interest because of potential application in the developement of
+ molecule-based magnetic materials
+\begin_inset CommandInset citation
+LatexCommand cite
+key "miller_organic_1994"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The key parameter for such application is the triplet-singet gap, thus some
+ effort have been done in order to tune this parameter.
+ Along the experiments it is interesting to predict the value of this singlet
+ triplet gap to guide the synthesis of new promising molecules.
+\end_layout
+
+\begin_layout Standard
+Among the different organic diradicals, the m-xylylene has been used quite
+ often as a benchmark system since it is rather stable and quite well characteri
+zed experimentally.
+ The molecule belong to 
+\begin_inset Formula $C_{2v}$
+\end_inset
+
+ point group, the ground state has been proved to be a triplet by using
+ EPR
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wright_electron_1983"
+
+\end_inset
+
+, and it has electronic state 
+\begin_inset Formula $^{3}B_{2}$
+\end_inset
+
+.
+ It has been shown by using NIPES that the lowest lying excited state is
+ 
+\begin_inset Formula $^{1}A_{1}$
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wenthold_photoelectron_1997"
+
+\end_inset
+
+.
+ This system has been quite extensively studied numerically.
+ For instance Mañeru 
+\shape italic
+et al
+\shape default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "reta_maneru_tripletsinglet_2014"
+
+\end_inset
+
+
+\shape italic
+ 
+\shape default
+carried an extensive study with DFT and several wavefunction methods exploring
+ the effect of the geometries and of the basis set on the predicted gap.
+ They found that the choice of the basis set have low influence on the predicted
+ gap, however as expected the value of the gap is highly dependent of the
+ choice of the functional.
+ On the other hand, all the different wavefunctions methods they used tends
+ to overestimate the singlet triplet gap.
+ Even with more sophisticated basis set their predicted value of the singlet-tri
+plet gap remains quite close to the value of 4092 
+\begin_inset Formula $cm^{-1}$
+\end_inset
+
+ previously predicted by Hrovat et al using a CAS-PT2 calculation with a
+ CAS (8,8) and 6-31g* basis set
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hrovat_effects_1998"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+As the authors states 
+\begin_inset Quotes eld
+\end_inset
+
+the difficulty of the wave function-based methods in describing the triplet−sing
+let gap arises quite unequivocally from dynamical correlation
+\begin_inset Quotes erd
+\end_inset
+
+.
+ They proposed to extend the CAS space as a way to recover the dynamical
+ correlation is improperly taken account, however as they correctly stated
+ this will make the calculation computationally challenging.
+\end_layout
+
+\begin_layout Standard
+As an alternative we decided to examine how a better treatment of dynamical
+ correlation by using the LCC multireference perturbation theory with the
+ same CAS space would improve the prediction of the singlet-triplet gap.
+ We used the equilibrium geometries optimized at the CASSCF(8,8)/6-311++g**
+ level given in supporting information of Mañeru et al, for both the singlet
+ and the triplet.
+ We used the same basis set to run a CASSCF(8,8) calculation to generate
+ the 2 and 4 indexes integrals files with the Molpro quantum package.
+ We computed the 
+\begin_inset Formula $E_{2}$
+\end_inset
+
+ energies for the 8 classes with MPS-LCC using internal contraction as a
+ reference.
+ We start by using a procedure similar to the one used with the benzene
+ molecule which is setting the iniator criteria to 1.5 in for the first order
+ response functions and progressively increasing the number of walker sample
+ it.
+ However except for the two classes 
+\begin_inset Formula $\left(-2,2,0\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(0,-1,1\right)$
+\end_inset
+
+ this procedure has failed, since the obtained value where much higher than
+ the one predicted by MPS-LCC.
+ We thus decided to run calculation with a initiator criterium of 1 and
+ no control of the population i.e an 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ factor of 1.
+ The number obtained and the number of walkers reached on replica 1 are
+ given in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:-energies-xyl"
+
+\end_inset
+
+.
+ With this procedure the obtained number are in agreement with the MPS-LCC
+ results, there are usually a bit more negative since this is a fully uncontract
+ed technique.
+ However this approach is not really practical since the number of walkers
+ reached on 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ is generally huge, making the calculation extremely costly.
+ Moreover in the case of the 
+\begin_inset Formula $\left(-2,0,2\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(-1,-1,2\right)$
+\end_inset
+
+ classes it was not possible to do the calculation.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="12" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Singlet
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Triplet
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Class
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $E_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Walkers number
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $E_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Walkers number
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-2,2,0\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.00625 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500 000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.00630
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500 000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(0,-2,2\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.0324
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+36 000 000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.0319
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+650 000 000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-2,1,1\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.0438
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+50 000 000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.0437
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40 000 000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-2,0,2\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.46096 *
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.46706*
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-1,1,0\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ 0.00000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ 0.00000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-1,0,1\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ -0.182
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13 000 000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.180
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+88 000 000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(-1,-1,2\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-0.08402*
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ -0.09871*
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(0,-1,1\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ -0.0168
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500 000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ -0.0152
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500 000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CASCI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-230.8070
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-230.6244
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CASCI+LCC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-231.6461
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-231.4667
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $E_{2}$
+\end_inset
+
+ energies in 
+\begin_inset Formula $E_{H}$
+\end_inset
+
+ for the 8 different classes of excitations for the singlet (left) and triplet
+ (right) of the m-xylylene diradical predicted by LCC-QMC.
+ Next to each value is the number of walkers necessary to get this number
+ with the method described in this article.
+ It has not been possible to make the classes 
+\begin_inset Formula $\left(-2,0,2\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(-1,-1,2\right)$
+\end_inset
+
+ converge with LCC-QMC, the 
+\begin_inset Formula $E_{2}$
+\end_inset
+
+ labeled (*) are obtained with MPS-LCC using internal contraction 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:-energies-xyl"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we retains the values predicted by MPS-LCC for the classes where QMC-LCC
+ cannot be converged, we found a value of 3440 
+\begin_inset Formula $cm^{-1}$
+\end_inset
+
+ for the triplet-singlet gap of m-xylylene, a value that agrees well with
+ the experimental value 
+\begin_inset Formula $3358\pm70\ cm^{-1}$
+\end_inset
+
+.
+ This shows that using the MRLCC perturbation theory improves a lot the
+ description of the dynamical correlation for this system.
+\end_layout
+
+\begin_layout Standard
+Thus as Mañeru
+\shape italic
+ et al
+\shape default
+ stated, the problem in the description of the m-xylylene was a proper treatment
+ of the dynamical correlation.
+ However this problem is still out of reach for the fully uncontracted LCC-QMC,
+ this indicated clearly that to make LCC-QMC practical it would be necessary
+ to implement some internal contraction treatment of the perturbation classes.
+ However he fact that the most easy classes in the LCC-QMC approach is the
+ one that would require the 3 and 4-RDM to be computed with internal contraction
+ is encouraging.
+\end_layout
+
+\begin_layout Section
+Conclusions
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Conclusions"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this article we described a way to do CASCI+MRLCC calculation that is
+ completely stochastic.
+ The zero order wavefunction is computed with the FCIQMC approach, 
+\shape italic
+i.e
+\shape default
+ a population of signed walkers which is evolving thanks to a series of
+ stochastic rules, is sampling the CASCI wavefuntion and solving the zero
+ order Hamiltonian eigenproblem.
+ Simultaneously, a second population of walkers submitted to a different
+ set of stochastic process is sampling the first order wavefunction, by
+ finding the steady state of a differential equation.
+ The first order wavefunction being a function of the zero order one, we
+ include a source term in the population dynamic sampling 
+\begin_inset Formula $\Ket{\Psi_{1}}$
+\end_inset
+
+ that depend of the population in 
+\begin_inset Formula $\Ket{\Psi_{0}}$
+\end_inset
+
+, this requires spawning from one replica to the other, and this is the
+ main originality of the proposed algorithm.
+ We presented different strategy to make the use of this technique practicable,
+ some are directly adapted from the strategies proposed for FCIQMC, such
+ as the initiator approximation and the semi-stochastic approach.
+ We also proposed to scale the source term as a way to control the population
+ in the replica sampling the first order wavefunction.
+ Because the size of the CASCI and of the perturbation are quite different
+ it was also necessary to have different timesteps for the 0 to 0, 0 to
+ 1 and 1 to 1 spawning steps.
+ We illustrate the possibility of the proposed methods on several applications.
+ First we shows that this approach allows to recover the results computed
+ by the deterministic MPS-LCC method on the case of the 
+\begin_inset Formula $C_{2}$
+\end_inset
+
+ molecule.
+ This calculation shows that the cost of the calculation, linked to the
+ number of walkers, scale quadratically with the number of inactive orbitals.
+\end_layout
+
+\begin_layout Standard
+The computation of the singlet-triplet gap of the challenging m-xylylene
+ diradical with the proposed method confirmed the better performance of
+ the MRLCC perturbation theory with respect to the CASPT2 technique.
+ It has been possible to obtain a value of this gap that is in good agreement
+ with the experimental results while the CASPT2 approach using the same
+ active space overestimate this quantity by 20%.
+ However it has also been demonstrated that the proposed algorithm is still
+ not adapted to study such complicated systems since the class of excitation
+ involving two cores electrons and to virtuals holes cannot be computed
+ for the m-xylylene molecule.
+ This problem has been circumvent by computing those classes by using the
+ contracted MPS-LCC technique.
+ This point out the necessity to develop a similar contracted approach with
+ our fully stochastic procedure, this is currently under investigation.
+\end_layout
+
+\begin_layout Standard
+The LCC-QMC approach proposed here would allow to treat both large active
+ space and large inactive space; this associated with the recently demonstrated
+ possibility of using FCIQMC-CASSCF
+\begin_inset CommandInset citation
+LatexCommand cite
+key "li_manni_combining_2016"
+
+\end_inset
+
+ will allow to study systems that are currently out of reach.
+\end_layout
+
+\begin_layout Section*
+Acknowledgments
+\end_layout
+
+\begin_layout Standard
+The calculations made use of the facilities of the Max Planck Society’s
+ Rechenzentrum Garching.
+ We are grateful to Pr.
+ Illas and Dr.
+ Daniel Reta for providing us their equilibrium geometries for the m-xylylene
+ molecule.
+\end_layout
+
+\begin_layout Standard
+
+\lang french
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "biblioLCC"
+options "apsrev"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

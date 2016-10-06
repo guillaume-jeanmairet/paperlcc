@@ -1,0 +1,531 @@
+\begin{thebibliography}{54}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Beinert et~al.}(1997)\citenamefont{Beinert, Holm, and
+  Münck}}]{beinert_iron-sulfur_1997}
+\bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Beinert}},
+  \bibinfo{author}{\bibfnamefont{R.~H.} \bibnamefont{Holm}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Münck}},
+  \bibinfo{journal}{Science} \textbf{\bibinfo{volume}{277}},
+  \bibinfo{pages}{653} (\bibinfo{year}{1997}), ISSN \bibinfo{issn}{0036-8075,
+  1095-9203},
+  \urlprefix\url{http://science.sciencemag.org.ezproxy.fkf.mpg.de/content/277/5326/653}.
+
+\bibitem[{\citenamefont{Neese}(2006)}]{neese_critical_2006}
+\bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Neese}}, \bibinfo{journal}{JBIC
+  Journal of Biological Inorganic Chemistry} \textbf{\bibinfo{volume}{11}},
+  \bibinfo{pages}{702} (\bibinfo{year}{2006}), ISSN \bibinfo{issn}{0949-8257,
+  1432-1327},
+  \urlprefix\url{http://link.springer.com/article/10.1007/s00775-006-0138-1}.
+
+\bibitem[{\citenamefont{Rossi et~al.}(1999)\citenamefont{Rossi, Bendazzoli,
+  Evangelisti, and Maynau}}]{rossi_full-configuration_1999}
+\bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Rossi}},
+  \bibinfo{author}{\bibfnamefont{G.~L.} \bibnamefont{Bendazzoli}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Evangelisti}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Maynau}},
+  \bibinfo{journal}{Chemical Physics Letters} \textbf{\bibinfo{volume}{310}},
+  \bibinfo{pages}{530} (\bibinfo{year}{1999}), ISSN \bibinfo{issn}{0009-2614},
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0009261499007915}.
+
+\bibitem[{\citenamefont{Siegbahn et~al.}(1980)\citenamefont{Siegbahn, Heiberg,
+  Roos, and Levy}}]{siegbahn_comparison_1980}
+\bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Siegbahn}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Heiberg}},
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Roos}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Levy}},
+  \bibinfo{journal}{Physica Scripta} \textbf{\bibinfo{volume}{21}},
+  \bibinfo{pages}{323} (\bibinfo{year}{1980}), ISSN \bibinfo{issn}{1402-4896},
+  \urlprefix\url{http://iopscience.iop.org/1402-4896/21/3-4/014}.
+
+\bibitem[{\citenamefont{Roos et~al.}(1980)\citenamefont{Roos, Taylor, and
+  Siegbahn}}]{roos_complete_1980}
+\bibinfo{author}{\bibfnamefont{B.~O.} \bibnamefont{Roos}},
+  \bibinfo{author}{\bibfnamefont{P.~R.} \bibnamefont{Taylor}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{P.~E.~M.}
+  \bibnamefont{Siegbahn}}, \bibinfo{journal}{Chemical Physics}
+  \textbf{\bibinfo{volume}{48}}, \bibinfo{pages}{157} (\bibinfo{year}{1980}),
+  ISSN \bibinfo{issn}{0301-0104},
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/0301010480800450}.
+
+\bibitem[{\citenamefont{Siegbahn et~al.}(1981)\citenamefont{Siegbahn, Alml\"of,
+  Heiberg, and Roos}}]{siegbahn_complete_1981}
+\bibinfo{author}{\bibfnamefont{P.~E.~M.} \bibnamefont{Siegbahn}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Alml\"of}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Heiberg}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{B.~O.} \bibnamefont{Roos}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{74}}, \bibinfo{pages}{2384} (\bibinfo{year}{1981}),
+  ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/74/4/10.1063/1.441359}.
+
+\bibitem[{\citenamefont{Olsen et~al.}(1988)\citenamefont{Olsen, Roos,
+  J{\o}rgensen, and Jensen}}]{olsen_determinant_1988}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Olsen}},
+  \bibinfo{author}{\bibfnamefont{B.~O.} \bibnamefont{Roos}},
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{J{\o}rgensen}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{H.~J.~A.}
+  \bibnamefont{Jensen}}, \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{89}}, \bibinfo{pages}{2185} (\bibinfo{year}{1988}),
+  ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/89/4/10.1063/1.455063}.
+
+\bibitem[{\citenamefont{Malmqvist et~al.}(1990)\citenamefont{Malmqvist,
+  Rendell, and Roos}}]{malmqvist_restricted_1990}
+\bibinfo{author}{\bibfnamefont{P.~A.} \bibnamefont{Malmqvist}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Rendell}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{B.~O.} \bibnamefont{Roos}},
+  \bibinfo{journal}{The Journal of Physical Chemistry}
+  \textbf{\bibinfo{volume}{94}}, \bibinfo{pages}{5477} (\bibinfo{year}{1990}),
+  ISSN \bibinfo{issn}{0022-3654},
+  \urlprefix\url{http://dx.doi.org/10.1021/j100377a011}.
+
+\bibitem[{\citenamefont{Ma et~al.}(2011)\citenamefont{Ma, Manni, and
+  Gagliardi}}]{ma_generalized_2011}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Ma}},
+  \bibinfo{author}{\bibfnamefont{G.~L.} \bibnamefont{Manni}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Gagliardi}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{135}}, \bibinfo{pages}{044128}
+  (\bibinfo{year}{2011}), ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org/content/aip/journal/jcp/135/4/10.1063/1.3611401}.
+
+\bibitem[{\citenamefont{Li~Manni et~al.}(2013)\citenamefont{Li~Manni, Ma,
+  Aquilante, Olsen, and Gagliardi}}]{li_manni_splitgas_2013}
+\bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Li~Manni}},
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Ma}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Aquilante}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Olsen}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Gagliardi}},
+  \bibinfo{journal}{Journal of Chemical Theory and Computation}
+  \textbf{\bibinfo{volume}{9}}, \bibinfo{pages}{3375} (\bibinfo{year}{2013}),
+  ISSN \bibinfo{issn}{1549-9618},
+  \urlprefix\url{http://dx.doi.org/10.1021/ct400046n}.
+
+\bibitem[{\citenamefont{White}(1992)}]{white_density_1992}
+\bibinfo{author}{\bibfnamefont{S.~R.} \bibnamefont{White}},
+  \bibinfo{journal}{Physical Review Letters} \textbf{\bibinfo{volume}{69}},
+  \bibinfo{pages}{2863} (\bibinfo{year}{1992}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRevLett.69.2863}.
+
+\bibitem[{\citenamefont{White}(1993)}]{white_density-matrix_1993}
+\bibinfo{author}{\bibfnamefont{S.~R.} \bibnamefont{White}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{48}},
+  \bibinfo{pages}{10345} (\bibinfo{year}{1993}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRevB.48.10345}.
+
+\bibitem[{\citenamefont{White and Martin}(1999)}]{white_ab_1999}
+\bibinfo{author}{\bibfnamefont{S.~R.} \bibnamefont{White}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{R.~L.} \bibnamefont{Martin}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{110}}, \bibinfo{pages}{4127} (\bibinfo{year}{1999}),
+  ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/110/9/10.1063/1.478295}.
+
+\bibitem[{\citenamefont{Wouters et~al.}(2014)\citenamefont{Wouters, Poelmans,
+  Ayers, and Van~Neck}}]{wouters_chemps2:_2014}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Wouters}},
+  \bibinfo{author}{\bibfnamefont{W.}~\bibnamefont{Poelmans}},
+  \bibinfo{author}{\bibfnamefont{P.~W.} \bibnamefont{Ayers}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Van~Neck}},
+  \bibinfo{journal}{Computer Physics Communications}
+  \textbf{\bibinfo{volume}{185}}, \bibinfo{pages}{1501} (\bibinfo{year}{2014}),
+  ISSN \bibinfo{issn}{0010-4655},
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0010465514000496}.
+
+\bibitem[{\citenamefont{Zgid and Nooijen}(2008)}]{zgid_spin_2008}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Zgid}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Nooijen}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{128}}, \bibinfo{pages}{014107}
+  (\bibinfo{year}{2008}), ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/128/1/10.1063/1.2814150}.
+
+\bibitem[{\citenamefont{Moritz et~al.}(2005)\citenamefont{Moritz, Hess, and
+  Reiher}}]{moritz_convergence_2005}
+\bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Moritz}},
+  \bibinfo{author}{\bibfnamefont{B.~A.} \bibnamefont{Hess}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Reiher}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{122}}, \bibinfo{pages}{024107}
+  (\bibinfo{year}{2005}), ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/122/2/10.1063/1.1824891}.
+
+\bibitem[{\citenamefont{Legeza and S\'olyom}(2003)}]{legeza_optimizing_2003}
+\bibinfo{author}{\bibfnamefont{O.}~\bibnamefont{Legeza}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{S\'olyom}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{68}},
+  \bibinfo{pages}{195116} (\bibinfo{year}{2003}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRevB.68.195116}.
+
+\bibitem[{\citenamefont{Kurashige and
+  Yanai}(2009)}]{kurashige_high-performance_2009}
+\bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Kurashige}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Yanai}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{130}}, \bibinfo{pages}{234114}
+  (\bibinfo{year}{2009}), ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/130/23/10.1063/1.3152576}.
+
+\bibitem[{\citenamefont{Olivares-Amaya
+  et~al.}(2015)\citenamefont{Olivares-Amaya, Hu, Nakatani, Sharma, Yang, and
+  Chan}}]{olivares-amaya_ab-initio_2015}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Olivares-Amaya}},
+  \bibinfo{author}{\bibfnamefont{W.}~\bibnamefont{Hu}},
+  \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Nakatani}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Sharma}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Yang}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{G.~K.-L.} \bibnamefont{Chan}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{142}}, \bibinfo{pages}{034102}
+  (\bibinfo{year}{2015}), ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org/content/aip/journal/jcp/142/3/10.1063/1.4905329}.
+
+\bibitem[{\citenamefont{Booth et~al.}(2009)\citenamefont{Booth, Thom, and
+  Alavi}}]{booth_fermion_2009}
+\bibinfo{author}{\bibfnamefont{G.~H.} \bibnamefont{Booth}},
+  \bibinfo{author}{\bibfnamefont{A.~J.~W.} \bibnamefont{Thom}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Alavi}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{131}}, \bibinfo{pages}{054106}
+  (\bibinfo{year}{2009}), ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org/content/aip/journal/jcp/131/5/10.1063/1.3193710}.
+
+\bibitem[{\citenamefont{Cleland et~al.}(2012)\citenamefont{Cleland, Booth,
+  Overy, and Alavi}}]{cleland_taming_2012}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Cleland}},
+  \bibinfo{author}{\bibfnamefont{G.~H.} \bibnamefont{Booth}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Overy}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Alavi}},
+  \bibinfo{journal}{Journal of Chemical Theory and Computation}
+  \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{4138} (\bibinfo{year}{2012}),
+  ISSN \bibinfo{issn}{1549-9618},
+  \urlprefix\url{http://dx.doi.org/10.1021/ct300504f}.
+
+\bibitem[{\citenamefont{Booth et~al.}(2013)\citenamefont{Booth, Smart, and
+  Alavi}}]{booth_linear-scaling_2013}
+\bibinfo{author}{\bibfnamefont{G.~H.} \bibnamefont{Booth}},
+  \bibinfo{author}{\bibfnamefont{S.~D.} \bibnamefont{Smart}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Alavi}},
+  \bibinfo{journal}{arXiv:1305.6981 [cond-mat, physics:physics]}
+  (\bibinfo{year}{2013}), \bibinfo{note}{arXiv: 1305.6981},
+  \urlprefix\url{http://arxiv.org/abs/1305.6981}.
+
+\bibitem[{boo(2013)}]{booth_towards_2013}
+\bibinfo{journal}{Nature} \textbf{\bibinfo{volume}{493}}, \bibinfo{pages}{365}
+  (\bibinfo{year}{2013}), ISSN \bibinfo{issn}{0028-0836},
+  \urlprefix\url{http://www.nature.com/nature/journal/v493/n7432/abs/nature11770.html}.
+
+\bibitem[{\citenamefont{Petruzielo et~al.}(2012)\citenamefont{Petruzielo,
+  Holmes, Changlani, Nightingale, and
+  Umrigar}}]{petruzielo_semistochastic_2012}
+\bibinfo{author}{\bibfnamefont{F.~R.} \bibnamefont{Petruzielo}},
+  \bibinfo{author}{\bibfnamefont{A.~A.} \bibnamefont{Holmes}},
+  \bibinfo{author}{\bibfnamefont{H.~J.} \bibnamefont{Changlani}},
+  \bibinfo{author}{\bibfnamefont{M.~P.} \bibnamefont{Nightingale}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{C.~J.}
+  \bibnamefont{Umrigar}}, \bibinfo{journal}{Physical Review Letters}
+  \textbf{\bibinfo{volume}{109}}, \bibinfo{pages}{230201}
+  (\bibinfo{year}{2012}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRevLett.109.230201}.
+
+\bibitem[{\citenamefont{Andersson et~al.}(1990)\citenamefont{Andersson,
+  Malmqvist, Roos, Sadlej, and Wolinski}}]{andersson_second-order_1990}
+\bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Andersson}},
+  \bibinfo{author}{\bibfnamefont{P.~A.} \bibnamefont{Malmqvist}},
+  \bibinfo{author}{\bibfnamefont{B.~O.} \bibnamefont{Roos}},
+  \bibinfo{author}{\bibfnamefont{A.~J.} \bibnamefont{Sadlej}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Wolinski}},
+  \bibinfo{journal}{The Journal of Physical Chemistry}
+  \textbf{\bibinfo{volume}{94}}, \bibinfo{pages}{5483} (\bibinfo{year}{1990}),
+  ISSN \bibinfo{issn}{0022-3654},
+  \urlprefix\url{http://dx.doi.org/10.1021/j100377a012}.
+
+\bibitem[{\citenamefont{Andersson et~al.}(1992)\citenamefont{Andersson,
+  Malmqvist, and Roos}}]{andersson_secondorder_1992}
+\bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Andersson}},
+  \bibinfo{author}{\bibfnamefont{P.-A.} \bibnamefont{Malmqvist}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{B.~O.} \bibnamefont{Roos}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{96}}, \bibinfo{pages}{1218} (\bibinfo{year}{1992}),
+  ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/96/2/10.1063/1.462209}.
+
+\bibitem[{\citenamefont{Angeli et~al.}(2001)\citenamefont{Angeli, Cimiraglia,
+  Evangelisti, Leininger, and Malrieu}}]{angeli_introduction_2001}
+\bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Angeli}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Cimiraglia}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Evangelisti}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Leininger}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.-P.}
+  \bibnamefont{Malrieu}}, \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{114}}, \bibinfo{pages}{10252}
+  (\bibinfo{year}{2001}), ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org/content/aip/journal/jcp/114/23/10.1063/1.1361246}.
+
+\bibitem[{\citenamefont{Angeli et~al.}(2002)\citenamefont{Angeli, Cimiraglia,
+  and Malrieu}}]{angeli_n-electron_2002}
+\bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Angeli}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Cimiraglia}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.-P.}
+  \bibnamefont{Malrieu}}, \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{117}}, \bibinfo{pages}{9138} (\bibinfo{year}{2002}),
+  ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org/content/aip/journal/jcp/117/20/10.1063/1.1515317}.
+
+\bibitem[{\citenamefont{Sharma and Alavi}(2015)}]{sharma_multireference_2015}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Sharma}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Alavi}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{143}}, \bibinfo{pages}{102815}
+  (\bibinfo{year}{2015}), ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org/content/aip/journal/jcp/143/10/10.1063/1.4928643}.
+
+\bibitem[{\citenamefont{Ma et~al.}(2016)\citenamefont{Ma, Li~Manni, Olsen, and
+  Gagliardi}}]{ma_second-order_2016}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Ma}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Li~Manni}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Olsen}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Gagliardi}},
+  \bibinfo{journal}{Journal of Chemical Theory and Computation}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{3208} (\bibinfo{year}{2016}),
+  ISSN \bibinfo{issn}{1549-9618},
+  \urlprefix\url{http://dx.doi.org/10.1021/acs.jctc.6b00382}.
+
+\bibitem[{\citenamefont{Willow et~al.}(2012)\citenamefont{Willow, Kim, and
+  Hirata}}]{willow_stochastic_2012}
+\bibinfo{author}{\bibfnamefont{S.~Y.} \bibnamefont{Willow}},
+  \bibinfo{author}{\bibfnamefont{K.~S.} \bibnamefont{Kim}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Hirata}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{137}}, \bibinfo{pages}{204122}
+  (\bibinfo{year}{2012}), ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/137/20/10.1063/1.4768697}.
+
+\bibitem[{\citenamefont{Willow et~al.}(2013{\natexlab{a}})\citenamefont{Willow,
+  Hermes, Kim, and Hirata}}]{willow_convergence_2013}
+\bibinfo{author}{\bibfnamefont{S.~Y.} \bibnamefont{Willow}},
+  \bibinfo{author}{\bibfnamefont{M.~R.} \bibnamefont{Hermes}},
+  \bibinfo{author}{\bibfnamefont{K.~S.} \bibnamefont{Kim}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Hirata}},
+  \bibinfo{journal}{Journal of Chemical Theory and Computation}
+  \textbf{\bibinfo{volume}{9}}, \bibinfo{pages}{4396}
+  (\bibinfo{year}{2013}{\natexlab{a}}), ISSN \bibinfo{issn}{1549-9618},
+  \urlprefix\url{http://dx.doi.org/10.1021/ct400557z}.
+
+\bibitem[{\citenamefont{Willow et~al.}(2013{\natexlab{b}})\citenamefont{Willow,
+  Kim, and Hirata}}]{willow_stochastic_2013}
+\bibinfo{author}{\bibfnamefont{S.~Y.} \bibnamefont{Willow}},
+  \bibinfo{author}{\bibfnamefont{K.~S.} \bibnamefont{Kim}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Hirata}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{138}}, \bibinfo{pages}{164111}
+  (\bibinfo{year}{2013}{\natexlab{b}}), ISSN \bibinfo{issn}{0021-9606,
+  1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/138/16/10.1063/1.4801862}.
+
+\bibitem[{\citenamefont{Thom and Alavi}(2007)}]{thom_stochastic_2007}
+\bibinfo{author}{\bibfnamefont{A.~J.~W.} \bibnamefont{Thom}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Alavi}},
+  \bibinfo{journal}{Physical Review Letters} \textbf{\bibinfo{volume}{99}},
+  \bibinfo{pages}{143001} (\bibinfo{year}{2007}),
+  \urlprefix\url{http://link.aps.org/doi/10.1103/PhysRevLett.99.143001}.
+
+\bibitem[{\citenamefont{Helgaker et~al.}(2000)\citenamefont{Helgaker,
+  J{\o}rgensen, and Olsen}}]{helhaker_2014}
+\bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Helgaker}},
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{J{\o}rgensen}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Olsen}},
+  \emph{\bibinfo{title}{Molecular electronic-structure theory}}
+  (\bibinfo{publisher}{John Wiley \& Sons}, \bibinfo{address}{Chichster},
+  \bibinfo{year}{2000}).
+
+\bibitem[{\citenamefont{Matos et~al.}(1987)\citenamefont{Matos, Roos, and
+  Malmqvist}}]{matos_casscfcci_1987}
+\bibinfo{author}{\bibfnamefont{J.~M.~O.} \bibnamefont{Matos}},
+  \bibinfo{author}{\bibfnamefont{B.~O.} \bibnamefont{Roos}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{P.-A.} \bibnamefont{Malmqvist}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{86}}, \bibinfo{pages}{1458} (\bibinfo{year}{1987}),
+  ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/86/3/10.1063/1.452235}.
+
+\bibitem[{\citenamefont{Dyall}(1995)}]{dyall_choice_1995}
+\bibinfo{author}{\bibfnamefont{K.~G.} \bibnamefont{Dyall}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{102}}, \bibinfo{pages}{4909} (\bibinfo{year}{1995}),
+  ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org/content/aip/journal/jcp/102/12/10.1063/1.469539}.
+
+\bibitem[{\citenamefont{Fink}(2006)}]{fink_two_2006}
+\bibinfo{author}{\bibfnamefont{R.~F.} \bibnamefont{Fink}},
+  \bibinfo{journal}{Chemical Physics Letters} \textbf{\bibinfo{volume}{428}},
+  \bibinfo{pages}{461} (\bibinfo{year}{2006}), ISSN \bibinfo{issn}{0009-2614},
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0009261406011043}.
+
+\bibitem[{\citenamefont{Fink}(2009)}]{fink_multi-reference_2009}
+\bibinfo{author}{\bibfnamefont{R.~F.} \bibnamefont{Fink}},
+  \bibinfo{journal}{Chemical Physics} \textbf{\bibinfo{volume}{356}},
+  \bibinfo{pages}{39} (\bibinfo{year}{2009}), ISSN \bibinfo{issn}{0301-0104},
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0301010408004527}.
+
+\bibitem[{\citenamefont{Sharma et~al.}(2016)\citenamefont{Sharma, Jeanmairet,
+  and Alavi}}]{sharma_quasi-degenerate_2016}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Sharma}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Jeanmairet}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Alavi}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{144}}, \bibinfo{pages}{034103}
+  (\bibinfo{year}{2016}), ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/144/3/10.1063/1.4939752}.
+
+\bibitem[{\citenamefont{Overy et~al.}(2014)\citenamefont{Overy, Booth, Blunt,
+  Shepherd, Cleland, and Alavi}}]{overy_unbiased_2014}
+\bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Overy}},
+  \bibinfo{author}{\bibfnamefont{G.~H.} \bibnamefont{Booth}},
+  \bibinfo{author}{\bibfnamefont{N.~S.} \bibnamefont{Blunt}},
+  \bibinfo{author}{\bibfnamefont{J.~J.} \bibnamefont{Shepherd}},
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Cleland}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Alavi}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{141}}, \bibinfo{pages}{244117}
+  (\bibinfo{year}{2014}), ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org/content/aip/journal/jcp/141/24/10.1063/1.4904313}.
+
+\bibitem[{\citenamefont{Cleland et~al.}(2010)\citenamefont{Cleland, Booth, and
+  Alavi}}]{cleland_communications:_2010}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Cleland}},
+  \bibinfo{author}{\bibfnamefont{G.~H.} \bibnamefont{Booth}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Alavi}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{132}}, \bibinfo{pages}{041103}
+  (\bibinfo{year}{2010}), ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org/content/aip/journal/jcp/132/4/10.1063/1.3302277}.
+
+\bibitem[{\citenamefont{Blunt et~al.}(2015)\citenamefont{Blunt, Smart, Kersten,
+  Spencer, Booth, and Alavi}}]{blunt_semi-stochastic_2015}
+\bibinfo{author}{\bibfnamefont{N.~S.} \bibnamefont{Blunt}},
+  \bibinfo{author}{\bibfnamefont{S.~D.} \bibnamefont{Smart}},
+  \bibinfo{author}{\bibfnamefont{J.~a.~F.} \bibnamefont{Kersten}},
+  \bibinfo{author}{\bibfnamefont{J.~S.} \bibnamefont{Spencer}},
+  \bibinfo{author}{\bibfnamefont{G.~H.} \bibnamefont{Booth}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Alavi}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{142}}, \bibinfo{pages}{184107}
+  (\bibinfo{year}{2015}), ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/142/18/10.1063/1.4920975}.
+
+\bibitem[{\citenamefont{{Dunning, Jr}}(1989)}]{jr_gaussian_1989}
+\bibinfo{author}{\bibfnamefont{T.~H.} \bibnamefont{{Dunning, Jr}}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{90}}, \bibinfo{pages}{1007} (\bibinfo{year}{1989}),
+  ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/90/2/10.1063/1.456153}.
+
+\bibitem[{\citenamefont{Werner et~al.}(2012)\citenamefont{Werner, Knowles,
+  Knizia, Manby, and Schütz}}]{werner_molpro:_2012}
+\bibinfo{author}{\bibfnamefont{H.-J.} \bibnamefont{Werner}},
+  \bibinfo{author}{\bibfnamefont{P.~J.} \bibnamefont{Knowles}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Knizia}},
+  \bibinfo{author}{\bibfnamefont{F.~R.} \bibnamefont{Manby}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Schütz}},
+  \bibinfo{journal}{Wiley Interdisciplinary Reviews: Computational Molecular
+  Science} \textbf{\bibinfo{volume}{2}}, \bibinfo{pages}{242}
+  (\bibinfo{year}{2012}), ISSN \bibinfo{issn}{1759-0884},
+  \urlprefix\url{http://onlinelibrary.wiley.com.ezproxy.fkf.mpg.de/doi/10.1002/wcms.82/abstract}.
+
+\bibitem[{\citenamefont{Sharma and Chan}(2012)}]{sharma_spin-adapted_2012}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Sharma}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{G.~K.-L.} \bibnamefont{Chan}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{136}}, \bibinfo{pages}{124121}
+  (\bibinfo{year}{2012}), ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/136/12/10.1063/1.3695642}.
+
+\bibitem[{\citenamefont{Roos et~al.}(1992)\citenamefont{Roos, Andersson, and
+  F\"ulscher}}]{roos_towards_1992}
+\bibinfo{author}{\bibfnamefont{B.~O.} \bibnamefont{Roos}},
+  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Andersson}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{M.~P.}
+  \bibnamefont{F\"ulscher}}, \bibinfo{journal}{Chemical Physics Letters}
+  \textbf{\bibinfo{volume}{192}}, \bibinfo{pages}{5} (\bibinfo{year}{1992}),
+  ISSN \bibinfo{issn}{0009-2614},
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/000926149285419B}.
+
+\bibitem[{\citenamefont{Doering}(1969)}]{doering_lowenergy_1969}
+\bibinfo{author}{\bibfnamefont{J.~P.} \bibnamefont{Doering}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{51}}, \bibinfo{pages}{2866} (\bibinfo{year}{1969}),
+  ISSN \bibinfo{issn}{0021-9606, 1089-7690},
+  \urlprefix\url{http://scitation.aip.org.ezproxy.fkf.mpg.de/content/aip/journal/jcp/51/7/10.1063/1.1672424}.
+
+\bibitem[{\citenamefont{Miller and Epstein}(1994)}]{miller_organic_1994}
+\bibinfo{author}{\bibfnamefont{J.~S.} \bibnamefont{Miller}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.~J.} \bibnamefont{Epstein}},
+  \bibinfo{journal}{Angewandte Chemie International Edition in English}
+  \textbf{\bibinfo{volume}{33}}, \bibinfo{pages}{385} (\bibinfo{year}{1994}),
+  ISSN \bibinfo{issn}{1521-3773},
+  \urlprefix\url{http://onlinelibrary.wiley.com.ezproxy.fkf.mpg.de/doi/10.1002/anie.199403851/abstract}.
+
+\bibitem[{\citenamefont{Wright and Platz}(1983)}]{wright_electron_1983}
+\bibinfo{author}{\bibfnamefont{B.~B.} \bibnamefont{Wright}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.~S.} \bibnamefont{Platz}},
+  \bibinfo{journal}{Journal of the American Chemical Society}
+  \textbf{\bibinfo{volume}{105}}, \bibinfo{pages}{628} (\bibinfo{year}{1983}),
+  ISSN \bibinfo{issn}{0002-7863},
+  \urlprefix\url{http://dx.doi.org/10.1021/ja00341a057}.
+
+\bibitem[{\citenamefont{Wenthold et~al.}(1997)\citenamefont{Wenthold, Kim, and
+  Lineberger}}]{wenthold_photoelectron_1997}
+\bibinfo{author}{\bibfnamefont{P.~G.} \bibnamefont{Wenthold}},
+  \bibinfo{author}{\bibfnamefont{J.~B.} \bibnamefont{Kim}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{W.~C.} \bibnamefont{Lineberger}},
+  \bibinfo{journal}{Journal of the American Chemical Society}
+  \textbf{\bibinfo{volume}{119}}, \bibinfo{pages}{1354} (\bibinfo{year}{1997}),
+  ISSN \bibinfo{issn}{0002-7863},
+  \urlprefix\url{http://dx.doi.org/10.1021/ja9623830}.
+
+\bibitem[{\citenamefont{Reta Ma\~neru et~al.}(2014)\citenamefont{Reta Ma\~neru,
+  Pal, Moreira, Datta, and Illas}}]{reta_maneru_tripletsinglet_2014}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Reta Ma\~neru}},
+  \bibinfo{author}{\bibfnamefont{A.~K.} \bibnamefont{Pal}},
+  \bibinfo{author}{\bibfnamefont{I.~d. P.~R.} \bibnamefont{Moreira}},
+  \bibinfo{author}{\bibfnamefont{S.~N.} \bibnamefont{Datta}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Illas}},
+  \bibinfo{journal}{Journal of Chemical Theory and Computation}
+  \textbf{\bibinfo{volume}{10}}, \bibinfo{pages}{335} (\bibinfo{year}{2014}),
+  ISSN \bibinfo{issn}{1549-9618},
+  \urlprefix\url{http://dx.doi.org/10.1021/ct400883m}.
+
+\bibitem[{\citenamefont{Hrovat et~al.}(1998)\citenamefont{Hrovat, Murcko,
+  Lahti, and Borden}}]{hrovat_effects_1998}
+\bibinfo{author}{\bibfnamefont{D.~A.} \bibnamefont{Hrovat}},
+  \bibinfo{author}{\bibfnamefont{M.~A.} \bibnamefont{Murcko}},
+  \bibinfo{author}{\bibfnamefont{P.~M.} \bibnamefont{Lahti}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{W.~T.} \bibnamefont{Borden}},
+  \bibinfo{journal}{Journal of the Chemical Society, Perkin Transactions 2} pp.
+  \bibinfo{pages}{1037--1044} (\bibinfo{year}{1998}), ISSN
+  \bibinfo{issn}{1364-5471},
+  \urlprefix\url{http://pubs.rsc.org/en/content/articlelanding/1998/p2/a706409h}.
+
+\bibitem[{\citenamefont{Li~Manni et~al.}(2016)\citenamefont{Li~Manni, Smart,
+  and Alavi}}]{li_manni_combining_2016}
+\bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Li~Manni}},
+  \bibinfo{author}{\bibfnamefont{S.~D.} \bibnamefont{Smart}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Alavi}},
+  \bibinfo{journal}{Journal of Chemical Theory and Computation}
+  (\bibinfo{year}{2016}), ISSN \bibinfo{issn}{1549-9618},
+  \urlprefix\url{http://dx.doi.org/10.1021/acs.jctc.5b01190}.
+
+\end{thebibliography}
