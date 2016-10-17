@@ -29,16 +29,6 @@
   1432-1327},
   \urlprefix\url{http://link.springer.com/article/10.1007/s00775-006-0138-1}.
 
-\bibitem[{\citenamefont{Rossi et~al.}(1999)\citenamefont{Rossi, Bendazzoli,
-  Evangelisti, and Maynau}}]{rossi_full-configuration_1999}
-\bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Rossi}},
-  \bibinfo{author}{\bibfnamefont{G.~L.} \bibnamefont{Bendazzoli}},
-  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Evangelisti}},
-  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Maynau}},
-  \bibinfo{journal}{Chemical Physics Letters} \textbf{\bibinfo{volume}{310}},
-  \bibinfo{pages}{530} (\bibinfo{year}{1999}), ISSN \bibinfo{issn}{0009-2614},
-  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0009261499007915}.
-
 \bibitem[{\citenamefont{Siegbahn et~al.}(1980)\citenamefont{Siegbahn, Heiberg,
   Roos, and Levy}}]{siegbahn_comparison_1980}
 \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Siegbahn}},
@@ -283,6 +273,13 @@
   \textbf{\bibinfo{volume}{117}}, \bibinfo{pages}{9138} (\bibinfo{year}{2002}),
   ISSN \bibinfo{issn}{0021-9606, 1089-7690},
   \urlprefix\url{http://scitation.aip.org/content/aip/journal/jcp/117/20/10.1063/1.1515317}.
+
+\bibitem[{\citenamefont{Werner and Knowles}(1988)}]{werner_efficient_1988}
+\bibinfo{author}{\bibfnamefont{H.-J.} \bibnamefont{Werner}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{P.~J.} \bibnamefont{Knowles}},
+  \bibinfo{journal}{J. Chem. Phys.} \textbf{\bibinfo{volume}{89}},
+  \bibinfo{pages}{5803} (\bibinfo{year}{1988}),
+  \urlprefix\url{http://dx.doi.org/10.1063/1.455556}.
 
 \bibitem[{\citenamefont{Sharma and Alavi}(2015)}]{sharma_multireference_2015}
 \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Sharma}} \bibnamefont{and}

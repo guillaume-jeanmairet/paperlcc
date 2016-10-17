@@ -96,8 +96,8 @@
 \end_layout
 
 \begin_layout Title
-A joint stochastic evaluation of multireference linearized coupled cluster
- perturbation theory with a FCIQMC treatment of the active space
+Stochastic multi-reference perturbation theory with application to linearized
+ coupled cluster method 
 \end_layout
 
 \begin_layout Author
@@ -185,9 +185,16 @@ name "sec:Intro"
 \end_layout
 
 \begin_layout Standard
-Many molecular systems of practical interest cannot be properly described
- by a single electronic configuration.
- Among those systems which are often described as strongly correlated systems,
+One of the significant challenges in quantum chemistry is the description
+ of electronic systems that simultaneously display chemically-relevant static
+ and dynamical electron correlation.
+ Static correlation often occurs in open shell systems and gives rise to
+ long-ranged, highly entangled, many-electron wavefunctions involving electronic
+ orbitals close to the Fermi energy.
+ Dynamical correlation, on the other hand, correlates electrons on a short-lengt
+h scale, and whose descriptions requires the single-particle spectrum to
+ extend over many energy scales.
+ There are many systems of practical interest that fall into this class:
  we can mention transition metal clusters that are found in many protein
  active sites and that play a key role in a wide number of important biological
  processes such as photosynthesis or respiration
@@ -198,9 +205,9 @@ key "beinert_iron-sulfur_1997"
 \end_inset
 
 .
- Unfortunately because of the multideterminental nature of the wave-function
- they can prove hard to study with single-reference approaches such as the
- widely used density functional theory
+ Because of the multideterminental nature of the wave-function they can
+ prove hard to study with single-reference approaches such as the widely
+ used density functional theory
 \begin_inset CommandInset citation
 LatexCommand cite
 key "neese_critical_2006"
@@ -211,30 +218,15 @@ key "neese_critical_2006"
 \end_layout
 
 \begin_layout Standard
-Alternatively methods that deal with the multireference character of the
- wavefunction can be used.
- The idea is to express the ground state wavefunction as a linear combination
- of several configurations, often referred as excitation from a reference
- determinant, usually the Hartree-Fock one.
- The Full Configuration Interaction (FCI) consists in an exact solution
- of the Schrodinger equation in the space of all the possible determinants,
- this method is exact but become quickly unpractical, indeed the largest
- space that has been handled to this day contains 
-\begin_inset Formula $10^{10}$
-\end_inset
-
- determinants and were describing a 
-\begin_inset Formula $N_{2}$
-\end_inset
-
- molecule with 14 electrons and 36 molecular orbitals
-\begin_inset CommandInset citation
-LatexCommand cite
-key "rossi_full-configuration_1999"
-
-\end_inset
-
-.
+Unfortunately the computational requirements to describe the wavefunction
+ of such systems from an exact perspective is utterly daunting.
+ In an ideal scenario, one would allow for a "full" correlation treatment
+ in a large basis: in other words all electrons (even those not close to
+ the Fermi energy) are simultaneously correlated over the entire basis.
+ Such a treatment (full CI), which would amount to the exact solution of
+ the Schrodinger equation in the given basis, is generally out of reach
+ for sufficient numbers of electrons, owing the combinatorial explosion
+ of the Hilbert space of a many-particle system.
  To overcome this limitation the calculation can be carried by considering
  only a meaningful subset of the available configurations, the most popular
  choice is to use a complete active space (CAS) wave function
@@ -287,77 +279,61 @@ key "li_manni_splitgas_2013"
 \end_inset
 
  approaches.
- 
-\end_layout
-
-\begin_layout Standard
-Recently two approaches have been proposed that allows to tackle large actives
- spaces, typically up to 40-50 orbitals, DMRG
+ With modern techniques such as Density Matrix Renormalization Group
 \begin_inset CommandInset citation
 LatexCommand cite
 key "white_density_1992,white_density-matrix_1993,white_ab_1999,wouters_chemps2:_2014,zgid_spin_2008,moritz_convergence_2005,legeza_optimizing_2003,kurashige_high-performance_2009,olivares-amaya_ab-initio_2015"
 
 \end_inset
 
- and FCIQMC
+ or the Full CI Quantum Monte Carlo
 \begin_inset CommandInset citation
 LatexCommand cite
 key "booth_fermion_2009,cleland_taming_2012,booth_linear-scaling_2013,booth_towards_2013,petruzielo_semistochastic_2012"
 
 \end_inset
 
-.
- The first one express the wavefunction as a matrix product state (MPS)
- that is optimized variationally thanks to the sweep algorithm.
- The latter one is based on a stochastic propagation of walkers population
- according to a set of stochastic rules that aims to mimic the propagation
- of the imaginary time Schrodinger equation (ITSE) in the Fock space, that
- is the space of the Slater determinants.
- This method, and its 
-\shape italic
-initiator approximation
-\shape default
- extension 
-\shape italic
-i
-\shape default
--FCIQMC have proved to converge to FCI precision energies.
- One of the main interest of the method is that the relevant determinants
- of the wavefunction emerge spontaneously from the dynamic, preventing to
- have to store a huge amount of non relevant information allowing to save
- memory with respect to deterministic techniques such as FCI.
- Moreover the processes governing the dynamic of a walker lying on a determinant
- is independent of the other determinants occupation making the FCIQMC algorithm
- almost trivially parallel.
+ technique one can treat very large Hilbert spaces, corresponding of up
+ 30-40 electrons in 30-40 orbitals, but even such techniques struggle to
+ handle systems with many hundreds of electrons correlating in hundreds
+ or even thousands of orbitals, which is certainly necessary to able to
+ treat as we move to even intermediate-size molecules.
  
 \end_layout
 
 \begin_layout Standard
-However the low lying occupied core orbitals and the more energetic empty
- virtual orbitals that are neglected in the CAS calculation are responsible
- for the so called weak or dynamical correlation.
- This remaining correlation effect is important for a quantitative description
- of chemical properties such as electronic excitation energies.
- It is generally recovered by the use of perturbation theories which in
- the case of a CAS calculation have to be compatible with a multireference
- zero order wavefunction.
- There exist a huge variety of such multireference multibody pertrubation
- theories among which we can mention CASPT2
+Approximations in the correlation treatment are therefore necessary, and
+ given the energetic divisions between static and dynamical correlation,
+ multi-reference perturbation theory is a natural starting point, and which
+ leads to a variety of "active-space" methods.
+ Full treatment of correlation among a predefined set of active orbitals
+ (usually chosen to be around the Fermi energy) with a given number of electrons
+ leads to the reference Hamiltonian, followed by a pertubation treatment
+ of the remaining terms in the Hamiltonian which arise from the remaining
+ terms in the Hamiltonian.
+ In this spirit, one can mention CASPT2
 \begin_inset CommandInset citation
 LatexCommand cite
 key "andersson_second-order_1990,andersson_secondorder_1992"
 
 \end_inset
 
- and NEVPT2
+, NEVPT2
 \begin_inset CommandInset citation
 LatexCommand cite
 key "angeli_introduction_2001,angeli_n-electron_2002"
 
 \end_inset
 
- or the recently propose multireference linearized coupled cluster theory
- (MRLCC)
+ and MRCI methods
+\begin_inset CommandInset citation
+LatexCommand cite
+key "werner_efficient_1988"
+
+\end_inset
+
+, as well as the linearised coupled cluster (LCC) developed recently by
+ two of us
 \begin_inset CommandInset citation
 LatexCommand cite
 key "sharma_multireference_2015"
@@ -367,7 +343,7 @@ key "sharma_multireference_2015"
 .
  In the perspective of dealing with large systems it is worth noticing that
  a second-order perturbation theory approach based on the generalized active
- space self-consistent-field has recently been proposed
+ space self-consistent-field has also recently been proposed
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ma_second-order_2016"
@@ -379,25 +355,26 @@ key "ma_second-order_2016"
 \end_layout
 
 \begin_layout Standard
-All the previously mentioned multireference perturbation theories are involving
- a deterministic resolution of the perturbation equations and the cost of
- the calculation of the perturbation by itself quickly become intractable
- with the number of core and virtual orbitals, usually this is dealt by
- making a further approximation known as internal contraction, which comes
- at the cost of knowing the reduced density matrices (RDM) of the active
- space till fourth body.
+All of these multireference perturbation theories involve a deterministic
+ resolution of the perturbation equations, and the cost of the calculation
+ of the perturbation by itself quickly becomes intractable with the number
+ of core and virtual orbitals.
+ Although this can be dealt by making a further approximation known as internal
+ contraction, which comes at the cost of computing the reduced density matrices
+ (RDM) of the active space up to fourth order, which is itself a significant
+ challenge for large active spaces.
  
 \end_layout
 
 \begin_layout Standard
 A stochastic resolution of the perturbation equation seems to be a promising
  direction to reduce the cost of the calculation and to avoid the use of
- internal contraction, in a similar way that FCIQMC circumvent the FCI limitatio
-ns.
- Surprisingly only a few attempts to implement a stochastic resolution of
- perturbation theories have been proposed, among which we can mention the
- stochastic evaluation of MP2 energies by Hirata and collaborators, MC-MP2.
- This approach is based on the rewriting of second-order perturbation equations
+ internal contraction.
+ Surprisingly, only a few attempts to implement a stochastic resolution
+ of perturbation theories have been proposed, among which we can mention
+ the stochastic evaluation of MP2 energies by Hirata and collaborators,
+ MC-MP2.
+ This approach is based on the rewriting of second order perturbation equations
  into the sum of two 13-dimensional integrals thanks to Laplace transform.
  Those integrals are then evaluated through Monte-Carlo integration
 \begin_inset CommandInset citation
@@ -409,7 +386,7 @@ key "willow_stochastic_2012,willow_convergence_2013,willow_stochastic_2013"
 .
  Another approach to solve MP2 equations is to express its contributions
  in term of graph that describe set of connected Slater determinants, and
- then to stochastically sample thos graphs
+ then to stochastically sample those graphs
 \begin_inset CommandInset citation
 LatexCommand cite
 key "thom_stochastic_2007"
@@ -423,53 +400,37 @@ key "thom_stochastic_2007"
 \end_layout
 
 \begin_layout Standard
-In this article, in analogy to FCIQMC, we propose to introduce a new population
- of walkers lying on determinants of the Fock space that is propagated according
- to a series of stochastic processes that mimic the projection equations
- of multireference perturbation theories (MRPT).
- In principle this method can be applied to a any flavor of multireference
- perturbation theories, but we will focus on MRLCC because the definition
- of the zero order Hamiltonian and the perturbation is particularly well
- suited to the FCIQMC framework.
- Moreover it has proved to give better results than NEVPT2 or CASPT2
-\begin_inset CommandInset citation
-LatexCommand cite
-key "sharma_multireference_2015"
-
-\end_inset
-
-, the resulting method is named QMC-LCC.
-\end_layout
-
-\begin_layout Standard
-In this method the sampling of zeroth and first order wavefunctions are
- done simultaneously.
- The population on the zero order wavefunction follows the standard FCIQMC
- rules while population dynamic of the response wavefunction contains a
- source term that depends on the population of the zero order wavefunction.
- This is practically done by allowing walkers on one replica to spawn new
- walkers on another replica.
+The purpose of this paper is to show how a stochastic treatment of multi-referen
+ce perturbation theory can implemented within the FCIQMC methodology, namely
+ a walker-based method to solve for the response wavefunction of perturbation
+ theory.
+ Response theory differs from the eigenvalue problem of diagonalisation
+ in that involves the solution of a linear system of equations (the response
+ equations).
+ Since the FCIQMC technique was developed as a ground-state eigenvalue solver,
+ it requires to be modified and generalized in order to handle this new
+ setting.
+ We show how this can be done for the MRLCC method, although it can be similarly
+ implemented for other flavors of multi-reference perturbation theory.
+ Importantly, the resulting method which we term LCCQMC, is a fully uncontracted
+ method, and is therefore potentially more accurate than the internally
+ contracted approximations.
  
 \end_layout
 
 \begin_layout Standard
-The structure of the rest of this article is the following, in the next
+In our new method the sampling of zeroth and first order wavefunctions are
+ done simultaneously.
+ The population on the zero order wavefunction follows the standard FCIQMC
+ rules while the population dynamics of the response wavefunction contains
+ a source term that depends on the population of the zero order wavefunction.
+ This is practically done by allowing walkers on one replica to spawn new
+ walkers on another replica.
+ The structure of the rest of this article is the following, in the next
  part we will recall the governing equations of MRPT, with a particular
  emphasis on the LCC method.
  We also recall some basics of the FCIQMC methods before showing how the
- MRLCC can be expressed in the 
-\begin_inset Quotes eld
-\end_inset
-
-FCIQMC language
-\begin_inset Quotes erd
-\end_inset
-
-, 
-\shape italic
-i.e.
-
-\shape default
+ MRLCC can be expressed in the “FCIQMC language”, i.e.
  as a stochastic propagation of a signed walkers population.
  In the third part a description of the algorithmic of the QMC-LCC method
  that has been implemented in the neci code is given, we also discuss some
@@ -482,10 +443,6 @@ i.e.
  gaps; first in the case of the benzene molecule which has a singlet for
  ground state, and then in the case the m-xylylene diradical that admits
  a triplet as its ground state.
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \begin_layout Section
@@ -1555,7 +1512,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename fig/fig1.pdf
-	width 40text%
+	width 70text%
 
 \end_inset
 
@@ -2116,7 +2073,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename fig/fig3.pdf
-	width 40text%
+	width 80text%
 
 \end_inset
 
@@ -2372,7 +2329,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename fig/fig3.pdf
+	filename fig/fig4.pdf
 	width 100text%
 
 \end_inset

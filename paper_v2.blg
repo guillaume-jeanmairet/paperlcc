@@ -9,43 +9,43 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty author in booth_towards_2013
 You've used 54 entries,
             3411 wiz_defined-function locations,
-            1536 strings with 24682 characters,
-and the built_in function-call counts, 39917 in all, are:
-= -- 2310
-> -- 1349
-< -- 182
-+ -- 1129
-- -- 328
-* -- 5762
-:= -- 4259
+            1535 strings with 24638 characters,
+and the built_in function-call counts, 39745 in all, are:
+= -- 2307
+> -- 1333
+< -- 181
++ -- 1113
+- -- 324
+* -- 5726
+:= -- 4246
 add.period$ -- 54
 call.type$ -- 54
 change.case$ -- 217
 chr.to.int$ -- 53
 cite$ -- 57
-duplicate$ -- 3542
-empty$ -- 3305
-format.name$ -- 817
-if$ -- 7531
+duplicate$ -- 3527
+empty$ -- 3295
+format.name$ -- 811
+if$ -- 7504
 int.to.chr$ -- 2
 int.to.str$ -- 55
-missing$ -- 538
+missing$ -- 536
 newline$ -- 177
 num.names$ -- 159
-pop$ -- 760
+pop$ -- 759
 preamble$ -- 1
 purify$ -- 216
 quote$ -- 0
-skip$ -- 1409
+skip$ -- 1406
 stack$ -- 0
-substring$ -- 1374
-swap$ -- 2979
-text.length$ -- 165
+substring$ -- 1377
+swap$ -- 2960
+text.length$ -- 163
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 322
 warning$ -- 1
 while$ -- 159
 width$ -- 0
-write$ -- 651
+write$ -- 650
 (There was 1 warning)

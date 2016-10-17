@@ -11,6 +11,7 @@
 \usepackage{amstext}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{dsfont}
 
 \makeatletter
 
@@ -51,9 +52,8 @@
 \global\long\def\Braket#1{\braket{#1}}
 \end{abstract}
 
-\title{A joint stochastic evaluation of multireference linearized coupled
-cluster perturbation theory with a FCIQMC treatment of the active
-space}
+\title{Stochastic multi-reference perturbation theory with application to
+linearized coupled cluster method }
 
 \author{Guillaume Jeanmairet}
 
@@ -73,7 +73,7 @@ space}
 \affiliation{Department of Chemistry, University of Cambridge, Lensfield Road,
 Cambridge CB2 1EW, United Kingdom}
 \begin{abstract}
-In this article we report a joint use of the FCIQMC method with the
+In this article we report a stochastic evaluation of the
 recently proposed LCC multireference perturbation theory {[}Sharma
 S., and Alavi A., \textit{J. Chem. Phys.} \textbf{143}, 102815, (2015){]}.
 In that method both the zeroth order and first order wavefunctions
@@ -100,137 +100,127 @@ values.
 
 \section{Intro\label{sec:Intro}}
 
-Many molecular systems of practical interest cannot be properly described
-by a single electronic configuration. Among those systems which are
-often described as strongly correlated systems, we can mention transition
-metal clusters that are found in many protein active sites and that
-play a key role in a wide number of important biological processes
-such as photosynthesis or respiration\cite{beinert_iron-sulfur_1997}.
-Unfortunately because of the multideterminental nature of the wave-function
-they can prove hard to study with single-reference approaches such
-as the widely used density functional theory\cite{neese_critical_2006}.
+One of the significant challenges in quantum chemistry is the description
+of electronic systems that simultaneously display chemically-relevant
+static and dynamical electron correlation. Static correlation often
+occurs in open shell systems and gives rise to long-ranged, highly
+entangled, many-electron wavefunctions involving electronic orbitals
+close to the Fermi energy. Dynamical correlation, on the other hand,
+correlates electrons on a short-length scale, and whose descriptions
+requires the single-particle spectrum to extend over many energy scales.
+There are many systems of practical interest that fall into this class:
+we can mention transition metal clusters that are found in many protein
+active sites and that play a key role in a wide number of important
+biological processes such as photosynthesis or respiration\cite{beinert_iron-sulfur_1997}.
+Because of the multideterminental nature of the wave-function they
+can prove hard to study with single-reference approaches such as the
+widely used density functional theory\cite{neese_critical_2006}.
 
-Alternatively methods that deal with the multireference character
-of the wavefunction can be used. The idea is to express the ground
-state wavefunction as a linear combination of several configurations,
-often referred as excitation from a reference determinant, usually
-the Hartree-Fock one. The Full Configuration Interaction (FCI) consists
-in an exact solution of the Schrodinger equation in the space of all
-the possible determinants, this method is exact but become quickly
-unpractical, indeed the largest space that has been handled to this
-day contains $10^{10}$ determinants and were describing a $N_{2}$
-molecule with 14 electrons and 36 molecular orbitals\cite{rossi_full-configuration_1999}.
-To overcome this limitation the calculation can be carried by considering
-only a meaningful subset of the available configurations, the most
-popular choice is to use a complete active space (CAS) wave function\cite{siegbahn_comparison_1980,roos_complete_1980,siegbahn_complete_1981},
-in which the molecular orbitals are split into three sets: the \textit{core}
-orbitals, the \textit{virtual} orbitals and the \textit{active} orbitals.
-The core and virtual orbitals are respectively doubly occupied and
-empty in all configuration of the multi configuration expansion while
-the active orbitals can be empty, singly or doubly occupied. This
+Unfortunately the computational requirements to describe the wavefunction
+of such systems from an exact perspective is utterly daunting. In
+an ideal scenario, one would allow for a \textquotedbl{}full\textquotedbl{}
+correlation treatment in a large basis: in other words all electrons
+(even those not close to the Fermi energy) are simultaneously correlated
+over the entire basis. Such a treatment (full CI), which would amount
+to the exact solution of the Schrodinger equation in the given basis,
+is generally out of reach for sufficient numbers of electrons, owing
+the combinatorial explosion of the Hilbert space of a many-particle
+system. To overcome this limitation the calculation can be carried
+by considering only a meaningful subset of the available configurations,
+the most popular choice is to use a complete active space (CAS) wave
+function\cite{siegbahn_comparison_1980,roos_complete_1980,siegbahn_complete_1981}. This
 approach allows to tackle bigger systems than the FCI one however
-it suffers for the same exponential scaling problem, the biggest active
-space that is possible to treat with this conventional implementation
-of this approach are typical 18 orbitals and 18 electrons. Different
+it suffers for the same exponential scaling problem. Different
 methods have been proposed to allow the use of larger active spaces
 such as the restricted active space (RAS)\cite{olsen_determinant_1988,malmqvist_restricted_1990},
 generalized active space (GAS)\cite{ma_generalized_2011} and SplitGas\cite{li_manni_splitgas_2013}
-approaches. 
+approaches. With modern techniques such as Density Matrix Renormalization
+Group\cite{white_density_1992,white_density-matrix_1993,white_ab_1999,wouters_chemps2:_2014,zgid_spin_2008,moritz_convergence_2005,legeza_optimizing_2003,kurashige_high-performance_2009,olivares-amaya_ab-initio_2015}
+or the Full CI Quantum Monte Carlo\cite{booth_fermion_2009,cleland_taming_2012,booth_linear-scaling_2013,booth_towards_2013,petruzielo_semistochastic_2012}
+technique one can treat very large Hilbert spaces, corresponding of
+up 30-40 electrons in 30-40 orbitals, but even such techniques struggle
+to handle systems with many hundreds of electrons correlating in hundreds
+or even thousands of orbitals, which is certainly necessary to able
+to treat as we move to even intermediate-size molecules. 
 
-Recently two approaches have been proposed that allows to tackle large
-actives spaces, typically up to 40-50 orbitals, DMRG\cite{white_density_1992,white_density-matrix_1993,white_ab_1999,wouters_chemps2:_2014,zgid_spin_2008,moritz_convergence_2005,legeza_optimizing_2003,kurashige_high-performance_2009,olivares-amaya_ab-initio_2015}
-and FCIQMC\cite{booth_fermion_2009,cleland_taming_2012,booth_linear-scaling_2013,booth_towards_2013,petruzielo_semistochastic_2012}.
-The first one express the wavefunction as a matrix product state (MPS)
-that is optimized variationally thanks to the sweep algorithm. The
-latter one is based on a stochastic propagation of walkers population
-according to a set of stochastic rules that aims to mimic the propagation
-of the imaginary time Schrodinger equation (ITSE) in the Fock space,
-that is the space of the Slater determinants. This method, and its
-\textit{initiator approximation} extension \textit{i}-FCIQMC have
-proved to converge to FCI precision energies. One of the main interest
-of the method is that the relevant determinants of the wavefunction
-emerge spontaneously from the dynamic, preventing to have to store
-a huge amount of non relevant information allowing to save memory
-with respect to deterministic techniques such as FCI. Moreover the
-processes governing the dynamic of a walker lying on a determinant
-is independent of the other determinants occupation making the FCIQMC
-algorithm almost trivially parallel. 
+Approximations in the correlation treatment are therefore necessary,
+and given the energetic divisions between static and dynamical correlation,
+multi-reference perturbation theory (MRPT) is a natural starting point, and
+which leads to a variety of \textquotedbl{}active-space\textquotedbl{}
+methods. Full treatment of correlation among a predefined set of active
+orbitals (usually chosen to be around the Fermi energy) with a given
+number of electrons leads to the reference Hamiltonian, followed by
+a perturbation treatment of the remaining terms in the Hamiltonian
+which arise from the remaining terms in the Hamiltonian. In this spirit,
+one can mention CASPT2\cite{andersson_second-order_1990,andersson_secondorder_1992},
+NEVPT2\cite{angeli_introduction_2001,angeli_n-electron_2002} and
+MRCI methods\cite{werner_efficient_1988}, as well as the linearised
+coupled cluster (LCC) developed recently by two of us\cite{sharma_multireference_2015}.
+In the perspective of dealing with large systems it is worth noticing
+that a second-order perturbation theory approach based on the generalized
+active space self-consistent-field has also recently been proposed\cite{ma_second-order_2016}. 
 
-However the low lying occupied core orbitals and the more energetic
-empty virtual orbitals that are neglected in the CAS calculation are
-responsible for the so called weak or dynamical correlation. This
-remaining correlation effect is important for a quantitative description
-of chemical properties such as electronic excitation energies. It
-is generally recovered by the use of perturbation theories which in
-the case of a CAS calculation have to be compatible with a multireference
-zero order wavefunction. There exist a huge variety of such multireference
-multibody pertrubation theories among which we can mention CASPT2\cite{andersson_second-order_1990,andersson_secondorder_1992}
-and NEVPT2\cite{angeli_introduction_2001,angeli_n-electron_2002}
-or the recently propose multireference linearized coupled cluster
-theory (MRLCC)\cite{sharma_multireference_2015}. In the perspective
-of dealing with large systems it is worth noticing that a second-order
-perturbation theory approach based on the generalized active space
-self-consistent-field has recently been proposed\cite{ma_second-order_2016}. 
-
-All the previously mentioned multireference perturbation theories
-are involving a deterministic resolution of the perturbation equations
-and the cost of the calculation of the perturbation by itself quickly
-become intractable with the number of core and virtual orbitals, usually
-this is dealt by making a further approximation known as internal
-contraction, which comes at the cost of knowing the reduced density
-matrices (RDM) of the active space till fourth body. 
+All of these multireference perturbation theories involve a deterministic
+resolution of the perturbation equations, and the cost of the calculation
+of the perturbation by itself quickly becomes intractable with the
+number of core and virtual orbitals. Although this can be dealt by
+making a further approximation known as internal contraction, which
+comes at the cost of computing the reduced density matrices (RDM)
+of the active space up to fourth order, which is itself a significant
+challenge for large active spaces. 
 
 A stochastic resolution of the perturbation equation seems to be a
 promising direction to reduce the cost of the calculation and to avoid
-the use of internal contraction, in a similar way that FCIQMC circumvent
-the FCI limitations. Surprisingly only a few attempts to implement
-a stochastic resolution of perturbation theories have been proposed,
-among which we can mention the stochastic evaluation of MP2 energies
-by Hirata and collaborators, MC-MP2. This approach is based on the
-rewriting of second-order perturbation equations into the sum of two
-13-dimensional integrals thanks to Laplace transform. Those integrals
-are then evaluated through Monte-Carlo integration\cite{willow_stochastic_2012,willow_convergence_2013,willow_stochastic_2013}.
+the use of internal contraction. Surprisingly, only a few attempts
+to implement a stochastic resolution of perturbation theories have
+been proposed, among which we can mention the stochastic evaluation
+of MP2 energies by Hirata and collaborators, MC-MP2. This approach
+is based on the rewriting of second order perturbation equations into
+the sum of two 13-dimensional integrals thanks to Laplace transform.
+Those integrals are then evaluated through Monte-Carlo integration\cite{willow_stochastic_2012,willow_convergence_2013,willow_stochastic_2013}.
 Another approach to solve MP2 equations is to express its contributions
 in term of graph that describe set of connected Slater determinants,
-and then to stochastically sample thos graphs\cite{thom_stochastic_2007}.
+and then to stochastically sample those graphs\cite{thom_stochastic_2007}.
 However those two approaches involve a single reference zero order
 wavefunction and to our knowledge stochastic resolution of multireference
 perturbation theories have not been proposed yet.
 
-In this article, in analogy to FCIQMC, we propose to introduce a new
-population of walkers lying on determinants of the Fock space that
-is propagated according to a series of stochastic processes that mimic
-the projection equations of multireference perturbation theories (MRPT).
-In principle this method can be applied to a any flavor of multireference
-perturbation theories, but we will focus on MRLCC because the definition
-of the zero order Hamiltonian and the perturbation is particularly
-well suited to the FCIQMC framework. Moreover it has proved to give
-better results than NEVPT2 or CASPT2\cite{sharma_multireference_2015},
-the resulting method is named QMC-LCC.
+The purpose of this paper is to show how a stochastic treatment of
+multi-reference perturbation theory can implemented within the FCIQMC
+methodology, namely a walker-based method to solve for the response
+wavefunction of perturbation theory. Response theory differs from
+the eigenvalue problem of diagonalisation in that involves the solution
+of a linear system of equations (the response equations). Since the
+FCIQMC technique was developed as a ground-state eigenvalue solver,
+it requires to be modified and generalized in order to handle this
+new setting. We show how this can be done for the MRLCC method, although
+it can be similarly implemented for other flavors of multi-reference
+perturbation theory. Importantly, the resulting method which we term
+LCCQMC, is a fully uncontracted method, and is therefore potentially
+more accurate than the internally contracted approximations. 
 
-In this method the sampling of zeroth and first order wavefunctions
+In our new method the sampling of zeroth and first order wavefunctions
 are done simultaneously. The population on the zero order wavefunction
-follows the standard FCIQMC rules while population dynamic of the
-response wavefunction contains a source term that depends on the population
-of the zero order wavefunction. This is practically done by allowing
-walkers on one replica to spawn new walkers on another replica. 
-
-The structure of the rest of this article is the following, in the
-next part we will recall the governing equations of MRPT, with a particular
-emphasis on the LCC method. We also recall some basics of the FCIQMC
-methods before showing how the MRLCC can be expressed in the ``FCIQMC
-language'', \textit{i.e.} as a stochastic propagation of a signed
-walkers population. In the third part a description of the algorithmic
-of the QMC-LCC method that has been implemented in the neci code is
-given, we also discuss some important technical points. We then illustrate
-the potential of the method by applying it to some organic molecules.
-We first tested the method by studying the carbon dimer with systematically
-more refined basis set, going from cc-pVDZ to cc-pVQZ. Afterwards
-we turned our attention to the evaluation of Singlet-Triplet gaps;
-first in the case of the benzene molecule which has a singlet for
-ground state, and then in the case the m-xylylene diradical that admits
-a triplet as its ground state.
-
+follows the standard FCIQMC rules while the population dynamics of
+the response wavefunction contains a source term that depends on the
+population of the zero order wavefunction. This is practically done
+by allowing walkers on one replica to spawn new walkers on another
+replica. The structure of the rest of this article is the following,
+in the next part we will recall the governing equations of MRPT, with
+a particular emphasis on the MRLCC method. We also recall some basics
+of the FCIQMC methods before showing how the MRLCC can be expressed
+in the \textquotedblleft FCIQMC language\textquotedblright , i.e.
+as a stochastic propagation of a signed walkers population. In the
+third part a description of the algorithmic of the QMC-LCC method
+that has been implemented in the neci code is given, we also discuss
+some important technical points. We then illustrate the potential
+of the method by applying it to some organic molecules. We first tested
+the method by studying the carbon dimer with systematically more refined
+basis set, going from cc-pVDZ to cc-pVQZ. Afterwards we turned our
+attention to the evaluation of Singlet-Triplet gaps; first in the
+case of the benzene molecule which has a singlet for ground state,
+and then in the case the m-xylylene diradical that admits a triplet
+as its ground state.
 
 \section{Theory\label{sec:Theory}}
 
@@ -342,16 +332,16 @@ equation (ITSE),
 The discretization of Eq.\ref{eq:imtimeSE} with a time step $\Delta\tau$
 leads to the following evolution equation
 \begin{equation}
-\Ket{\Psi(t+\Delta\tau)}=\left(\mathbb{I}-\Delta\tau\left(\hat{H}-S\mathbb{I}\right)\right)\Ket{\Psi(t)}.
+\Ket{\Psi(t+\Delta\tau)}=\left(\mathds{1}-\Delta\tau\left(\hat{H}-S\mathds{1}\right)\right)\Ket{\Psi(t)}.
 \end{equation}
 
 $S$ is a shift parameter used to control the walkers population and
-$\mathbb{I}$ is the identity operator. Thus starting from a guess
+$\mathds{1}$ is the identity operator. Thus starting from a guess
 wavefunction, for instance the Hartree Fock determinant, the ground
 state can be reached by repetitively applying the following projector
 . 
 \begin{equation}
-\hat{P}=\mathbb{I}-\Delta\tau\left(\hat{H}-S\mathbb{I}\right),\label{eq:projector}
+\hat{P}=\mathds{1}-\Delta\tau\left(\hat{H}-S\mathds{1}\right),\label{eq:projector}
 \end{equation}
 To circumvent the prohibitive storage of the full CI vector, in FCIQMC
 this projection operation is realized scholastically such as the proper
@@ -474,7 +464,7 @@ those $\Ket{\Psi_{0}}$ to $\Ket{\Psi_{1}}$ walkers follows the expression
 of Eq.\ref{eq:pspawn}. However those walkers are spawned on replica
 1 instead of replica 0. 
 
-Replica 1 that was initially empty starts get populated, the walkers
+Replica 1 that was initially empty starts getting populated, the walkers
 coming from replica 0 correspond to the source term in Eq.\ref{eq:psi1diffeq}.
 
 We emphasize the fact that in replica 0 the population dynamic is
@@ -490,9 +480,9 @@ simultaneous sampling of the two wavefunctions is schematized in Fig.\ref{fig1:s
 \begin{figure}
 \centering{}\includegraphics[width=0.6\textwidth]{fig/scheme-crop}\caption{Schematized description of an iteration update of the two replicas.
 On the left the 0 order wave function, sampled in replica 0 is updated
-by applying the $\left(\mathbb{I}-\Delta\tau\left(\hat{H_{0}}-S\mathbb{I}\right)\right)$
+by applying the $\left(\mathds{1}-\Delta\tau\left(\hat{H_{0}}-S\mathds{1}\right)\right)$
 operator. On the right the first order perturbation, in replica 1,
-is updated by applying the $\left(\mathbb{I}-\Delta\tau\left(\hat{H_{0}}-E_{0}\mathbb{I}\right)\right)$
+is updated by applying the $\left(\mathds{1}-\Delta\tau\left(\hat{H_{0}}-E_{0}\mathds{1}\right)\right)$
 operator to $\protect\Ket{\Psi_{1}}$ and adding walkers spawned by
 applying $\hat{V}$ onto $\protect\Ket{\Psi_{0}}$. \label{fig1:scheme}}
 \end{figure}
@@ -545,7 +535,7 @@ we present the evolution of the number of walker on replica 0 and
 on replica 1, the different calculations have been run with a initiator
 criterion of 3, 1 and no initiator approximation on replica 1.
 \begin{figure}
-\centering{}\includegraphics[width=0.4\textwidth]{fig/fig1}\caption{Number of walkers in replica 0 (black), and in replica 1 with an initiator
+\centering{}\includegraphics[width=0.7\textwidth]{fig/fig1}\caption{Number of walkers in replica 0 (black), and in replica 1 with an initiator
 approximation of 3 (green), 1 (red) and no initiator approximation
 (blue) for the $C_{2}$ molecule in the cc-pVQZ basis set. \label{fig1:swalknum}}
 \end{figure}
@@ -564,7 +554,7 @@ for this reason we describe hereafter a way to control the population
 on replica 1 independently from the initiator threshold.
 
 In Eq.\ref{eq:ps1equ} it can be seen that $\Ket{\Psi_{1}}$ scales
-linearly with the perturbation $\hat{V}$. \textcolor{blue}{We start
+linearly with the perturbation $\hat{V}$. \textcolor{black}{We start
 by making the assumption that the number of walkers on $\Ket{\Psi_{1}}$
 also depends linearly on the perturbation} and thus scale down the
 perturbation by a real prefactor $\alpha$, that is typically small.
@@ -574,7 +564,7 @@ on ${\cal H}_{0}$ to a determinant $\Ket{D_{i}}$ on ${\cal H}_{1}$
 is computed. This allows us to tune more easily the total number of
 walkers on replica, also the relation between the value of the plateau
 and the $\alpha$ remains unknown. The number of walkers does not
-strictly scales linearly with the value of $\alpha$ \textcolor{blue}{because
+strictly scales linearly with the value of $\alpha$ \textcolor{black}{because
 of the offdiagonal spawning in replica 1} and because of the initiator
 approximation. To circumvent this problem we implemented a dynamic
 updating of $\alpha$ in order to reach a target number of walker
@@ -642,7 +632,7 @@ correlated. In the RDM computation this particular problem of the
 normalization was circumvent by using the trace condition to normalize
 RDM }\textit{\textcolor{black}{a posteriori}}\textcolor{black}{. There
 is no such relation to unbias the measure of the norm of $\Ket{\Psi_{0}}$
-here, instead we use a replica trick. This requires the additon a
+here, instead we use a replica trick. This requires the addition a
 third replica, labeled $0^{\prime}$ that is also sampling the zero
 order wavefunction. Because the two replica $0$ and $0^{\prime}$
 are uncorrelated we can have an unbiased measure of the norm of $\Ket{\Psi_{0}}$
@@ -667,7 +657,7 @@ that is slightly higher than the correct one. However the estimation
 remains quite good since the error in the energy is lower than 1 $mE_{H}$
 with the two criteria used here. 
 \begin{figure}
-\centering{}\includegraphics[width=0.4\textwidth]{fig/fig2}\caption{Comparison of the E2 energy with respect to the number of walkers.
+\centering{}\includegraphics[width=0.8\textwidth]{fig/fig3}\caption{Comparison of the E2 energy with respect to the number of walkers.
 The black curve is obtained by setting the initiator threshold to
 different values, respectively 3,1 and no initiator threshold. The
 blue curve is obtained by setting the initiator threshold to 1 and
@@ -737,7 +727,7 @@ necessary to reach a $mE_{H}$ precision scales roughly as the square
 of the number of inactive orbitals.
 
 \begin{figure}
-\centering{}\includegraphics[width=0.4\textwidth]{fig/fig3}\caption{Comparison of the number of walkers that is necessary to use on replica
+\centering{}\includegraphics[width=1\textwidth]{fig/fig4}\caption{Comparison of the number of walkers that is necessary to use on replica
 1 to reach a value within $1\ mE_{H}$ for $E_{2}$ with respect to
 the energy computed by MPS-LCC used as reference. In all case the
 CAS space is (8,8), the three different basis set used are cc-pVDZ
